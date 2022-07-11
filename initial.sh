@@ -8,12 +8,12 @@ conda activate venv/.
 echo "Environment Activated"
 
 echo "Project directory Bigmart sales Project"
-mkdir Bigmart_sales_Project
-cd Bigmart_sales_Project
+mkdir Bigmartsales
+cd Bigmartsales
 echo "Project directory created successfully."
 
 echo "Createing project structure."
-mkdir app_config app_exception app_database app_logger app_src app_util config app_entity app_artifcats app_notebook 
+mkdir app_config app_exception app_database app_logger app_src app_util  app_entity app_artifcats app_notebook constants
 echo "Project structure created."
 
 echo "started creating python script for each module."
@@ -37,6 +37,11 @@ echo "Started creating app logger scripts."
 touch app_logger/__init__.py app_logger/logger.py
 echo "App logger script created."
 
+echo "Started creating constants scripts."
+touch constants/__init__.py constants/constants.py
+echo "App constants script created."
+
+
 echo "Started creating app pipeline scripts."
 touch app_pipeline/__init__.py app_pipeline/training_pipeline.py  app_pipeline/prediction_pipeline.py
 echo "App pipeline script created."
@@ -58,14 +63,11 @@ touch requirements.txt
 
 echo "Started created setup.py file"
 touch setup.py
-
 echo "All required python scripts created successfully."
 
 
 echo "Configuration file creating.."
-
 mkdir config
-touch config/config.yaml
-
-
+touch config/config.yaml config/schema.yaml
 echo "Configuration file created successfully."
+
