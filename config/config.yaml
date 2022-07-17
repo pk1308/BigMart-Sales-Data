@@ -1,0 +1,9 @@
+training_pipeline_config:
+  pipeline_name: BigmartsalesPrediction
+  artifact_dir: artifact
+
+data_ingestion_config:
+  test_dataset_download_url: https://raw.githubusercontent.com/pk1308/datasets/master/BigMartSales/Test.csv
+  train_dataset_download_url: https://raw.githubusercontent.com/pk1308/datasets/master/BigMartSales/Train.csv
+  ingested_dir: ingested_data
+

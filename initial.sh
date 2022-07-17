@@ -8,8 +8,8 @@ conda activate venv/.
 echo "Environment Activated"
 
 echo "Project directory Bigmart sales Project"
-mkdir Bigmartsales
-cd Bigmartsales
+mkdir BigmartsalesPrediction
+cd BigmartsalesPrediction
 echo "Project directory created successfully."
 
 echo "Createing project structure."

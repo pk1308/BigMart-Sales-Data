@@ -2,7 +2,7 @@ from setuptools import setup,find_packages
 from typing import List
 
 #Declaring variables for setup functions
-PROJECT_NAME="Bigmartsales"
+PROJECT_NAME="BigmartsalesPrediction"
 VERSION="0.0.1"
 AUTHOR="PK"
 DESRCIPTION="This is a project for BigMart Sales"
