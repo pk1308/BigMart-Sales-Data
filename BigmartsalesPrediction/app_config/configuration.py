@@ -1,8 +1,12 @@
-
-import sys,os
+import sys, os
 import uuid
+import pandas as pd
 
-from BigmartsalesPrediction.app_entity.config_entity import DataIngestionConfig , TrainingPipelineConfig
+from BigmartsalesPrediction.app_entity.config_entity import DataIngestionConfig, DataValidationConfig, \
+    TrainingPipelineConfig
+from BigmartsalesPrediction.app_entity.artifacts_entity import DataIngestionArtifact, DataValidationArtifact, \
+    DataTransformationArtifact, ModelTrainerArtifact, ModelEvaluationArtifact, ModelPusherArtifact
+from BigmartsalesPrediction.app_entity.experiment_entity import Experiment
 from BigmartsalesPrediction.app_util.util import read_yaml_file
 from BigmartsalesPrediction.app_logger import logging
 from BigmartsalesPrediction.app_exception.exception import App_Exception
@@ -12,59 +16,116 @@ from BigmartsalesPrediction.constants import *
 class Configuration:
 
     def __init__(self,
-        config_file_path:str =CONFIG_FILE_PATH) -> None:
+                 config_file_path: str = CONFIG_FILE_PATH) -> None:
         try:
-            self.config_info  = read_yaml_file(file_path=config_file_path)
-            self.training_pipeline_config = self.get_training_pipeline_config()
-            self.experiment_id = str(uuid.uuid4())
-            self.time_stamp = CURRENT_TIME_STAMP
+            self.config_info = read_yaml_file(file_path=config_file_path)
+            self.pipeline_config = self.get_training_pipeline_config()
+
         except Exception as e:
-            raise App_Exception(e,sys) from e
+            raise App_Exception(e, sys) from e
 
-
-    def get_data_ingestion_config(self) ->DataIngestionConfig:
+    def get_data_ingestion_config(self) -> DataIngestionConfig:
         try:
-            artifact_dir = self.training_pipeline_config.artifact_dir
-            data_ingestion_artifact_dir=os.path.join(
-                artifact_dir,
-                self.experiment_id)
+            artifact_dir = self.pipeline_config.artifact_dir
+            experiment_id = self.pipeline_config.experiment_id
             data_ingestion_config_info = self.config_info[DATA_INGESTION_CONFIG_KEY]
-            
-            
-            test_dataset_download_url=data_ingestion_config_info [TEST_DATA_KEY]
-            train_dataset_download_url = data_ingestion_config_info [TRAIN_DATA_KEY]
-            
-            ingested_dir= data_ingestion_config_info [INGESTED_DIR_KEY]
-            ingested_test_dir= os.path.join(data_ingestion_artifact_dir,ingested_dir,INGESTED_TEST_DIR_KEY)
-            ingested_train_dir= os.path.join(data_ingestion_artifact_dir,ingested_dir,INGESTED_TRAIN_DIR_KEY)
-            os.makedirs(ingested_test_dir,exist_ok=True)
-            os.makedirs(ingested_train_dir,exist_ok=True) 
-            ingested_test_filename = os.path.join(ingested_test_dir,
-                                                  os.path.basename(test_dataset_download_url))
-            ingested_train_filename = os.path.join(ingested_train_dir,
-                                                   os.path.basename(train_dataset_download_url))           
 
+            train_dataset_download_url = data_ingestion_config_info[DATA_INGESTION_TRAIN_DATA_KEY]
+            data_ingestion_dir = data_ingestion_config_info[DATA_INGESTION_DIR_KEY]
+            raw_data_dir = data_ingestion_config_info[DATA_INGESTION_RAW_DIR_KEY]
+            ingested_data_dir = data_ingestion_config_info[DATA_INGESTION_INGESTED_DIR_KEY]
+            raw_file_name = data_ingestion_config_info[DATA_INGESTION_RAW_DATA_FILE_NAME_KEY]
+            ingested_train_file_name = data_ingestion_config_info[DATA_INGESTION_INGESTED_TRAIN_FILE_NAME_KEY]
+            ingested_test_file_name = data_ingestion_config_info[DATA_INGESTION_INGESTED_TEST_FILE_NAME_KEY]
 
-            data_ingestion_config=DataIngestionConfig(test_dataset_download_url=test_dataset_download_url,
-                                          train_dataset_download_url = train_dataset_download_url,
-                                          ingested_test_filename= ingested_test_filename,
-                                           ingested_train_filename =  ingested_train_filename )
-            
+            raw_file_path = os.path.join(artifact_dir, experiment_id, data_ingestion_dir, raw_data_dir, raw_file_name)
+            ingested_test_data_path = os.path.join(artifact_dir, experiment_id, data_ingestion_dir, ingested_data_dir,
+                                                   ingested_test_file_name)
+            ingested_train_data_path = os.path.join(artifact_dir, experiment_id, data_ingestion_dir, ingested_data_dir,
+                                                    ingested_train_file_name)
+            os.makedirs(os.path.dirname(raw_file_path), exist_ok=True)
+            os.makedirs(os.path.dirname(ingested_test_data_path), exist_ok=True)
+            os.makedirs(os.path.dirname(ingested_train_data_path), exist_ok=True)
+
+            data_ingestion_config = DataIngestionConfig(train_dataset_download_url=train_dataset_download_url,
+                                                        raw_file_path=raw_file_path,
+                                                        ingested_test_data_path=ingested_test_data_path,
+                                                        ingested_train_data_path=ingested_train_data_path)
+
             logging.info(f"Data Ingestion config: {data_ingestion_config}")
             return data_ingestion_config
         except Exception as e:
-            raise App_Exception(e,sys) from e
-        
-    def get_training_pipeline_config(self) ->TrainingPipelineConfig:
+            raise App_Exception(e, sys) from e
+
+    def get_training_pipeline_config(self) -> TrainingPipelineConfig:
         try:
             training_pipeline_config = self.config_info[TRAINING_PIPELINE_CONFIG_KEY]
+            experiment_id = str(uuid.uuid4())
             artifact_dir = os.path.join(ROOT_DIR,
-            training_pipeline_config[TRAINING_PIPELINE_NAME_KEY],
-            training_pipeline_config[TRAINING_PIPELINE_ARTIFACT_DIR_KEY]
-            )
+                                        training_pipeline_config[TRAINING_PIPELINE_NAME_KEY],
+                                        training_pipeline_config[TRAINING_PIPELINE_ARTIFACT_DIR_KEY])
+            os.makedirs(artifact_dir, exist_ok=True)
+            experiment_file_path = os.path.join(artifact_dir, EXPERIMENT_DIR_NAME, EXPERIMENT_FILE_NAME)
+            os.makedirs(os.path.dirname(experiment_file_path), exist_ok=True)
+            previous_experiment = self.get_previous_experiment(experiment_file_path=experiment_file_path)
+            if previous_experiment:
+                previous_experiment_id = previous_experiment[0].get('experiment_id')
+            else:
+                previous_experiment_id = None
 
-            training_pipeline_config = TrainingPipelineConfig(artifact_dir=artifact_dir)
-            logging.info(f"Training pipleine config: {training_pipeline_config}")
+            training_pipeline_config = TrainingPipelineConfig(experiment_id=experiment_id,
+                                                              previous_experiment_id=previous_experiment_id,
+                                                              artifact_dir=artifact_dir,
+                                                              experiment_file_path=experiment_file_path)
+            logging.info(f"Training pipeline config: {training_pipeline_config}")
             return training_pipeline_config
         except Exception as e:
-            raise App_Exception(e,sys) from e
+            raise App_Exception(e, sys) from e
+
+    def get_data_validation_config(self) -> DataValidationConfig:
+        try:
+            artifact_dir = self.pipeline_config.artifact_dir
+            experiment_id = self.pipeline_config.experiment_id
+            previous_experiment_id = self.pipeline_config.previous_experiment_id
+
+            data_validation_artifact_dir = os.path.join(
+                artifact_dir, experiment_id,
+                DATA_VALIDATION_ARTIFACT_DIR_NAME
+            )
+            data_validation_config = self.config_info[DATA_VALIDATION_CONFIG_KEY]
+
+            schema_file_path = os.path.join(ROOT_DIR,
+                                            data_validation_config[DATA_VALIDATION_SCHEMA_DIR_KEY],
+                                            data_validation_config[DATA_VALIDATION_SCHEMA_FILE_NAME_KEY]
+                                            )
+
+            report_file_path = os.path.join(data_validation_artifact_dir,
+                                            data_validation_config[DATA_VALIDATION_REPORT_FILE_NAME_KEY]
+                                            )
+            os.makedirs(data_validation_artifact_dir, exist_ok=True)
+
+            report_page_file_path = os.path.join(data_validation_artifact_dir,
+                                                 data_validation_config[DATA_VALIDATION_REPORT_PAGE_FILE_NAME_KEY]
+
+                                                 )
+
+            data_validation_config = DataValidationConfig(experiment_id=experiment_id,
+                                                          schema_file_path=schema_file_path,
+                                                          previous_experiment_id=previous_experiment_id,
+                                                          report_file_path=report_file_path,
+                                                          report_page_file_path=report_page_file_path,
+                                                          )
+            return data_validation_config
+        except Exception as e:
+            raise App_Exception(e, sys) from e
+
+    def get_previous_experiment(self, experiment_file_path: str) -> str:
+        try:
+            if os.path.exists(experiment_file_path):
+                experiment_pd = pd.read_csv(experiment_file_path)
+                experiment_dict = experiment_pd.query('running_status == False').tail(1).to_dict('records')
+                return experiment_dict
+            else:
+                return None
+        except Exception as e:
+            raise App_Exception(e, sys) from e

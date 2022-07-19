@@ -129,3 +129,6 @@ dmypy.json
 .pyre/
 Notebooks /
 BigmartsalesPrediction/artifact
+.vscode/
+.idea/
+.vscode/settings.json

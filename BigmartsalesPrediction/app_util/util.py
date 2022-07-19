@@ -1,13 +1,15 @@
 import yaml
 from BigmartsalesPrediction.app_exception.exception import App_Exception
-import os,sys
+import os, sys
 import numpy as np
 import dill
 import pandas as pd
+
+
 # from housing.constant import *
 
 
-def write_yaml_file(file_path:str,data:dict=None):
+def write_yaml_file(file_path: str, data: dict = None):
     """
     Create yaml file 
     file_path: str
@@ -15,14 +17,14 @@ def write_yaml_file(file_path:str,data:dict=None):
     """
     try:
         os.makedirs(os.path.dirname(file_path), exist_ok=True)
-        with open(file_path,"w") as yaml_file:
+        with open(file_path, "w") as yaml_file:
             if data is not None:
-                yaml.dump(data,yaml_file)
+                yaml.dump(data, yaml_file)
     except Exception as e:
-        raise App_Exception(e,sys)
+        raise App_Exception(e, sys)
 
 
-def read_yaml_file(file_path:str)->dict:
+def read_yaml_file(file_path: str) -> dict:
     """
     Reads a YAML file and returns the contents as a dictionary.
     file_path: str
@@ -31,7 +33,7 @@ def read_yaml_file(file_path:str)->dict:
         with open(file_path, 'rb') as yaml_file:
             return yaml.safe_load(yaml_file)
     except Exception as e:
-        raise App_Exception(e,sys) from e
+        raise App_Exception(e, sys) from e
 
 
 def save_numpy_array_data(file_path: str, array: np.array):
@@ -62,7 +64,7 @@ def load_numpy_array_data(file_path: str) -> np.array:
         raise App_Exception(e, sys) from e
 
 
-def save_object(file_path:str,obj):
+def save_object(file_path: str, obj):
     """
     file_path: str
     obj: Any sort of object
@@ -73,10 +75,10 @@ def save_object(file_path:str,obj):
         with open(file_path, "wb") as file_obj:
             dill.dump(obj, file_obj)
     except Exception as e:
-        raise App_Exception(e,sys) from e
+        raise App_Exception(e, sys) from e
 
 
-def load_object(file_path:str):
+def load_object(file_path: str):
     """
     file_path: str
     """
@@ -84,8 +86,7 @@ def load_object(file_path:str):
         with open(file_path, "rb") as file_obj:
             return dill.load(file_obj)
     except Exception as e:
-        raise App_Exception(e,sys) from e
-
+        raise App_Exception(e, sys) from e
 
 # def load_data(file_path: str, schema_file_path: str) -> pd.DataFrame:
 #     try:

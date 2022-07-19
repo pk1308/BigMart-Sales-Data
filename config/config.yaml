@@ -3,7 +3,18 @@ training_pipeline_config:
   artifact_dir: artifact
 
 data_ingestion_config:
-  test_dataset_download_url: https://raw.githubusercontent.com/pk1308/datasets/master/BigMartSales/Test.csv
+  
   train_dataset_download_url: https://raw.githubusercontent.com/pk1308/datasets/master/BigMartSales/Train.csv
+  data_ingestion_dir : stage00_data_ingestion
+  raw_data_dir: raw_data
   ingested_dir: ingested_data
+  raw_data_file_name: Train.csv
+  ingested_data_Train_file_name: Train.csv
+  ingested_data_Test_file_name: Test.csv
 
+
+data_validation_config:
+  schema_dir: config
+  schema_file_name: schema.yaml
+  report_file_name: report.json
+  report_page_file_name: report.html

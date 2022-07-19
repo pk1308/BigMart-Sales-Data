@@ -1,0 +1,28 @@
+categorical_columns:
+- Item_Identifier
+- Item_Fat_Content
+- Item_Type
+- Outlet_Identifier
+- Outlet_Size
+- Outlet_Location_Type
+- Outlet_Type
+columns:
+  Item_Fat_Content: object
+  Item_Identifier: object
+  Item_MRP: float64
+  Item_Outlet_Sales: float64
+  Item_Type: object
+  Item_Visibility: float64
+  Item_Weight: float64
+  Outlet_Establishment_Year: int64
+  Outlet_Identifier: object
+  Outlet_Location_Type: object
+  Outlet_Size: object
+  Outlet_Type: object
+numerical_columns:
+- Item_Weight
+- Item_Visibility
+- Item_MRP
+- Outlet_Establishment_Year
+- Item_Outlet_Sales
+target_column: Item_Outlet_Sales

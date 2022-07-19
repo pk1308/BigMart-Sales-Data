@@ -1,32 +1,28 @@
-from threading import Thread
-import os , sys 
+import os
+import sys
 from datetime import datetime
+from threading import Thread
+
 import pandas as pd
 
 from BigmartsalesPrediction.app_config.configuration import Configuration
+from BigmartsalesPrediction.app_entity.artifacts_entity import DataIngestionArtifact, DataValidationArtifact
+from BigmartsalesPrediction.app_entity.experiment_entity import Experiment
 from BigmartsalesPrediction.app_exception.exception import App_Exception
 from BigmartsalesPrediction.app_logger import logging
-from BigmartsalesPrediction.constants import EXPERIMENT_DIR_NAME, EXPERIMENT_FILE_NAME
-from BigmartsalesPrediction.app_entity.experiment_entity import Experiment
-from BigmartsalesPrediction.app_entity.config_entity import DataIngestionConfig
-from BigmartsalesPrediction.app_entity.artifacts_entity import DataIngestionArtifact
 from BigmartsalesPrediction.app_src.stage_00_data_ingestion import DataIngestion
-
-
-
+from BigmartsalesPrediction.app_src.stage_01_data_validation import DataValidation
 
 
 class Pipeline(Thread):
-    experiment: Experiment = Experiment(*([None] * 11))
-    experiment_file_path = None
+    running_status = None
+    experiment = Experiment(*([None] * 11))
 
-    def __init__(self, config: Configuration ) -> None:
+    def __init__(self, config: Configuration) -> None:
         try:
-            os.makedirs(config.training_pipeline_config.artifact_dir, exist_ok=True)
-            Pipeline.experiment_file_path=os.path.join(config.training_pipeline_config.artifact_dir,EXPERIMENT_DIR_NAME, EXPERIMENT_FILE_NAME)
             super().__init__(daemon=False, name="pipeline")
             self.config = config
-            self.experiment_id = config.experiment_id
+            self.pipeline_config = self.config.pipeline_config
         except Exception as e:
             raise App_Exception(e, sys) from e
 
@@ -36,33 +32,41 @@ class Pipeline(Thread):
             return data_ingestion.initiate_data_ingestion()
         except Exception as e:
             raise App_Exception(e, sys) from e
+
+    def start_data_validation(self, data_ingestion_artifact: DataIngestionArtifact) \
+            -> DataValidationArtifact:
+        try:
+            data_validation = DataValidation(data_validation_config=self.config.get_data_validation_config(),
+                                             data_ingestion_artifact=data_ingestion_artifact
+                                             )
+            return data_validation.initiate_data_validation()
+        except Exception as e:
+            raise App_Exception(e, sys) from e
+
     def run_pipeline(self):
         try:
-            if Pipeline.experiment.running_status:
+            if Pipeline.running_status:
                 logging.info("Pipeline is already running")
-                return Pipeline.experiment
+                return Pipeline.experiment.message
             # data ingestion
             logging.info("Pipeline starting.")
 
+            logging.info(f"Pipeline experiment: {self.pipeline_config.experiment_id}")
+            Pipeline.running_status = True
 
-            Pipeline.experiment = Experiment(experiment_id=self.experiment_id,
-                                             initialization_timestamp=self.config.time_stamp,
-                                             artifact_time_stamp=self.config.time_stamp,
-                                             running_status=True,
-                                             start_time=datetime.now(),
-                                             stop_time=None,
-                                             execution_time=None,
-                                             experiment_file_path=Pipeline.experiment_file_path,
-                                             is_model_accepted=None,
-                                             message="Pipeline has been started.",
-                                             accuracy=None,
-                                             )
-            logging.info(f"Pipeline experiment: {Pipeline.experiment}")
+            Pipeline.experiment = Experiment(experiment_id=self.pipeline_config.experiment_id,
+                                             initialization_timestamp=datetime.now(),
+                                             artifact_dir=self.pipeline_config.artifact_dir,
+                                             running_status=Pipeline.running_status, start_time=datetime.now(),
+                                             stop_time=None, execution_time=None,
+                                             message="Pipeline is running.",
+                                             experiment_file_path=self.pipeline_config.experiment_file_path,
+                                             accuracy=None, is_model_accepted=None)
 
             self.save_experiment()
 
             data_ingestion_artifact = self.start_data_ingestion()
-            # data_validation_artifact = self.start_data_validation(data_ingestion_artifact=data_ingestion_artifact)
+            data_validation_artifact = self.start_data_validation(data_ingestion_artifact=data_ingestion_artifact)
             # data_transformation_artifact = self.start_data_transformation(
             #     data_ingestion_artifact=data_ingestion_artifact,
             #     data_validation_artifact=data_validation_artifact
@@ -78,6 +82,7 @@ class Pipeline(Thread):
             #     logging.info(f'Model pusher artifact: {model_pusher_artifact}')
             # else:
             #     logging.info("Trained model rejected.")
+            Pipeline.running_status = False
             logging.info("Pipeline completed.")
 
             # stop_time = datetime.now()
@@ -106,22 +111,22 @@ class Pipeline(Thread):
 
     def save_experiment(self):
         try:
-            if Pipeline.experiment.experiment_id is not None:
-                experiment = Pipeline.experiment
+            if self.experiment.experiment_id is not None:
+                experiment = self.experiment
                 experiment_dict = experiment._asdict()
                 experiment_dict: dict = {key: [value] for key, value in experiment_dict.items()}
 
                 experiment_dict.update({
                     "created_time_stamp": [datetime.now()],
-                    "experiment_file_path": [os.path.basename(Pipeline.experiment.experiment_file_path)]})
+                    "experiment_file_path": experiment.experiment_file_path})
 
                 experiment_report = pd.DataFrame(experiment_dict)
 
-                os.makedirs(os.path.dirname(Pipeline.experiment_file_path), exist_ok=True)
-                if os.path.exists(Pipeline.experiment_file_path):
-                    experiment_report.to_csv(Pipeline.experiment_file_path, index=False, header=False, mode="a")
+                os.makedirs(os.path.dirname(experiment.experiment_file_path), exist_ok=True)
+                if os.path.exists(experiment.experiment_file_path):
+                    experiment_report.to_csv(experiment.experiment_file_path, index=False, header=False, mode="a")
                 else:
-                    experiment_report.to_csv(Pipeline.experiment_file_path, mode="w", index=False, header=True)
+                    experiment_report.to_csv(experiment.experiment_file_path, mode="w", index=False, header=True)
             else:
                 print("First start experiment")
         except Exception as e:
@@ -138,4 +143,3 @@ class Pipeline(Thread):
                 return pd.DataFrame()
         except Exception as e:
             raise App_Exception(e, sys) from e
-
