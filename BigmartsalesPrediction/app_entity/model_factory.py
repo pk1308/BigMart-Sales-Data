@@ -1,4 +1,4 @@
-from cmath import log
+
 import importlib
 import numpy as np
 import yaml
@@ -71,7 +71,7 @@ def evaluate_regression_model(model_list: list, X_train: np.ndarray, y_train: np
         metric_info_artifact = None
         for model in model_list:
             model_name = str(model)  # getting model name based on model object
-            logging.info(f"{'>>' * 30}Started evaluating model: [{type(model).__name__}] {'<<' * 30}")
+            logging.info("{'>>' * 30}Started evaluating model: [{type(model).__name__}] {'<<' * 30}")
 
             # Getting prediction for training and testing dataset
             y_train_pred = model.predict(X_train)

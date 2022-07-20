@@ -148,7 +148,7 @@ class Pipeline(Thread):
                                              stop_time=stop_time,
                                              execution_time=stop_time - Pipeline.experiment.start_time,
                                              message="Pipeline has been completed.",
-                                             experiment_file_path=Pipeline.experiment_file_path,
+                                             experiment_file_path=self.pipeline_config.experiment_file_path,
                                              is_model_accepted=model_evaluation_artifact.is_model_accepted,
                                              accuracy=model_trainer_artifact.model_accuracy
                                              )

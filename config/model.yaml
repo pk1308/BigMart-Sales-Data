@@ -17,21 +17,14 @@ model_selection:
       criterion:
         - squared_error
         - friedman_mse
-        - absolute_error
-        - poisson
       splitter:
         - best
-        - random
       max_depth:
         - 2
-        - 3
         - 4
         - 5
         - 6
-        - 7
-        - 8
-        - 9
-        - 10
+
       max_features:
         - auto
         - sqrt
@@ -45,24 +38,19 @@ model_selection:
         - squared_error
         - absolute_error 
         - poisson
+        - friedman_mse
       n_estimators :
         - 100
         - 200
         - 300
         - 400
-        - 500
-        - 600
-        - 700
-        - 800
-        - 900
+
       max_depth:
         - 2
         - 3
         - 4
         - 5
-        - 6
-        - 7
-        - 8
+ 
       max_features:
         - auto
         - sqrt
