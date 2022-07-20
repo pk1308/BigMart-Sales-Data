@@ -149,7 +149,7 @@ class DataValidation:
 
     def get_train_and_previous_df(self) -> pd.DataFrame:
         try:
-            previous_experiment_id = self.data_validation_config.Previous_experiment_id
+            previous_experiment_id = self.data_validation_config.previous_experiment_id
             experiment_id = self.data_validation_config.experiment_id
             train_file_path = self.data_ingestion_artifact.train_file_path
             train_df = pd.read_csv(train_file_path)

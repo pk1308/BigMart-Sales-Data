@@ -3,10 +3,7 @@ import uuid
 import pandas as pd
 
 from BigmartsalesPrediction.app_entity.config_entity import DataIngestionConfig, DataValidationConfig, \
-    TrainingPipelineConfig
-from BigmartsalesPrediction.app_entity.artifacts_entity import DataIngestionArtifact, DataValidationArtifact, \
-    DataTransformationArtifact, ModelTrainerArtifact, ModelEvaluationArtifact, ModelPusherArtifact
-from BigmartsalesPrediction.app_entity.experiment_entity import Experiment
+    TrainingPipelineConfig , DataTransformationConfig , ModelTrainerConfig , ModelPusherConfig , ModelEvaluationConfig
 from BigmartsalesPrediction.app_util.util import read_yaml_file
 from BigmartsalesPrediction.app_logger import logging
 from BigmartsalesPrediction.app_exception.exception import App_Exception
@@ -20,6 +17,7 @@ class Configuration:
         try:
             self.config_info = read_yaml_file(file_path=config_file_path)
             self.pipeline_config = self.get_training_pipeline_config()
+            self.time_stamp = CURRENT_TIME_STAMP
 
         except Exception as e:
             raise App_Exception(e, sys) from e
@@ -120,6 +118,7 @@ class Configuration:
             raise App_Exception(e, sys) from e
 
     def get_previous_experiment(self, experiment_file_path: str) -> str:
+        
         try:
             if os.path.exists(experiment_file_path):
                 experiment_pd = pd.read_csv(experiment_file_path)
@@ -129,3 +128,115 @@ class Configuration:
                 return None
         except Exception as e:
             raise App_Exception(e, sys) from e
+        
+    def get_data_transformation_config(self) -> DataTransformationConfig:
+        try:
+            artifact_dir = self.pipeline_config.artifact_dir
+            experiment_id = self.pipeline_config.experiment_id
+            data_transformation_artifact_dir=os.path.join(
+                artifact_dir, experiment_id,
+                DATA_TRANSFORMATION_ARTIFACT_DIR,
+            )
+
+            data_transformation_config_info=self.config_info[DATA_TRANSFORMATION_CONFIG_KEY]
+
+
+            preprocessed_object_file_path = os.path.join(
+                data_transformation_artifact_dir,
+                data_transformation_config_info[DATA_TRANSFORMATION_PREPROCESSING_DIR_KEY],
+                data_transformation_config_info[DATA_TRANSFORMATION_PREPROCESSED_FILE_NAME_KEY]
+            )
+
+            
+            transformed_train_dir=os.path.join(
+            data_transformation_artifact_dir,
+            data_transformation_config_info[DATA_TRANSFORMATION_DIR_NAME_KEY],
+            data_transformation_config_info[DATA_TRANSFORMATION_TRAIN_DIR_NAME_KEY]
+            )
+
+
+            transformed_test_dir = os.path.join(
+            data_transformation_artifact_dir,
+            data_transformation_config_info[DATA_TRANSFORMATION_DIR_NAME_KEY],
+            data_transformation_config_info[DATA_TRANSFORMATION_TEST_DIR_NAME_KEY]
+
+            )
+            
+
+            data_transformation_config=DataTransformationConfig(
+                preprocessed_object_file_path=preprocessed_object_file_path,
+                transformed_train_dir=transformed_train_dir,
+                transformed_test_dir=transformed_test_dir
+            )
+            os.makedirs(transformed_test_dir, exist_ok=True)
+            os.makedirs(transformed_train_dir, exist_ok=True)
+            os.makedirs(os.path.dirname(preprocessed_object_file_path), exist_ok=True)
+
+            logging.info(f"Data transformation config: {data_transformation_config}")
+            return data_transformation_config
+        except Exception as e:
+            raise App_Exception(e,sys) from e
+    def get_model_trainer_config(self) -> ModelTrainerConfig:
+        try:
+            artifact_dir = self.pipeline_config.artifact_dir
+            experiment_id = self.pipeline_config.experiment_id
+
+            model_trainer_artifact_dir=os.path.join(
+                artifact_dir, experiment_id, 
+                MODEL_TRAINER_ARTIFACT_DIR,
+            )
+            model_trainer_config_info = self.config_info[MODEL_TRAINER_CONFIG_KEY]
+            trained_model_file_path = os.path.join(model_trainer_artifact_dir,
+            model_trainer_config_info[MODEL_TRAINER_TRAINED_MODEL_DIR_KEY],
+            model_trainer_config_info[MODEL_TRAINER_TRAINED_MODEL_FILE_NAME_KEY]
+            )
+
+            model_config_file_path = os.path.join(model_trainer_config_info[MODEL_TRAINER_MODEL_CONFIG_DIR_KEY],
+            model_trainer_config_info[MODEL_TRAINER_MODEL_CONFIG_FILE_NAME_KEY]
+            )
+
+            base_accuracy = model_trainer_config_info[MODEL_TRAINER_BASE_ACCURACY_KEY]
+
+            model_trainer_config = ModelTrainerConfig(
+                trained_model_file_path=trained_model_file_path,
+                base_accuracy=base_accuracy,
+                model_config_file_path=model_config_file_path
+            )
+            logging.info(f"Model trainer config: {model_trainer_config}")
+            return model_trainer_config
+        except Exception as e:
+            raise App_Exception(e,sys) from e
+
+    def get_model_evaluation_config(self) ->ModelEvaluationConfig:
+        try:
+            model_evaluation_config = self.config_info[MODEL_EVALUATION_CONFIG_KEY]
+            experiment_id = self.pipeline_config.experiment_id
+            artifact_dir = os.path.join(self.pipeline_config.artifact_dir,experiment_id ,
+                                        MODEL_EVALUATION_ARTIFACT_DIR, )
+
+            model_evaluation_file_path = os.path.join(artifact_dir,
+                                                    model_evaluation_config[MODEL_EVALUATION_FILE_NAME_KEY])
+            response = ModelEvaluationConfig(model_evaluation_file_path=model_evaluation_file_path,
+                                            time_stamp=self.time_stamp)
+            
+            
+            logging.info(f"Model Evaluation Config: {response}.")
+            return response
+        except Exception as e:
+            raise App_Exception(e,sys) from e
+
+
+    def get_model_pusher_config(self) -> ModelPusherConfig:
+        try:
+            time_stamp = f"{datetime.now().strftime('%Y%m%d%H%M%S')}"
+            model_pusher_config_info = self.config_info[MODEL_PUSHER_CONFIG_KEY]
+            export_dir_path = os.path.join(ROOT_DIR, model_pusher_config_info[MODEL_PUSHER_MODEL_EXPORT_DIR_KEY],
+                                           time_stamp)
+
+            model_pusher_config = ModelPusherConfig(export_dir_path=export_dir_path)
+            logging.info(f"Model pusher config {model_pusher_config}")
+            return model_pusher_config
+
+        except Exception as e:
+            raise App_Exception(e,sys) from e
+

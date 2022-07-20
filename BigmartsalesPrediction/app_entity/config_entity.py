@@ -5,11 +5,10 @@ DataIngestionConfig = namedtuple("DataIngestionConfig",
                                   'ingested_train_data_path'])
 
 DataValidationConfig = namedtuple("DataValidationConfig",
-                                  ["experiment_id", "Previous_experiment_id", "schema_file_path", "report_file_path",
+                                  ["experiment_id", "previous_experiment_id", "schema_file_path", "report_file_path",
                                    "report_page_file_path"])
 
-DataTransformationConfig = namedtuple("DataTransformationConfig", ["add_bedroom_per_room",
-                                                                   "transformed_train_dir",
+DataTransformationConfig = namedtuple("DataTransformationConfig", ["transformed_train_dir",
                                                                    "transformed_test_dir",
                                                                    "preprocessed_object_file_path"])
 
@@ -21,4 +20,4 @@ ModelEvaluationConfig = namedtuple("ModelEvaluationConfig", ["model_evaluation_f
 ModelPusherConfig = namedtuple("ModelPusherConfig", ["export_dir_path"])
 
 TrainingPipelineConfig = namedtuple("TrainingPipelineConfig",
-                                    ["experiment_id", "Previous_experiment_id", "artifact_dir", "experiment_file_path"])
+                                    ["experiment_id", "previous_experiment_id", "artifact_dir", "experiment_file_path"])
