@@ -9,4 +9,5 @@ dill
 matplotlib
 kaggle
 loguru
+xgboost
 -e .

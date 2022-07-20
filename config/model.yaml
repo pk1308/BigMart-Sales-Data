@@ -1,24 +1,106 @@
 grid_search:
-  class: GridSearchCV
   module: sklearn.model_selection
+  class: GridSearchCV
   params:
-    cv: 5
-    verbose: 2
+    cv: 3
+    verbose: 1
+
 model_selection:
-  module_0:
-    class: LinearRegression
-    module: sklearn.linear_model
+  model_0:
+    module: sklearn.tree
+    class: DecisionTreeRegressor
     params:
-      fit_intercept: true
+      min_samples_leaf: 2
+    search_param_grid:
+      criterion:
+        - squared_error
+        - friedman_mse
+        - absolute_error
+        - poisson
+      splitter:
+        - best
+        - random
+      max_depth:
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+      max_features:
+        - auto
+        - sqrt
+        - log2
+
+  model_1:
+    module: sklearn.ensemble
+    class: RandomForestRegressor
+    search_param_grid:
+      criterion:
+        - squared_error
+        - absolute_error 
+        - poisson
+      n_estimators :
+        - 100
+        - 200
+        - 300
+        - 400
+        - 500
+        - 600
+        - 700
+        - 800
+        - 900
+      max_depth:
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+      max_features:
+        - auto
+        - sqrt
+        - log2
+
+
+      
+  model_2:
+    module: sklearn.linear_model
+    class: LinearRegression
     search_param_grid:
       fit_intercept:
-      - true
-      - false
-  module_1:
-    class: RandomForestRegressor
-    module: sklearn.ensemble
-    params:
-      min_samples_leaf: 3
+        - True
+        - False
+  
+  model_3:
+    module: xgboost
+    class: XGBRegressor
     search_param_grid:
-      min_samples_leaf:
-      - 6
+      base_score :
+        - 0.5
+        - 0.6
+        - 0.7
+
+      booster : 
+        - gbtree
+        - gblinear
+        - dart
+      n_estimators :
+        - 100
+        - 200
+        - 300
+        - 400
+      learning_rate :
+        - 0.1
+        - 0.2
+        - 0.3
+        - 0.4
+        - 0.5
+        - 0.6
+        - 0.7
+        - 0.8
+        - 0.9

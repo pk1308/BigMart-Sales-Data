@@ -51,7 +51,7 @@ def save_numpy_array_data(file_path: str, array: np.array , allow_pickle=True):
         raise App_Exception(e, sys) from e
 
 
-def load_numpy_array_data(file_path: str , allow_pickle=True) -> np.array:
+def load_numpy_array_data(file_path: str ) -> np.array:
     """
     load numpy array data from file
     file_path: str location of file to load
@@ -59,7 +59,7 @@ def load_numpy_array_data(file_path: str , allow_pickle=True) -> np.array:
     """
     try:
         with open(file_path, 'rb') as file_obj:
-            return np.load(file_obj , allow_pickle=allow_pickle)
+            return np.load(file_obj ,allow_pickle=True)
     except Exception as e:
         raise App_Exception(e, sys) from e
 

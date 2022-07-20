@@ -67,16 +67,12 @@ class DataTransformation:
 
             dataset_schema = read_yaml_file(file_path=schema_file_path)
             selected_columns = dataset_schema[SELECTED_COLUMNS_KEY]
-            target_column_name = dataset_schema[TARGET_COLUMN_KEY]
-            if target_column_name in selected_columns:
-                selected_columns.remove(target_column_name)
 
             numerical_columns = dataset_schema[NUMERICAL_COLUMN_KEY]
             categorical_columns = dataset_schema[CATEGORICAL_COLUMN_KEY]
 
-            data_cleaning_pipeline = Pipeline(steps=[('feature_generator', FeatureGenerator())])
                 
-            num_pipeline = Pipeline(steps=[
+            num_pipeline = Pipeline(steps=[ ('feature_generator', FeatureGenerator()) ,
                 ('imputer', SimpleImputer(strategy="median")),
                 ('scaler', StandardScaler())
             ]
@@ -94,7 +90,6 @@ class DataTransformation:
 
 
             preprocessing = ColumnTransformer([
-                ("Data_cleaning" , data_cleaning_pipeline, selected_columns),
                 ('num_pipeline', num_pipeline, numerical_columns),
                 ('cat_pipeline', cat_pipeline, categorical_columns),
             ])
@@ -151,9 +146,9 @@ class DataTransformation:
             input_feature_test_arr = preprocessing_obj.transform(input_feature_test_df)
 
 
-            train_arr = np.c_[ input_feature_train_arr, np.array(target_feature_train_df)]
+            train_arr = np.c_[ input_feature_train_arr.todense(), np.array(target_feature_train_df)]
 
-            test_arr = np.c_[input_feature_test_arr, np.array(target_feature_test_df)]
+            test_arr = np.c_[input_feature_test_arr.todense(), np.array(target_feature_test_df)]
             
             transformed_train_dir = self.data_transformation_config.transformed_train_dir
             transformed_test_dir = self.data_transformation_config.transformed_test_dir

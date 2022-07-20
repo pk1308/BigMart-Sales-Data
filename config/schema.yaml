@@ -33,6 +33,7 @@ categorical_columns:
   - Outlet_Identifier
   - Outlet_Size
   - Outlet_Type
+  
 numerical_columns:
 - Item_Weight
 - Item_Visibility
