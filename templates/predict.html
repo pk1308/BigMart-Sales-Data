@@ -13,76 +13,192 @@
 
 
         <form action="/predict" method="post">
-            <legend>Housing Estimation Form</legend>
+            <legend>Big Mart item Sales Predictor Form</legend>
             <div class="mb-3">
-                <label class="form-label">Longitude</label>
-                <input class="form-control" type="text" name="longitude" placeholder="Enter a value of longitude"
-                    required />
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Latitude</label>
-                <input class="form-control" type="text" name="latitude" placeholder="Enter a value of latitude"
-                    required />
-
-            </div>
-            <div class="mb-3">
-                <label class="form-label">House Median Age</label>
-                <input class="form-control" type="text" name="housing_median_age"
-                    placeholder="Enter a value of housing_median_age" />
-
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Total Rooms</label>
-                <input class="form-control" type="text" name="total_rooms" placeholder="Enter a value of total_rooms"
-                    required />
-
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Total Bedrooms</label>
-                <input class="form-control" type="text" name="total_bedrooms"
-                    placeholder="Enter a value of total_bedrooms" required />
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Population</label>
-                <input class="form-control" type="text" name="population" placeholder="Enter a value of population"
-                    required />
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Households</label>
-                <input class="form-control" type="text" name="households" placeholder="Enter a value of households"
-                    required />
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Median Income</label>
-                <input class="form-control" type="text" name="median_income"
-                    placeholder="Enter a value of median_income" required />
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Ocean Proximity</label>
-                <select class="form-control" name="ocean_proximity" placeholder="Enter a value of ocean_proximity"
+                <label class="form-label">Item_Fat_Content</label>
+                <select class="form-control" name="Item_Fat_Content" placeholder="Enter a value of Item_Fat_Content"
                     required>
 
-                    <option value="<1H OCEAN">
-                        &lt;1H OCEAN
+                    <option value="Low Fat">
+                        Low Fat
                     </option>
-                    <option value="INLAND">
-                        INLAND
+                    <option value="Regular">
+                        Regular
                     </option>
-                    <option value="NEAR BAY">
-                        NEAR BAY
-                    </option>
-                    <option value="NEAR OCEAN">
-                        NEAR OCEAN
-                    </option>
-                    <option value="ISLAND">
-                        ISLAND
-                    </option>
-
                 </select>
             </div>
             <div class="mb-3">
+                <label class="form-label">Item_Identifier</label>
+                <select class="form-control" name="Item_Identifier" placeholder="Enter a value of Item_Identifier"
+                    required>
+                    <option value="Food">
+                        Food
+                    </option>
+                    <option value="Drink">
+                        Drink
+                    </option>
+                    <option value="Non_consumable">
+                        Non_consumable
+                    </option>
+                </select>
+            </div>
 
-                <input class="btn btn-primary" type="submit" value="Predict Median House Value" required />
+            <div class="mb-3">
+
+                <label class="form-label">Item_MRP</label>
+                <input class="form-control" type="text" name="Item_MRP" placeholder="Enter a value of Item_MRP"
+                    required />
+
+            </div>
+            <!-- Item_Type: object -->
+            <div class="mb-3">
+                <label class="form-label">Item_Type</label>
+                <select class="form-control" name="Item_Type" placeholder="Enter a value of Item_Type"
+                    required>
+                    <option value="Dairy">
+                        Dairy
+                    </option>
+                    <option value="Soft Drinks">
+                        Soft Drinks
+                    </option>
+                    <option value="Meat">
+                        Meat
+                    </option>
+                    <option value="Fruits and Vegetables">
+                        Fruits and Vegetables
+                    </option>
+                    <option value="Household">
+                        Household
+                    </option>
+                    <option value="Baking Goods">
+                        Baking Goods
+                    </option>
+                    <option value="Snack Foods">
+                        Snack Foods
+                    </option>
+                    <option value="Frozen Foods">
+                        Frozen Foods
+                    </option>
+                    <option value="Breakfast">
+                        Breakfast
+                    </option>
+                    <option value="Health and Hygiene">
+                        Health and Hygiene
+                    </option>
+                    <option value="Hard Drinks">
+                        Hard Drinks
+                    </option>
+                    <option value="Canned">
+                        Canned
+                    </option>
+                    <option value="Breads">
+                        Breads
+                    </option>
+                    <option value="Starchy Foods">
+                        Starchy Foods
+                    </option>
+                    <option value="Others">
+                        Others
+                    </option>
+                    <option value="Seafood">
+                        Seafood
+                    </option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Item_Visibility</label>
+                <input class="form-control" type="text" name="Item_Visibility"
+                    placeholder="Enter a value of Item_Visibility" />
+
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Item_Weight</label>
+                <input class="form-control" type="text" name="Item_Weight" placeholder="Enter a value of Item_Weight"
+                    required />
+            </div>
+        
+            <div class="mb-3">
+                <label class="form-label">Outlet_Establishment_Year</label>
+                <input class="form-control" type="text" name="Outlet_Establishment_Year"
+                    placeholder="Enter a value of Outlet_Establishment_Year" required />
+            </div>
+            <!-- Outlet_Identifier: object -->
+            <div class="mb-3">
+                <label class="form-label">Outlet_Identifier</label>
+                <select class="form-control" name="Outlet_Identifier" placeholder="Enter a value of Outlet_Identifier"
+                    required>
+                   
+                    <option value="OUT049">
+                        OUT049
+                    </option>
+                    <option value="OUT018">
+                        OUT018
+                    </option>
+                    <option value="OUT010">
+                        OUT010
+                    </option>
+                    <option value="OUT013">
+                        OUT013
+                    </option>
+                    <option value="OUT027">
+                        OUT027
+                    </option>
+                    <option value="OUT045">
+                        OUT045
+                    </option>
+                    <option value="OUT017">
+                        OUT017
+                    </option>
+                    <option value="OUT046">
+                        OUT046
+                    </option>
+                    <option value="OUT035">
+                        OUT035
+                    </option>
+                    <option value="OUT019">
+                        OUT019
+                    </option>
+                </select>
+            </div>
+            <!-- Outlet_Location_Type: object -->
+            <div class="mb-3">
+                <label class="form-label">Outlet_Location_Type</label>
+                <select class="form-control" name="Outlet_Location_Type" placeholder="Enter a value of Outlet_Location_Type"
+                    required>
+                    <option value="Tier 1">
+                        Tier 1
+                    </option>
+                    <option value="Tier 2">
+                        Tier 2
+                    </option>
+                    <option value="Tier 3">
+                        Tier 3
+                    </option>
+                </select>
+                <!-- Outlet_Type: object -->
+                <div class="mb-3">
+                    <label class="form-label">Outlet_Type</label>
+                    <select class="form-control" name="Outlet_Type" placeholder="Enter a value of Outlet_Type"
+                        required>
+                        <option value="Supermarket Type1">
+                            Supermarket Type1
+                        </option>
+                        <option value="Supermarket Type2">
+                            Supermarket Type2
+                        </option>
+                        <option value="Grocery Store">
+                            Grocery Store
+                        </option>
+                        <option value="Supermarket Type3">
+                            Supermarket Type3
+                        </option>
+                    </select>
+
+            </div>
+            <div class="mb-3">
+
+                <input class="btn btn-primary" type="submit" value="Predict sales" required />
             </div>
 
         </form>
@@ -91,18 +207,18 @@
     <div class="col-md-6 col-sm-12 col-xs-6 col-lg-6">
         <div class="card">
             <div class="card-header">
-              California housing price
+                Big mart sales Item Prediction
             </div>
             <div class="card-body">
-        {% if context['housing_data'] is not none %}
+        {% if context['predictor_data'] is not none %}
         <table class="table table-striped">
-            <caption>Califoria Housing Prediction </caption>
+            <caption>Big mart sales Item Prediction </caption>
             <tr>
                 <th>Input Feature</th>
                 <th>Feature Value</th>
 
             </tr>
-            {% for column,value in context['housing_data'].items() %}
+            {% for column,value in context['predictor_data'].items() %}
 
 
 
@@ -116,7 +232,7 @@
 
                 <td>median_house_value </td>
                 <td>
-                    {{ context['median_house_value'] }}
+                    {{ context['item_outlet_sales'] }}
                 </td>
             </tr>
         </table>
@@ -124,7 +240,7 @@
         {% else %}
        
               <h5 class="card-title">Submit Form</h5>
-              <p class="card-text">Kindly provide necessary information to estimate housing price in california</p>
+              <p class="card-text">Kindly provide necessary information to estimate Item Sales for Outlet</p>
             
          
 

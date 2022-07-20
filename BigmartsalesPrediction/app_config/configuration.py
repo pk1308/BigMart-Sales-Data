@@ -207,7 +207,7 @@ class Configuration:
             artifact_dir = self.pipeline_config.artifact_dir
             experiment_id = self.pipeline_config.experiment_id
             model_evaluation_artifact_dir_name = model_evaluation_config[MODEL_EVALUATION_ARTIFACT_DIR]
-            model_evaluation_artifact_dir = os.path.join(artifact_dir, model_evaluation_artifact_dir_name,experiment_id)
+            model_evaluation_artifact_dir = os.path.join(artifact_dir, model_evaluation_artifact_dir_name)
             model_evaluation_file_name = model_evaluation_config[MODEL_EVALUATION_FILE_NAME_KEY]
             model_evaluation_file_path = os.path.join(artifact_dir,model_evaluation_artifact_dir, model_evaluation_file_name)
             response = ModelEvaluationConfig(model_evaluation_file_path=model_evaluation_file_path,
@@ -225,7 +225,7 @@ class Configuration:
             model_pusher_config_info = self.config_info[MODEL_PUSHER_CONFIG_KEY]
             experiment_id = self.pipeline_config.experiment_id
             export_dir_path = os.path.join(ROOT_DIR, model_pusher_config_info[MODEL_PUSHER_MODEL_EXPORT_DIR_KEY],
-                                           experiment_id)
+                                           time_stamp)
 
             model_pusher_config = ModelPusherConfig(export_dir_path=export_dir_path)
             logging.info(f"Model pusher config {model_pusher_config}")

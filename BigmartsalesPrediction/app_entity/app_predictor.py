@@ -7,31 +7,31 @@ from BigmartsalesPrediction.app_util.util import load_object
 import pandas as pd
 
 
-class HousingData:
+class Prediction_Data:
 
     def __init__(self,
-                 longitude: float,
-                 latitude: float,
-                 housing_median_age: float,
-                 total_rooms: float,
-                 total_bedrooms: float,
-                 population: float,
-                 households: float,
-                 median_income: float,
-                 ocean_proximity: str,
-                 median_house_value: float = None
-                 ):
+                    Item_Fat_Content: object , 
+                    Item_Identifier: object , 
+                    Item_MRP: float , 
+                    Item_Type: object , 
+                    Item_Visibility: float ,
+                    Item_Weight: float , 
+                    Outlet_Establishment_Year: int , 
+                    Outlet_Identifier: object , 
+                    Outlet_Type : object ,
+                    Item_Outlet_Sales: float = None):
+ 
         try:
-            self.longitude = longitude
-            self.latitude = latitude
-            self.housing_median_age = housing_median_age
-            self.total_rooms = total_rooms
-            self.total_bedrooms = total_bedrooms
-            self.population = population
-            self.households = households
-            self.median_income = median_income
-            self.ocean_proximity = ocean_proximity
-            self.median_house_value = median_house_value
+            self.Item_Fat_Content = Item_Fat_Content
+            self.Item_Identifier = Item_Identifier
+            self.Item_MRP = Item_MRP
+            self.Item_Type = Item_Type
+            self.Item_Visibility = Item_Visibility
+            self.Item_Weight = Item_Weight
+            self.Outlet_Establishment_Year = Outlet_Establishment_Year
+            self.Outlet_Identifier = Outlet_Identifier
+            self.Item_Outlet_Sales = Item_Outlet_Sales
+            self.Outlet_Type = Outlet_Type
         except Exception as e:
             raise App_Exception(e, sys) from e
 
@@ -46,21 +46,22 @@ class HousingData:
     def get_housing_data_as_dict(self):
         try:
             input_data = {
-                "longitude": [self.longitude],
-                "latitude": [self.latitude],
-                "housing_median_age": [self.housing_median_age],
-                "total_rooms": [self.total_rooms],
-                "total_bedrooms": [self.total_bedrooms],
-                "population": [self.population],
-                "households": [self.households],
-                "median_income": [self.median_income],
-                "ocean_proximity": [self.ocean_proximity]}
+                "Item_Fat_Content": [self.Item_Fat_Content],
+                "Item_Identifier": [self.Item_Identifier],
+                "Item_MRP": [self.Item_MRP],
+                "Item_Type": [self.Item_Type],
+                "Item_Visibility": [self.Item_Visibility],
+                'Item_Weight': [self.Item_Weight],
+                'Outlet_Establishment_Year': [self.Outlet_Establishment_Year],
+                'Outlet_Identifier': [self.Outlet_Identifier],
+                'Item_Outlet_Sales': [self.Item_Outlet_Sales], 
+                "outlet_type": [self.Outlet_Type]}
             return input_data
         except Exception as e:
             raise App_Exception(e, sys)
 
 
-class HousingPredictor:
+class App_predictor:
 
     def __init__(self, model_dir: str):
         try:

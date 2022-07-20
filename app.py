@@ -1,3 +1,4 @@
+from cmath import log
 from flask import Flask, request
 import sys
 import os
@@ -11,31 +12,30 @@ import json
 from BigmartsalesPrediction.app_config.configuration import Configuration
 from BigmartsalesPrediction.constants import CONFIG_DIR, get_current_time_stamp
 from BigmartsalesPrediction.app_pipeline.pipeline import Pipeline
-from BigmartsalesPrediction.app_entity.housing_predictor import HousingPredictor, HousingData
+from BigmartsalesPrediction.app_entity.app_predictor import Prediction_Data, App_predictor
 from flask import send_file, abort, render_template
 
 
 ROOT_DIR = os.getcwd()
 LOG_FOLDER_NAME = "logs"
-PIPELINE_FOLDER_NAME = "housing"
+PIPELINE_FOLDER_NAME = "Bigmartsales"
 SAVED_MODELS_DIR_NAME = "saved_models"
 MODEL_CONFIG_FILE_PATH = os.path.join(ROOT_DIR, CONFIG_DIR, "model.yaml")
 LOG_DIR = os.path.join(ROOT_DIR, LOG_FOLDER_NAME)
 PIPELINE_DIR = os.path.join(ROOT_DIR, PIPELINE_FOLDER_NAME)
 MODEL_DIR = os.path.join(ROOT_DIR, SAVED_MODELS_DIR_NAME)
 
+PREDICTOR_DATA_KEY = "predictor_data"
+ITEM_OUTLET_SALES = "item_outlet_sales"
 
-
-HOUSING_DATA_KEY = "housing_data"
-MEDIAN_HOUSING_VALUE_KEY = "median_house_value"
 
 app = Flask(__name__)
 
 
-@app.route('/artifact', defaults={'req_path': 'housing'})
+@app.route('/artifact', defaults={'req_path': 'BigmartsalesPrediction'})
 @app.route('/artifact/<path:req_path>')
 def render_artifact_dir(req_path):
-    os.makedirs("housing", exist_ok=True)
+    os.makedirs("BigmartsalesPrediction", exist_ok=True)
     # Joining the base and the requested path
     print(f"req_path: {req_path}")
     abs_path = os.path.join(req_path)
@@ -86,7 +86,7 @@ def view_experiment_history():
 @app.route('/train', methods=['GET', 'POST'])
 def train():
     message = ""
-    pipeline = Pipeline(config=Configuration(current_time_stamp=get_current_time_stamp()))
+    pipeline = Pipeline(config=Configuration())
     if not Pipeline.experiment.running_status:
         message = "Training started."
         pipeline.start()
@@ -102,38 +102,46 @@ def train():
 @app.route('/predict', methods=['GET', 'POST'])
 def predict():
     context = {
-        HOUSING_DATA_KEY: None,
-        MEDIAN_HOUSING_VALUE_KEY: None
+        PREDICTOR_DATA_KEY: None,
+        ITEM_OUTLET_SALES : None
     }
+    logging.info("predict called ")
 
     if request.method == 'POST':
-        longitude = float(request.form['longitude'])
-        latitude = float(request.form['latitude'])
-        housing_median_age = float(request.form['housing_median_age'])
-        total_rooms = float(request.form['total_rooms'])
-        total_bedrooms = float(request.form['total_bedrooms'])
-        population = float(request.form['population'])
-        households = float(request.form['households'])
-        median_income = float(request.form['median_income'])
-        ocean_proximity = request.form['ocean_proximity']
+        try :
+            Item_Fat_Content = request.form['Item_Fat_Content']
+            Item_Identifier = request.form['Item_Identifier']
+            Item_MRP = float(request.form['Item_MRP'])
+            Item_Type = request.form['Item_Type']
+            Item_Visibility = float(request.form['Item_Visibility'])
+            Item_Weight = float(request.form['Item_Weight'])
+            Outlet_Establishment_Year= int(request.form['Outlet_Establishment_Year'])
+            Outlet_Identifier = request.form['Outlet_Identifier']
+            Outlet_Type = request.form['Outlet_Type']
 
-        housing_data = HousingData(longitude=longitude,
-                                   latitude=latitude,
-                                   housing_median_age=housing_median_age,
-                                   total_rooms=total_rooms,
-                                   total_bedrooms=total_bedrooms,
-                                   population=population,
-                                   households=households,
-                                   median_income=median_income,
-                                   ocean_proximity=ocean_proximity,
-                                   )
-        housing_df = housing_data.get_housing_input_data_frame()
-        housing_predictor = HousingPredictor(model_dir=MODEL_DIR)
-        median_housing_value = housing_predictor.predict(X=housing_df)
-        context = {
-            HOUSING_DATA_KEY: housing_data.get_housing_data_as_dict(),
-            MEDIAN_HOUSING_VALUE_KEY: median_housing_value,
-        }
+            prediction_data = Prediction_Data(Item_Fat_Content=Item_Fat_Content,
+                                    Item_Identifier=Item_Identifier,
+                                    Item_MRP=Item_MRP,
+                                    Item_Type=Item_Type,
+                                    Item_Visibility=Item_Visibility,
+                                    Item_Weight=Item_Weight,
+                                    Outlet_Establishment_Year=Outlet_Establishment_Year ,
+                                    Outlet_Identifier=Outlet_Identifier,
+                                    Outlet_Type=Outlet_Type,
+                                    )
+            logging.info(f"prediction_data: {prediction_data}")
+            prediction_df = prediction_data.get_housing_input_data_frame()
+            
+            app_predictor = App_predictor(model_dir=MODEL_DIR)
+            logging.info(f"app_predictor: {app_predictor}")
+            Item_Outlet_Sales= app_predictor.predict(X=prediction_df)
+            context = {     
+                PREDICTOR_DATA_KEY : Prediction_Data.get_housing_data_as_dict(),
+                ITEM_OUTLET_SALES: Item_Outlet_Sales,
+            }
+            logging.info(f"context: {context}")
+        except Exception as e:
+            raise App_Exception(str(e))
         return render_template('predict.html', context=context)
     return render_template("predict.html", context=context)
 

@@ -22,6 +22,7 @@ from BigmartsalesPrediction.app_src.stage_05_model_pusher import ModelPusher
 class Pipeline(Thread):
     running_status = None
     experiment = Experiment(*([None] * 11))
+    experiment_file_path = 'BigmartsalesPrediction/app_artifact/experiment/experiment.csv'
 
     def __init__(self, config: Configuration) -> None:
         try:
