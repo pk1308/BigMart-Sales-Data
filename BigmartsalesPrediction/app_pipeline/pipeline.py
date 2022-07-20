@@ -6,7 +6,8 @@ from threading import Thread
 import pandas as pd
 
 from BigmartsalesPrediction.app_config.configuration import Configuration
-from BigmartsalesPrediction.app_entity.artifacts_entity import DataIngestionArtifact, DataValidationArtifact , DataTransformationArtifact ,  ModelTrainerArtifact, ModelEvaluationArtifact , ModelPusherArtifact
+from BigmartsalesPrediction.app_entity.artifacts_entity import DataIngestionArtifact, DataValidationArtifact, \
+    DataTransformationArtifact, ModelTrainerArtifact, ModelEvaluationArtifact, ModelPusherArtifact
 from BigmartsalesPrediction.app_entity.experiment_entity import Experiment
 from BigmartsalesPrediction.app_exception.exception import App_Exception
 from BigmartsalesPrediction.app_logger import logging
@@ -16,7 +17,6 @@ from BigmartsalesPrediction.app_src.stage_02_data_transformation import DataTran
 from BigmartsalesPrediction.app_src.stage_03_model_trainer import ModelTrainer
 from BigmartsalesPrediction.app_src.stage_04_model_evaluation import ModelEvaluation
 from BigmartsalesPrediction.app_src.stage_05_model_pusher import ModelPusher
-
 
 
 class Pipeline(Thread):
@@ -47,6 +47,7 @@ class Pipeline(Thread):
             return data_validation.initiate_data_validation()
         except Exception as e:
             raise App_Exception(e, sys) from e
+
     def start_data_transformation(self,
                                   data_ingestion_artifact: DataIngestionArtifact,
                                   data_validation_artifact: DataValidationArtifact
@@ -59,8 +60,8 @@ class Pipeline(Thread):
             )
             return data_transformation.initiate_data_transformation()
         except Exception as e:
-            raise App_Exception(e, sys) 
-    
+            raise App_Exception(e, sys)
+
     def start_model_trainer(self, data_transformation_artifact: DataTransformationArtifact) -> ModelTrainerArtifact:
         try:
             model_trainer = ModelTrainer(model_trainer_config=self.config.get_model_trainer_config(),
@@ -91,7 +92,7 @@ class Pipeline(Thread):
             )
             return model_pusher.initiate_model_pusher()
         except Exception as e:
-            raise App_Exception(e, sys) from e 
+            raise App_Exception(e, sys) from e
 
     def run_pipeline(self):
         try:
@@ -107,13 +108,13 @@ class Pipeline(Thread):
             Pipeline.experiment = Experiment(experiment_id=self.pipeline_config.experiment_id,
                                              initialization_timestamp=self.config.time_stamp,
                                              artifact_dir=self.pipeline_config.artifact_dir,
-                                             running_status=Pipeline.running_status, 
+                                             running_status=Pipeline.running_status,
                                              start_time=datetime.now(),
-                                             stop_time=None, 
+                                             stop_time=None,
                                              execution_time=None,
                                              message="Pipeline is running.",
                                              experiment_file_path=self.pipeline_config.experiment_file_path,
-                                             accuracy=None, 
+                                             accuracy=None,
                                              is_model_accepted=None)
 
             self.save_experiment()
@@ -142,7 +143,7 @@ class Pipeline(Thread):
             Pipeline.experiment = Experiment(experiment_id=Pipeline.experiment.experiment_id,
                                              initialization_timestamp=self.config.time_stamp,
                                              artifact_dir=self.pipeline_config.artifact_dir,
-                                             running_status=Pipeline.running_status, 
+                                             running_status=Pipeline.running_status,
                                              start_time=Pipeline.experiment.start_time,
                                              stop_time=stop_time,
                                              execution_time=stop_time - Pipeline.experiment.start_time,

@@ -1,10 +1,11 @@
-from BigmartsalesPrediction.app_logger import logging
-from BigmartsalesPrediction.app_exception.exception import App_Exception
-from BigmartsalesPrediction.app_entity.artifacts_entity import ModelPusherArtifact, ModelEvaluationArtifact 
-from BigmartsalesPrediction.app_entity.config_entity import ModelPusherConfig
-
-import os, sys
+import os
 import shutil
+import sys
+
+from BigmartsalesPrediction.app_entity.artifacts_entity import ModelPusherArtifact, ModelEvaluationArtifact
+from BigmartsalesPrediction.app_entity.config_entity import ModelPusherConfig
+from BigmartsalesPrediction.app_exception.exception import App_Exception
+from BigmartsalesPrediction.app_logger import logging
 
 
 class ModelPusher:
@@ -30,7 +31,7 @@ class ModelPusher:
             os.makedirs(export_dir, exist_ok=True)
 
             shutil.copy(src=evaluated_model_file_path, dst=export_model_file_path)
-            #we can call a function to save model to Azure blob storage/ google cloud strorage / s3 bucket
+            # we can call a function to save model to Azure blob storage/ google cloud strorage / s3 bucket
             logging.info(
                 f"Trained model: {evaluated_model_file_path} is copied in export dir:[{export_model_file_path}]")
 

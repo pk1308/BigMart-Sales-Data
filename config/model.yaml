@@ -3,7 +3,9 @@ grid_search:
   class: GridSearchCV
   params:
     cv: 3
-    verbose: 1
+    verbose: 3
+    n_jobs : -1
+
 
 model_selection:
   model_0:
