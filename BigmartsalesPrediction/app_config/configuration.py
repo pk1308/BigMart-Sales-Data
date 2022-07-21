@@ -173,6 +173,7 @@ class Configuration:
             artifact_dir = self.pipeline_config.artifact_dir
             experiment_id = self.pipeline_config.experiment_id
             model_trainer_config_info = self.config_info[MODEL_TRAINER_CONFIG_KEY]
+            model_trainer_stack_status = model_trainer_config_info[MODEL_TRAINER_STACKED_KEY]
             model_trainer_artifact_dir_name = model_trainer_config_info[MODEL_TRAINER_ARTIFACT_DIR]
             trained_model_dir_name = model_trainer_config_info[MODEL_TRAINER_TRAINED_MODEL_DIR_KEY]
             trained_model_file_name = model_trainer_config_info[MODEL_TRAINER_TRAINED_MODEL_FILE_NAME_KEY]
@@ -194,6 +195,7 @@ class Configuration:
             model_trainer_config = ModelTrainerConfig(
                 trained_model_file_path=trained_model_file_path,
                 base_accuracy=base_accuracy,
+                stacked = model_trainer_stack_status,
                 model_config_file_path=model_config_file_path
             )
             logging.info(f"Model trainer config: {model_trainer_config}")

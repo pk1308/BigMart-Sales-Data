@@ -5,7 +5,8 @@ import yaml
 from BigmartsalesPrediction.app_exception.exception import App_Exception
 import os
 import sys
-
+from mlxtend.regressor import StackingCVRegressor
+from sklearn.ensemble import RandomForestRegressor
 from collections import namedtuple
 from typing import List
 from BigmartsalesPrediction.app_logger import logging
@@ -71,7 +72,7 @@ def evaluate_regression_model(model_list: list, X_train: np.ndarray, y_train: np
         metric_info_artifact = None
         for model in model_list:
             model_name = str(model)  # getting model name based on model object
-            logging.info("{'>>' * 30}Started evaluating model: [{type(model).__name__}] {'<<' * 30}")
+            logging.info(f"{'>>' * 30}Started evaluating model: [{type(model).__name__}] {'<<' * 30}")
 
             # Getting prediction for training and testing dataset
             y_train_pred = model.predict(X_train)
@@ -367,3 +368,11 @@ class ModelFactory:
                                                                                   base_accuracy=base_accuracy)
         except Exception as e:
             raise App_Exception(e, sys)
+    def get_stacked_model(self,model_list_to_stack :list ,X, y):
+        try:
+            meta_regressor_rf = RandomForestRegressor(criterion='friedman_mse', max_depth=5, n_estimators=300)
+            stacked_model = StackingCVRegressor(regressors=model_list_to_stack,meta_regressor =meta_regressor_rf)
+            stacked_model.fit(X, y)
+            return stacked_model
+        except Exception as e:
+            raise App_Exception(e, sys) from e

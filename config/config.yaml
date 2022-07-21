@@ -36,6 +36,7 @@ model_trainer_config:
   base_accuracy: 0.5
   model_config_dir: config
   model_config_file_name: model.yaml
+  stack_status : true
 
 
 model_evaluation_config:

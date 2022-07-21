@@ -136,6 +136,10 @@ Eda/eda.ipynb
 BigmartsalesPrediction/app_artifact/stage00_data_ingestion
 BigmartsalesPrediction/app_artifact/stage02_data_transformation
 /home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/Eda/____.ipynb
+/BigmartsalesPrediction/app_artifact/stage01_data_validation/
 catboost_info/
 
 
+BigmartsalesPrediction/app_artifact/stage01_data_validation/
+*.log
+logs/

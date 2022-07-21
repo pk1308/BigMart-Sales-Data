@@ -1,5 +1,9 @@
 best_model:
-  model_path: /home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage03_model_training/94cbbf94-46c2-4a28-8f6d-dbf44d9c4fe8/trained_model/model.pkl
+  model_path: /home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage03_model_training/966bfa0b-61a9-44bf-a814-e5c3990bc37e/trained_model/model.pkl
 history:
   2022-07-21-23-44-19:
     model_path: /home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage03_model_training/5af0764c-56e6-4229-8c0a-53e9c9779298/trained_model/model.pkl
+  2022-07-22-02-35-47:
+    model_path: /home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage03_model_training/94cbbf94-46c2-4a28-8f6d-dbf44d9c4fe8/trained_model/model.pkl
+  2022-07-22-02-46-17:
+    model_path: /home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage03_model_training/6fb538ca-f40a-4b77-8d7c-1cb5d88e0070/trained_model/model.pkl

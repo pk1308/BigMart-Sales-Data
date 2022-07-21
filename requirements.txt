@@ -10,5 +10,6 @@ matplotlib
 kaggle
 loguru
 xgboost
-dvc
+catboost
+mlxtend 
 -e .

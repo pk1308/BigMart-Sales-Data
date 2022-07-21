@@ -1,3 +1,4 @@
+from cmath import log
 from BigmartsalesPrediction.app_exception.exception import App_Exception
 from BigmartsalesPrediction.app_logger import logging
 from BigmartsalesPrediction.app_entity.artifacts_entity import DataTransformationArtifact, ModelTrainerArtifact
@@ -79,6 +80,14 @@ class ModelTrainer:
             grid_searched_best_model_list: List[GridSearchedBestModel] = model_factory.grid_searched_best_model_list
 
             model_list = [model.best_model for model in grid_searched_best_model_list]
+            logging.info(f"Model list: {model_list} , {len(model_list)}")
+            model_trainer_stacked = self.model_trainer_config.stacked
+            if model_trainer_stacked:
+                models_to_stack = model_list.copy()
+                stacked_model = model_factory.get_stacked_model(model_list_to_stack =models_to_stack ,X=x_train, y=y_train)
+                model_list.append(stacked_model)
+                logging.info(f"Stacked model found: {stacked_model}")
+                logging.info(f"Stacked model list: {model_list} , {len(model_list)}")
             logging.info(f"Evaluation all trained model on training and testing dataset both")
             metric_info: MetricInfoArtifact = evaluate_regression_model(model_list=model_list, X_train=x_train,
                                                                         y_train=y_train, X_test=x_test, y_test=y_test,
