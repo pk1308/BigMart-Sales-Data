@@ -101,6 +101,7 @@ def train():
 
 @app.route('/predict', methods=['GET', 'POST'])
 def predict():
+ 
     context = {
         PREDICTOR_DATA_KEY: None,
         ITEM_OUTLET_SALES : None
@@ -109,26 +110,28 @@ def predict():
 
     if request.method == 'POST':
         try :
-            Item_Fat_Content = request.form['Item_Fat_Content']
+
             Item_Identifier = request.form['Item_Identifier']
-            Item_MRP = float(request.form['Item_MRP'])
+            Item_Fat_Content = request.form['Item_Fat_Content']
             Item_Type = request.form['Item_Type']
+            Outlet_Identifier = request.form['Outlet_Identifier']
+            Outlet_Type = request.form['Outlet_Type']
+            
+            Item_MRP = float(request.form['Item_MRP'])
             Item_Visibility = float(request.form['Item_Visibility'])
             Item_Weight = float(request.form['Item_Weight'])
             Outlet_Establishment_Year= int(request.form['Outlet_Establishment_Year'])
-            Outlet_Identifier = request.form['Outlet_Identifier']
-            Outlet_Type = request.form['Outlet_Type']
 
-            prediction_data = Prediction_Data(Item_Fat_Content=Item_Fat_Content,
-                                    Item_Identifier=Item_Identifier,
-                                    Item_MRP=Item_MRP,
-                                    Item_Type=Item_Type,
-                                    Item_Visibility=Item_Visibility,
-                                    Item_Weight=Item_Weight,
-                                    Outlet_Establishment_Year=Outlet_Establishment_Year ,
-                                    Outlet_Identifier=Outlet_Identifier,
-                                    Outlet_Type=Outlet_Type,
-                                    )
+            prediction_data = Prediction_Data(Item_Identifier=Item_Identifier,
+                                              Item_Fat_Content = Item_Fat_Content,
+                                              Item_Type = Item_Type,
+                                              Outlet_Identifier = Outlet_Identifier,
+                                              Outlet_Type = Outlet_Type,
+                                              Item_MRP = Item_MRP,
+                                            Item_Visibility = Item_Visibility,
+                                            Item_Weight = Item_Weight,
+                                            Outlet_Establishment_Year = Outlet_Establishment_Year)
+                                            
             logging.info(f"prediction_data: {prediction_data}")
             prediction_df = prediction_data.get_housing_input_data_frame()
             
@@ -136,12 +139,12 @@ def predict():
             logging.info(f"app_predictor: {app_predictor}")
             Item_Outlet_Sales= app_predictor.predict(X=prediction_df)
             context = {     
-                PREDICTOR_DATA_KEY : Prediction_Data.get_housing_data_as_dict(),
+                PREDICTOR_DATA_KEY : prediction_data.get_housing_data_as_dict(),
                 ITEM_OUTLET_SALES: Item_Outlet_Sales,
             }
             logging.info(f"context: {context}")
         except Exception as e:
-            raise App_Exception(str(e))
+            raise App_Exception(e , sys)
         return render_template('predict.html', context=context)
     return render_template("predict.html", context=context)
 
