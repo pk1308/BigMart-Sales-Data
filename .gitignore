@@ -134,6 +134,6 @@ BigmartsalesPrediction/artifact
 Eda/eda.ipynb
 BigmartsalesPrediction/app_artifact/stage00_data_ingestion
 BigmartsalesPrediction/app_artifact/stage02_data_transformation
-logs/
+
 
 
