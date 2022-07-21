@@ -11,24 +11,51 @@ model_selection:
   model_0:
     module: sklearn.tree
     class: DecisionTreeRegressor
-    params:
-      min_samples_leaf: 2
     search_param_grid:
       criterion:
         - squared_error
         - friedman_mse
       splitter:
         - best
-      max_depth:
+      min_samples_leaf: 
+        - 1
         - 2
+        - 3
         - 4
         - 5
         - 6
+        - 7
+        - 8
+        - 9
+        - 10
+      max_depth: 
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
 
       max_features:
         - auto
         - sqrt
         - log2
+      
+      min_samples_split:
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+
 
   model_1:
     module: sklearn.ensemble
@@ -55,26 +82,10 @@ model_selection:
         - auto
         - sqrt
         - log2
-
-
-      
   model_2:
-    module: sklearn.linear_model
-    class: LinearRegression
-    search_param_grid:
-      fit_intercept:
-        - True
-        - False
-  
-  model_3:
     module: xgboost
     class: XGBRegressor
     search_param_grid:
-      base_score :
-        - 0.5
-        - 0.6
-        - 0.7
-
       booster : 
         - gbtree
         - gblinear
@@ -94,3 +105,5 @@ model_selection:
         - 0.7
         - 0.8
         - 0.9
+  
+ 

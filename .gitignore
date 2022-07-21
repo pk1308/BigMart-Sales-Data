@@ -56,7 +56,6 @@ coverage.xml
 *.pot
 .idea/*
 # Django stuff:
-*.log
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
@@ -133,3 +132,7 @@ BigmartsalesPrediction/artifact
 .idea/
 .vscode/settings.json
 Eda/eda.ipynb
+BigmartsalesPrediction/app_artifact/stage00_data_ingestion
+BigmartsalesPrediction/app_artifact/stage02_data_transformation
+
+
