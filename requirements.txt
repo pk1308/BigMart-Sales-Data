@@ -10,4 +10,5 @@ matplotlib
 kaggle
 loguru
 xgboost
+dvc
 -e .

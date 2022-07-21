@@ -175,3 +175,232 @@
              verbose=3).n_jobs=-1
 2022-07-21 at 12:14:35 | INFO | model_factory.py |                                     execute_grid_search_operation |
  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> f"Training RandomForestRegressor Started." <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-21 at 12:25:43 | INFO | model_factory.py |                                     class_for_name |
+ Executing command: from <module 'sklearn.model_selection' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/sklearn/model_selection/__init__.py'> import GridSearchCV
+2022-07-21 at 12:25:43 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(estimator=XGBRegressor(base_score=None, booster=None,
+                                    callbacks=None, colsample_bylevel=None,
+                                    colsample_bynode=None,
+                                    colsample_bytree=None,
+                                    early_stopping_rounds=None,
+                                    enable_categorical=False, eval_metric=None,
+                                    gamma=None, gpu_id=None, grow_policy=None,
+                                    importance_type=None,
+                                    interaction_constraints=None,
+                                    learning_rate=None, max_bin=None,
+                                    max_cat_to_o...
+                                    max_depth=None, max_leaves=None,
+                                    min_child_weight=None, missing=nan,
+                                    monotone_constraints=None, n_estimators=100,
+                                    n_jobs=None, num_parallel_tree=None,
+                                    predictor=None, random_state=None,
+                                    reg_alpha=None, reg_lambda=None, ...),
+             param_grid={'booster': ['gbtree', 'gblinear', 'dart'],
+                         'learning_rate': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7,
+                                           0.8, 0.9],
+                         'n_estimators': [100, 200, 300, 400]}).cv=3
+2022-07-21 at 12:25:43 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(cv=3,
+             estimator=XGBRegressor(base_score=None, booster=None,
+                                    callbacks=None, colsample_bylevel=None,
+                                    colsample_bynode=None,
+                                    colsample_bytree=None,
+                                    early_stopping_rounds=None,
+                                    enable_categorical=False, eval_metric=None,
+                                    gamma=None, gpu_id=None, grow_policy=None,
+                                    importance_type=None,
+                                    interaction_constraints=None,
+                                    learning_rate=None, max_bin=None,
+                                    max_cat...
+                                    max_depth=None, max_leaves=None,
+                                    min_child_weight=None, missing=nan,
+                                    monotone_constraints=None, n_estimators=100,
+                                    n_jobs=None, num_parallel_tree=None,
+                                    predictor=None, random_state=None,
+                                    reg_alpha=None, reg_lambda=None, ...),
+             param_grid={'booster': ['gbtree', 'gblinear', 'dart'],
+                         'learning_rate': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7,
+                                           0.8, 0.9],
+                         'n_estimators': [100, 200, 300, 400]}).verbose=3
+2022-07-21 at 12:25:43 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(cv=3,
+             estimator=XGBRegressor(base_score=None, booster=None,
+                                    callbacks=None, colsample_bylevel=None,
+                                    colsample_bynode=None,
+                                    colsample_bytree=None,
+                                    early_stopping_rounds=None,
+                                    enable_categorical=False, eval_metric=None,
+                                    gamma=None, gpu_id=None, grow_policy=None,
+                                    importance_type=None,
+                                    interaction_constraints=None,
+                                    learning_rate=None, max_bin=None,
+                                    max_cat...
+                                    max_depth=None, max_leaves=None,
+                                    min_child_weight=None, missing=nan,
+                                    monotone_constraints=None, n_estimators=100,
+                                    n_jobs=None, num_parallel_tree=None,
+                                    predictor=None, random_state=None,
+                                    reg_alpha=None, reg_lambda=None, ...),
+             param_grid={'booster': ['gbtree', 'gblinear', 'dart'],
+                         'learning_rate': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7,
+                                           0.8, 0.9],
+                         'n_estimators': [100, 200, 300, 400]},
+             verbose=3).n_jobs=-1
+2022-07-21 at 12:25:43 | INFO | model_factory.py |                                     execute_grid_search_operation |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> f"Training XGBRegressor Started." <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     get_best_model_from_grid_searched_best_model_list |
+ Acceptable model found:GridSearchedBestModel(model_serial_number='model_0', model=DecisionTreeRegressor(), best_model=DecisionTreeRegressor(max_depth=5, max_features='auto', min_samples_leaf=3,
+                      min_samples_split=8), best_parameters={'criterion': 'squared_error', 'max_depth': 5, 'max_features': 'auto', 'min_samples_leaf': 3, 'min_samples_split': 8, 'splitter': 'best'}, best_score=0.5864957220106061)
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     get_best_model_from_grid_searched_best_model_list |
+ Acceptable model found:GridSearchedBestModel(model_serial_number='model_1', model=RandomForestRegressor(), best_model=RandomForestRegressor(criterion='friedman_mse', max_depth=5, n_estimators=200), best_parameters={'criterion': 'friedman_mse', 'max_depth': 5, 'max_features': 'auto', 'n_estimators': 200}, best_score=0.5947709264939198)
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     get_best_model_from_grid_searched_best_model_list |
+ Best model: GridSearchedBestModel(model_serial_number='model_1', model=RandomForestRegressor(), best_model=RandomForestRegressor(criterion='friedman_mse', max_depth=5, n_estimators=200), best_parameters={'criterion': 'friedman_mse', 'max_depth': 5, 'max_features': 'auto', 'n_estimators': 200}, best_score=0.5947709264939198)
+2022-07-21 at 12:29:32 | INFO | stage_03_model_trainer.py |                                     initiate_model_trainer |
+ Best model found on training dataset: GridSearchedBestModel(model_serial_number='model_1', model=RandomForestRegressor(), best_model=RandomForestRegressor(criterion='friedman_mse', max_depth=5, n_estimators=200), best_parameters={'criterion': 'friedman_mse', 'max_depth': 5, 'max_features': 'auto', 'n_estimators': 200}, best_score=0.5947709264939198)
+2022-07-21 at 12:29:32 | INFO | stage_03_model_trainer.py |                                     initiate_model_trainer |
+ Extracting trained model list.
+2022-07-21 at 12:29:32 | INFO | stage_03_model_trainer.py |                                     initiate_model_trainer |
+ Evaluation all trained model on training and testing dataset both
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ {'>>' * 30}Started evaluating model: [{type(model).__name__}] {'<<' * 30}
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Score <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Train Score		 Test Score		 Average Score
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ 0.607971711542024		 0.5783462734507026		0.5927890804688944
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Loss <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Diff test train accuracy: [0.029625438091321454].
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Train root mean squared error: [1072.4060320648973].
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Test root mean squared error: [1091.3339307813537].
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Acceptable model found MetricInfoArtifact(model_name="DecisionTreeRegressor(max_depth=5, max_features='auto', min_samples_leaf=3,\n                      min_samples_split=8)", model_object=DecisionTreeRegressor(max_depth=5, max_features='auto', min_samples_leaf=3,
+                      min_samples_split=8), train_rmse=1072.4060320648973, test_rmse=1091.3339307813537, train_accuracy=0.607971711542024, test_accuracy=0.5783462734507026, model_accuracy=0.5927890804688944, index_number=0). 
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ {'>>' * 30}Started evaluating model: [{type(model).__name__}] {'<<' * 30}
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Score <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Train Score		 Test Score		 Average Score
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ 0.6145236003042945		 0.5848645946759039		0.5993273869377749
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Loss <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Diff test train accuracy: [0.029659005628390633].
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Train root mean squared error: [1063.4068215893735].
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Test root mean squared error: [1082.8656407011429].
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Acceptable model found MetricInfoArtifact(model_name="RandomForestRegressor(criterion='friedman_mse', max_depth=5, n_estimators=200)", model_object=RandomForestRegressor(criterion='friedman_mse', max_depth=5, n_estimators=200), train_rmse=1063.4068215893735, test_rmse=1082.8656407011429, train_accuracy=0.6145236003042945, test_accuracy=0.5848645946759039, model_accuracy=0.5993273869377749, index_number=1). 
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ {'>>' * 30}Started evaluating model: [{type(model).__name__}] {'<<' * 30}
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Score <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Train Score		 Test Score		 Average Score
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ 0.7382407233417295		 0.5502057745774622		0.6305024068393055
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Loss <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Diff test train accuracy: [0.1880349487642673].
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Train root mean squared error: [876.2975264871363].
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Test root mean squared error: [1127.1627407930496].
+2022-07-21 at 12:29:32 | INFO | stage_03_model_trainer.py |                                     initiate_model_trainer |
+ Best found model on both training and testing dataset.
+2022-07-21 at 12:29:32 | INFO | stage_03_model_trainer.py |                                     initiate_model_trainer |
+ Saving model at path: /home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage03_model_training/489bcc8e-17fe-4e6d-a416-9748e526d81e/trained_model/model.pkl
+2022-07-21 at 12:29:32 | INFO | stage_03_model_trainer.py |                                     initiate_model_trainer |
+ Model Trainer Artifact: ModelTrainerArtifact(is_trained=True, message='Model Trained successfully', trained_model_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage03_model_training/489bcc8e-17fe-4e6d-a416-9748e526d81e/trained_model/model.pkl', train_rmse=1063.4068215893735, test_rmse=1082.8656407011429, train_accuracy=0.6145236003042945, test_accuracy=0.5848645946759039, model_accuracy=0.5993273869377749)
+2022-07-21 at 12:29:32 | INFO | stage_03_model_trainer.py |                                     __del__ |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Model trainer log completed.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+2022-07-21 at 12:29:32 | INFO | configuration.py |                                     get_model_evaluation_config |
+ Model Evaluation Config: ModelEvaluationConfig(model_evaluation_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage04_model_evaluation/model_evaluation.yaml', time_stamp='2022-07-21-12-14-20').
+2022-07-21 at 12:29:32 | INFO | stage_04_model_evaluation.py |                                     __init__ |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Model Evaluation log started.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+2022-07-21 at 12:29:32 | INFO | stage_04_model_evaluation.py |                                     initiate_model_evaluation |
+ Converting target column into numpy array.
+2022-07-21 at 12:29:32 | INFO | stage_04_model_evaluation.py |                                     initiate_model_evaluation |
+ Conversion completed target column into numpy array.
+2022-07-21 at 12:29:32 | INFO | stage_04_model_evaluation.py |                                     initiate_model_evaluation |
+ Dropping target column from the dataframe.
+2022-07-21 at 12:29:32 | INFO | stage_04_model_evaluation.py |                                     initiate_model_evaluation |
+ Dropping target column from the dataframe completed.
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ {'>>' * 30}Started evaluating model: [{type(model).__name__}] {'<<' * 30}
+2022-07-21 at 12:29:32 | INFO | stage_02_data_transformation.py |                                     transform |
+ Transforming data
+2022-07-21 at 12:29:32 | INFO | stage_02_data_transformation.py |                                     transform |
+ Index(['Item_Weight', 'Item_Visibility', 'Item_MRP',
+       'Outlet_Establishment_Year'],
+      dtype='object')
+2022-07-21 at 12:29:32 | INFO | stage_02_data_transformation.py |                                     transform |
+ Transforming data
+2022-07-21 at 12:29:32 | INFO | stage_02_data_transformation.py |                                     transform |
+ Index(['Item_Weight', 'Item_Visibility', 'Item_MRP',
+       'Outlet_Establishment_Year'],
+      dtype='object')
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Score <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Train Score		 Test Score		 Average Score
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ 0.614408371538836		 0.5855049287242899		0.5996085378944744
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Loss <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Diff test train accuracy: [0.028903442814546043].
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Train root mean squared error: [1063.5657494763734].
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Test root mean squared error: [1082.0301743416392].
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Acceptable model found MetricInfoArtifact(model_name='RandomForestRegressor()', model_object=RandomForestRegressor(), train_rmse=1063.5657494763734, test_rmse=1082.0301743416392, train_accuracy=0.614408371538836, test_accuracy=0.5855049287242899, model_accuracy=0.5996085378944744, index_number=0). 
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ {'>>' * 30}Started evaluating model: [{type(model).__name__}] {'<<' * 30}
+2022-07-21 at 12:29:32 | INFO | stage_02_data_transformation.py |                                     transform |
+ Transforming data
+2022-07-21 at 12:29:32 | INFO | stage_02_data_transformation.py |                                     transform |
+ Index(['Item_Weight', 'Item_Visibility', 'Item_MRP',
+       'Outlet_Establishment_Year'],
+      dtype='object')
+2022-07-21 at 12:29:32 | INFO | stage_02_data_transformation.py |                                     transform |
+ Transforming data
+2022-07-21 at 12:29:32 | INFO | stage_02_data_transformation.py |                                     transform |
+ Index(['Item_Weight', 'Item_Visibility', 'Item_MRP',
+       'Outlet_Establishment_Year'],
+      dtype='object')
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Score <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Train Score		 Test Score		 Average Score
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ 0.6145236003042945		 0.5848645946759039		0.5993273869377749
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Loss <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Diff test train accuracy: [0.029659005628390633].
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Train root mean squared error: [1063.4068215893735].
+2022-07-21 at 12:29:32 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Test root mean squared error: [1082.8656407011429].
+2022-07-21 at 12:29:32 | INFO | stage_04_model_evaluation.py |                                     initiate_model_evaluation |
+ Model evaluation completed. model metric artifact: MetricInfoArtifact(model_name='RandomForestRegressor()', model_object=RandomForestRegressor(), train_rmse=1063.5657494763734, test_rmse=1082.0301743416392, train_accuracy=0.614408371538836, test_accuracy=0.5855049287242899, model_accuracy=0.5996085378944744, index_number=0)
+2022-07-21 at 12:29:32 | INFO | stage_04_model_evaluation.py |                                     initiate_model_evaluation |
+ Trained model is no better than existing model hence not accepting trained model
+2022-07-21 at 12:29:32 | INFO | stage_04_model_evaluation.py |                                     __del__ |
+ ====================Model Evaluation log completed.==================== 
+2022-07-21 at 12:29:32 | INFO | pipeline.py |                                     run_pipeline |
+ Trained model rejected.
+2022-07-21 at 12:29:32 | INFO | pipeline.py |                                     run_pipeline |
+ Pipeline completed.
+2022-07-21 at 12:29:32 | INFO | pipeline.py |                                     run_pipeline |
+ Pipeline experiment: Experiment(experiment_id='489bcc8e-17fe-4e6d-a416-9748e526d81e', initialization_timestamp='2022-07-21-12-14-20', artifact_dir='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact', running_status=False, start_time=datetime.datetime(2022, 7, 21, 12, 14, 20, 840084), stop_time=datetime.datetime(2022, 7, 21, 12, 29, 32, 261114), execution_time=datetime.timedelta(seconds=911, microseconds=421030), message='Pipeline has been completed.', experiment_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/experiment/experiment.csv', accuracy=0.5993273869377749, is_model_accepted=False)
