@@ -1,0 +1,782 @@
+2022-07-21 at 19:01:31 | INFO | model_factory.py |                                     get_best_model |
+ Started Initializing model from config file
+2022-07-21 at 19:01:31 | INFO | model_factory.py |                                     class_for_name |
+ Executing command: from <module 'sklearn.tree' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/sklearn/tree/__init__.py'> import DecisionTreeRegressor
+2022-07-21 at 19:01:31 | INFO | model_factory.py |                                     class_for_name |
+ Executing command: from <module 'sklearn.ensemble' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/sklearn/ensemble/__init__.py'> import RandomForestRegressor
+2022-07-21 at 19:01:31 | INFO | model_factory.py |                                     class_for_name |
+ Executing command: from <module 'xgboost' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/xgboost/__init__.py'> import XGBRegressor
+2022-07-21 at 19:01:31 | INFO | model_factory.py |                                     get_best_model |
+ Initialized model: [InitializedModelDetail(model_serial_number='model_0', model=DecisionTreeRegressor(), param_grid_search={'criterion': ['squared_error', 'friedman_mse'], 'splitter': ['best'], 'min_samples_leaf': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 'max_depth': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 'max_features': ['auto', 'sqrt', 'log2'], 'min_samples_split': [2, 3, 4, 5, 6, 7, 8, 9, 10]}, model_name='sklearn.tree.DecisionTreeRegressor'), InitializedModelDetail(model_serial_number='model_1', model=RandomForestRegressor(), param_grid_search={'criterion': ['squared_error', 'absolute_error', 'poisson', 'friedman_mse'], 'n_estimators': [100, 200, 300, 400], 'max_depth': [2, 3, 4, 5], 'max_features': ['auto', 'sqrt', 'log2']}, model_name='sklearn.ensemble.RandomForestRegressor'), InitializedModelDetail(model_serial_number='model_2', model=XGBRegressor(base_score=None, booster=None, callbacks=None,
+             colsample_bylevel=None, colsample_bynode=None,
+             colsample_bytree=None, early_stopping_rounds=None,
+             enable_categorical=False, eval_metric=None, gamma=None,
+             gpu_id=None, grow_policy=None, importance_type=None,
+             interaction_constraints=None, learning_rate=None, max_bin=None,
+             max_cat_to_onehot=None, max_delta_step=None, max_depth=None,
+             max_leaves=None, min_child_weight=None, missing=nan,
+             monotone_constraints=None, n_estimators=100, n_jobs=None,
+             num_parallel_tree=None, predictor=None, random_state=None,
+             reg_alpha=None, reg_lambda=None, ...), param_grid_search={'booster': ['gbtree', 'gblinear', 'dart'], 'n_estimators': [100, 200, 300, 400], 'learning_rate': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]}, model_name='xgboost.XGBRegressor')]
+2022-07-21 at 19:01:31 | INFO | model_factory.py |                                     class_for_name |
+ Executing command: from <module 'sklearn.model_selection' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/sklearn/model_selection/__init__.py'> import GridSearchCV
+2022-07-21 at 19:01:31 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(estimator=DecisionTreeRegressor(),
+             param_grid={'criterion': ['squared_error', 'friedman_mse'],
+                         'max_depth': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'max_features': ['auto', 'sqrt', 'log2'],
+                         'min_samples_leaf': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'min_samples_split': [2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'splitter': ['best']}).cv=3
+2022-07-21 at 19:01:31 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(cv=3, estimator=DecisionTreeRegressor(),
+             param_grid={'criterion': ['squared_error', 'friedman_mse'],
+                         'max_depth': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'max_features': ['auto', 'sqrt', 'log2'],
+                         'min_samples_leaf': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'min_samples_split': [2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'splitter': ['best']}).verbose=3
+2022-07-21 at 19:01:31 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(cv=3, estimator=DecisionTreeRegressor(),
+             param_grid={'criterion': ['squared_error', 'friedman_mse'],
+                         'max_depth': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'max_features': ['auto', 'sqrt', 'log2'],
+                         'min_samples_leaf': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'min_samples_split': [2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'splitter': ['best']},
+             verbose=3).n_jobs=-1
+2022-07-21 at 19:01:31 | INFO | model_factory.py |                                     execute_grid_search_operation |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> f"Training DecisionTreeRegressor Started." <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-21 at 19:02:12 | INFO | model_factory.py |                                     class_for_name |
+ Executing command: from <module 'sklearn.model_selection' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/sklearn/model_selection/__init__.py'> import GridSearchCV
+2022-07-21 at 19:02:12 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(estimator=RandomForestRegressor(),
+             param_grid={'criterion': ['squared_error', 'absolute_error',
+                                       'poisson', 'friedman_mse'],
+                         'max_depth': [2, 3, 4, 5],
+                         'max_features': ['auto', 'sqrt', 'log2'],
+                         'n_estimators': [100, 200, 300, 400]}).cv=3
+2022-07-21 at 19:02:12 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(cv=3, estimator=RandomForestRegressor(),
+             param_grid={'criterion': ['squared_error', 'absolute_error',
+                                       'poisson', 'friedman_mse'],
+                         'max_depth': [2, 3, 4, 5],
+                         'max_features': ['auto', 'sqrt', 'log2'],
+                         'n_estimators': [100, 200, 300, 400]}).verbose=3
+2022-07-21 at 19:02:12 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(cv=3, estimator=RandomForestRegressor(),
+             param_grid={'criterion': ['squared_error', 'absolute_error',
+                                       'poisson', 'friedman_mse'],
+                         'max_depth': [2, 3, 4, 5],
+                         'max_features': ['auto', 'sqrt', 'log2'],
+                         'n_estimators': [100, 200, 300, 400]},
+             verbose=3).n_jobs=-1
+2022-07-21 at 19:02:12 | INFO | model_factory.py |                                     execute_grid_search_operation |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> f"Training RandomForestRegressor Started." <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-21 at 19:42:03 | INFO | model_factory.py |                                     class_for_name |
+ Executing command: from <module 'sklearn.model_selection' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/sklearn/model_selection/__init__.py'> import GridSearchCV
+2022-07-21 at 19:42:03 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(estimator=XGBRegressor(base_score=None, booster=None,
+                                    callbacks=None, colsample_bylevel=None,
+                                    colsample_bynode=None,
+                                    colsample_bytree=None,
+                                    early_stopping_rounds=None,
+                                    enable_categorical=False, eval_metric=None,
+                                    gamma=None, gpu_id=None, grow_policy=None,
+                                    importance_type=None,
+                                    interaction_constraints=None,
+                                    learning_rate=None, max_bin=None,
+                                    max_cat_to_o...
+                                    max_depth=None, max_leaves=None,
+                                    min_child_weight=None, missing=nan,
+                                    monotone_constraints=None, n_estimators=100,
+                                    n_jobs=None, num_parallel_tree=None,
+                                    predictor=None, random_state=None,
+                                    reg_alpha=None, reg_lambda=None, ...),
+             param_grid={'booster': ['gbtree', 'gblinear', 'dart'],
+                         'learning_rate': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7,
+                                           0.8, 0.9],
+                         'n_estimators': [100, 200, 300, 400]}).cv=3
+2022-07-21 at 19:42:03 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(cv=3,
+             estimator=XGBRegressor(base_score=None, booster=None,
+                                    callbacks=None, colsample_bylevel=None,
+                                    colsample_bynode=None,
+                                    colsample_bytree=None,
+                                    early_stopping_rounds=None,
+                                    enable_categorical=False, eval_metric=None,
+                                    gamma=None, gpu_id=None, grow_policy=None,
+                                    importance_type=None,
+                                    interaction_constraints=None,
+                                    learning_rate=None, max_bin=None,
+                                    max_cat...
+                                    max_depth=None, max_leaves=None,
+                                    min_child_weight=None, missing=nan,
+                                    monotone_constraints=None, n_estimators=100,
+                                    n_jobs=None, num_parallel_tree=None,
+                                    predictor=None, random_state=None,
+                                    reg_alpha=None, reg_lambda=None, ...),
+             param_grid={'booster': ['gbtree', 'gblinear', 'dart'],
+                         'learning_rate': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7,
+                                           0.8, 0.9],
+                         'n_estimators': [100, 200, 300, 400]}).verbose=3
+2022-07-21 at 19:42:03 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(cv=3,
+             estimator=XGBRegressor(base_score=None, booster=None,
+                                    callbacks=None, colsample_bylevel=None,
+                                    colsample_bynode=None,
+                                    colsample_bytree=None,
+                                    early_stopping_rounds=None,
+                                    enable_categorical=False, eval_metric=None,
+                                    gamma=None, gpu_id=None, grow_policy=None,
+                                    importance_type=None,
+                                    interaction_constraints=None,
+                                    learning_rate=None, max_bin=None,
+                                    max_cat...
+                                    max_depth=None, max_leaves=None,
+                                    min_child_weight=None, missing=nan,
+                                    monotone_constraints=None, n_estimators=100,
+                                    n_jobs=None, num_parallel_tree=None,
+                                    predictor=None, random_state=None,
+                                    reg_alpha=None, reg_lambda=None, ...),
+             param_grid={'booster': ['gbtree', 'gblinear', 'dart'],
+                         'learning_rate': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7,
+                                           0.8, 0.9],
+                         'n_estimators': [100, 200, 300, 400]},
+             verbose=3).n_jobs=-1
+2022-07-21 at 19:42:03 | INFO | model_factory.py |                                     execute_grid_search_operation |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> f"Training XGBRegressor Started." <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-21 at 19:54:54 | INFO | model_factory.py |                                     get_best_model |
+ Started Initializing model from config file
+2022-07-21 at 19:54:54 | INFO | model_factory.py |                                     class_for_name |
+ Executing command: from <module 'sklearn.tree' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/sklearn/tree/__init__.py'> import DecisionTreeRegressor
+2022-07-21 at 19:54:54 | INFO | model_factory.py |                                     class_for_name |
+ Executing command: from <module 'sklearn.ensemble' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/sklearn/ensemble/__init__.py'> import RandomForestRegressor
+2022-07-21 at 19:54:54 | INFO | model_factory.py |                                     class_for_name |
+ Executing command: from <module 'xgboost' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/xgboost/__init__.py'> import XGBRegressor
+2022-07-21 at 19:54:54 | INFO | model_factory.py |                                     get_best_model |
+ Initialized model: [InitializedModelDetail(model_serial_number='model_0', model=DecisionTreeRegressor(), param_grid_search={'criterion': ['squared_error', 'friedman_mse'], 'splitter': ['best'], 'min_samples_leaf': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 'max_depth': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 'max_features': ['auto', 'sqrt', 'log2'], 'min_samples_split': [2, 3, 4, 5, 6, 7, 8, 9, 10]}, model_name='sklearn.tree.DecisionTreeRegressor'), InitializedModelDetail(model_serial_number='model_1', model=RandomForestRegressor(), param_grid_search={'criterion': ['squared_error', 'absolute_error', 'poisson', 'friedman_mse'], 'n_estimators': [100, 200, 300, 400], 'max_depth': [2, 3, 4, 5], 'max_features': ['auto', 'sqrt', 'log2']}, model_name='sklearn.ensemble.RandomForestRegressor'), InitializedModelDetail(model_serial_number='model_2', model=XGBRegressor(base_score=None, booster=None, callbacks=None,
+             colsample_bylevel=None, colsample_bynode=None,
+             colsample_bytree=None, early_stopping_rounds=None,
+             enable_categorical=False, eval_metric=None, gamma=None,
+             gpu_id=None, grow_policy=None, importance_type=None,
+             interaction_constraints=None, learning_rate=None, max_bin=None,
+             max_cat_to_onehot=None, max_delta_step=None, max_depth=None,
+             max_leaves=None, min_child_weight=None, missing=nan,
+             monotone_constraints=None, n_estimators=100, n_jobs=None,
+             num_parallel_tree=None, predictor=None, random_state=None,
+             reg_alpha=None, reg_lambda=None, ...), param_grid_search={'booster': ['gbtree', 'gblinear', 'dart'], 'n_estimators': [100, 200, 300, 400], 'learning_rate': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]}, model_name='xgboost.XGBRegressor')]
+2022-07-21 at 19:54:54 | INFO | model_factory.py |                                     class_for_name |
+ Executing command: from <module 'sklearn.model_selection' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/sklearn/model_selection/__init__.py'> import GridSearchCV
+2022-07-21 at 19:54:54 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(estimator=DecisionTreeRegressor(),
+             param_grid={'criterion': ['squared_error', 'friedman_mse'],
+                         'max_depth': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'max_features': ['auto', 'sqrt', 'log2'],
+                         'min_samples_leaf': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'min_samples_split': [2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'splitter': ['best']}).cv=3
+2022-07-21 at 19:54:54 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(cv=3, estimator=DecisionTreeRegressor(),
+             param_grid={'criterion': ['squared_error', 'friedman_mse'],
+                         'max_depth': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'max_features': ['auto', 'sqrt', 'log2'],
+                         'min_samples_leaf': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'min_samples_split': [2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'splitter': ['best']}).verbose=3
+2022-07-21 at 19:54:54 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(cv=3, estimator=DecisionTreeRegressor(),
+             param_grid={'criterion': ['squared_error', 'friedman_mse'],
+                         'max_depth': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'max_features': ['auto', 'sqrt', 'log2'],
+                         'min_samples_leaf': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'min_samples_split': [2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'splitter': ['best']},
+             verbose=3).n_jobs=-1
+2022-07-21 at 19:54:54 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(cv=3, estimator=DecisionTreeRegressor(), n_jobs=-1,
+             param_grid={'criterion': ['squared_error', 'friedman_mse'],
+                         'max_depth': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'max_features': ['auto', 'sqrt', 'log2'],
+                         'min_samples_leaf': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'min_samples_split': [2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'splitter': ['best']},
+             verbose=3).scoring=‘explained_variance’
+2022-07-21 at 19:54:54 | INFO | model_factory.py |                                     execute_grid_search_operation |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> f"Training DecisionTreeRegressor Started." <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-21 at 19:56:35 | INFO | model_factory.py |                                     get_best_model |
+ Started Initializing model from config file
+2022-07-21 at 19:56:35 | INFO | model_factory.py |                                     class_for_name |
+ Executing command: from <module 'sklearn.tree' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/sklearn/tree/__init__.py'> import DecisionTreeRegressor
+2022-07-21 at 19:56:35 | INFO | model_factory.py |                                     class_for_name |
+ Executing command: from <module 'sklearn.ensemble' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/sklearn/ensemble/__init__.py'> import RandomForestRegressor
+2022-07-21 at 19:56:35 | INFO | model_factory.py |                                     class_for_name |
+ Executing command: from <module 'xgboost' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/xgboost/__init__.py'> import XGBRegressor
+2022-07-21 at 19:56:35 | INFO | model_factory.py |                                     get_best_model |
+ Initialized model: [InitializedModelDetail(model_serial_number='model_0', model=DecisionTreeRegressor(), param_grid_search={'criterion': ['squared_error', 'friedman_mse'], 'splitter': ['best'], 'min_samples_leaf': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 'max_depth': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 'max_features': ['auto', 'sqrt', 'log2'], 'min_samples_split': [2, 3, 4, 5, 6, 7, 8, 9, 10]}, model_name='sklearn.tree.DecisionTreeRegressor'), InitializedModelDetail(model_serial_number='model_1', model=RandomForestRegressor(), param_grid_search={'criterion': ['squared_error', 'absolute_error', 'poisson', 'friedman_mse'], 'n_estimators': [100, 200, 300, 400], 'max_depth': [2, 3, 4, 5], 'max_features': ['auto', 'sqrt', 'log2']}, model_name='sklearn.ensemble.RandomForestRegressor'), InitializedModelDetail(model_serial_number='model_2', model=XGBRegressor(base_score=None, booster=None, callbacks=None,
+             colsample_bylevel=None, colsample_bynode=None,
+             colsample_bytree=None, early_stopping_rounds=None,
+             enable_categorical=False, eval_metric=None, gamma=None,
+             gpu_id=None, grow_policy=None, importance_type=None,
+             interaction_constraints=None, learning_rate=None, max_bin=None,
+             max_cat_to_onehot=None, max_delta_step=None, max_depth=None,
+             max_leaves=None, min_child_weight=None, missing=nan,
+             monotone_constraints=None, n_estimators=100, n_jobs=None,
+             num_parallel_tree=None, predictor=None, random_state=None,
+             reg_alpha=None, reg_lambda=None, ...), param_grid_search={'booster': ['gbtree', 'gblinear', 'dart'], 'n_estimators': [100, 200, 300, 400], 'learning_rate': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]}, model_name='xgboost.XGBRegressor')]
+2022-07-21 at 19:56:35 | INFO | model_factory.py |                                     class_for_name |
+ Executing command: from <module 'sklearn.model_selection' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/sklearn/model_selection/__init__.py'> import GridSearchCV
+2022-07-21 at 19:56:35 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(estimator=DecisionTreeRegressor(),
+             param_grid={'criterion': ['squared_error', 'friedman_mse'],
+                         'max_depth': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'max_features': ['auto', 'sqrt', 'log2'],
+                         'min_samples_leaf': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'min_samples_split': [2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'splitter': ['best']}).cv=3
+2022-07-21 at 19:56:35 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(cv=3, estimator=DecisionTreeRegressor(),
+             param_grid={'criterion': ['squared_error', 'friedman_mse'],
+                         'max_depth': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'max_features': ['auto', 'sqrt', 'log2'],
+                         'min_samples_leaf': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'min_samples_split': [2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'splitter': ['best']}).verbose=3
+2022-07-21 at 19:56:35 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(cv=3, estimator=DecisionTreeRegressor(),
+             param_grid={'criterion': ['squared_error', 'friedman_mse'],
+                         'max_depth': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'max_features': ['auto', 'sqrt', 'log2'],
+                         'min_samples_leaf': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'min_samples_split': [2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'splitter': ['best']},
+             verbose=3).n_jobs=-1
+2022-07-21 at 19:56:35 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(cv=3, estimator=DecisionTreeRegressor(), n_jobs=-1,
+             param_grid={'criterion': ['squared_error', 'friedman_mse'],
+                         'max_depth': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'max_features': ['auto', 'sqrt', 'log2'],
+                         'min_samples_leaf': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'min_samples_split': [2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'splitter': ['best']},
+             verbose=3).scoring=explained_variance
+2022-07-21 at 19:56:35 | INFO | model_factory.py |                                     execute_grid_search_operation |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> f"Training DecisionTreeRegressor Started." <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-21 at 19:57:15 | INFO | model_factory.py |                                     class_for_name |
+ Executing command: from <module 'sklearn.model_selection' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/sklearn/model_selection/__init__.py'> import GridSearchCV
+2022-07-21 at 19:57:15 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(estimator=RandomForestRegressor(),
+             param_grid={'criterion': ['squared_error', 'absolute_error',
+                                       'poisson', 'friedman_mse'],
+                         'max_depth': [2, 3, 4, 5],
+                         'max_features': ['auto', 'sqrt', 'log2'],
+                         'n_estimators': [100, 200, 300, 400]}).cv=3
+2022-07-21 at 19:57:15 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(cv=3, estimator=RandomForestRegressor(),
+             param_grid={'criterion': ['squared_error', 'absolute_error',
+                                       'poisson', 'friedman_mse'],
+                         'max_depth': [2, 3, 4, 5],
+                         'max_features': ['auto', 'sqrt', 'log2'],
+                         'n_estimators': [100, 200, 300, 400]}).verbose=3
+2022-07-21 at 19:57:15 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(cv=3, estimator=RandomForestRegressor(),
+             param_grid={'criterion': ['squared_error', 'absolute_error',
+                                       'poisson', 'friedman_mse'],
+                         'max_depth': [2, 3, 4, 5],
+                         'max_features': ['auto', 'sqrt', 'log2'],
+                         'n_estimators': [100, 200, 300, 400]},
+             verbose=3).n_jobs=-1
+2022-07-21 at 19:57:15 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(cv=3, estimator=RandomForestRegressor(), n_jobs=-1,
+             param_grid={'criterion': ['squared_error', 'absolute_error',
+                                       'poisson', 'friedman_mse'],
+                         'max_depth': [2, 3, 4, 5],
+                         'max_features': ['auto', 'sqrt', 'log2'],
+                         'n_estimators': [100, 200, 300, 400]},
+             verbose=3).scoring=explained_variance
+2022-07-21 at 19:57:15 | INFO | model_factory.py |                                     execute_grid_search_operation |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> f"Training RandomForestRegressor Started." <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-21 at 20:37:14 | INFO | model_factory.py |                                     class_for_name |
+ Executing command: from <module 'sklearn.model_selection' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/sklearn/model_selection/__init__.py'> import GridSearchCV
+2022-07-21 at 20:37:14 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(estimator=XGBRegressor(base_score=None, booster=None,
+                                    callbacks=None, colsample_bylevel=None,
+                                    colsample_bynode=None,
+                                    colsample_bytree=None,
+                                    early_stopping_rounds=None,
+                                    enable_categorical=False, eval_metric=None,
+                                    gamma=None, gpu_id=None, grow_policy=None,
+                                    importance_type=None,
+                                    interaction_constraints=None,
+                                    learning_rate=None, max_bin=None,
+                                    max_cat_to_o...
+                                    max_depth=None, max_leaves=None,
+                                    min_child_weight=None, missing=nan,
+                                    monotone_constraints=None, n_estimators=100,
+                                    n_jobs=None, num_parallel_tree=None,
+                                    predictor=None, random_state=None,
+                                    reg_alpha=None, reg_lambda=None, ...),
+             param_grid={'booster': ['gbtree', 'gblinear', 'dart'],
+                         'learning_rate': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7,
+                                           0.8, 0.9],
+                         'n_estimators': [100, 200, 300, 400]}).cv=3
+2022-07-21 at 20:37:14 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(cv=3,
+             estimator=XGBRegressor(base_score=None, booster=None,
+                                    callbacks=None, colsample_bylevel=None,
+                                    colsample_bynode=None,
+                                    colsample_bytree=None,
+                                    early_stopping_rounds=None,
+                                    enable_categorical=False, eval_metric=None,
+                                    gamma=None, gpu_id=None, grow_policy=None,
+                                    importance_type=None,
+                                    interaction_constraints=None,
+                                    learning_rate=None, max_bin=None,
+                                    max_cat...
+                                    max_depth=None, max_leaves=None,
+                                    min_child_weight=None, missing=nan,
+                                    monotone_constraints=None, n_estimators=100,
+                                    n_jobs=None, num_parallel_tree=None,
+                                    predictor=None, random_state=None,
+                                    reg_alpha=None, reg_lambda=None, ...),
+             param_grid={'booster': ['gbtree', 'gblinear', 'dart'],
+                         'learning_rate': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7,
+                                           0.8, 0.9],
+                         'n_estimators': [100, 200, 300, 400]}).verbose=3
+2022-07-21 at 20:37:14 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(cv=3,
+             estimator=XGBRegressor(base_score=None, booster=None,
+                                    callbacks=None, colsample_bylevel=None,
+                                    colsample_bynode=None,
+                                    colsample_bytree=None,
+                                    early_stopping_rounds=None,
+                                    enable_categorical=False, eval_metric=None,
+                                    gamma=None, gpu_id=None, grow_policy=None,
+                                    importance_type=None,
+                                    interaction_constraints=None,
+                                    learning_rate=None, max_bin=None,
+                                    max_cat...
+                                    max_depth=None, max_leaves=None,
+                                    min_child_weight=None, missing=nan,
+                                    monotone_constraints=None, n_estimators=100,
+                                    n_jobs=None, num_parallel_tree=None,
+                                    predictor=None, random_state=None,
+                                    reg_alpha=None, reg_lambda=None, ...),
+             param_grid={'booster': ['gbtree', 'gblinear', 'dart'],
+                         'learning_rate': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7,
+                                           0.8, 0.9],
+                         'n_estimators': [100, 200, 300, 400]},
+             verbose=3).n_jobs=-1
+2022-07-21 at 20:37:14 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(cv=3,
+             estimator=XGBRegressor(base_score=None, booster=None,
+                                    callbacks=None, colsample_bylevel=None,
+                                    colsample_bynode=None,
+                                    colsample_bytree=None,
+                                    early_stopping_rounds=None,
+                                    enable_categorical=False, eval_metric=None,
+                                    gamma=None, gpu_id=None, grow_policy=None,
+                                    importance_type=None,
+                                    interaction_constraints=None,
+                                    learning_rate=None, max_bin=None,
+                                    max_cat...
+                                    max_depth=None, max_leaves=None,
+                                    min_child_weight=None, missing=nan,
+                                    monotone_constraints=None, n_estimators=100,
+                                    n_jobs=None, num_parallel_tree=None,
+                                    predictor=None, random_state=None,
+                                    reg_alpha=None, reg_lambda=None, ...),
+             n_jobs=-1,
+             param_grid={'booster': ['gbtree', 'gblinear', 'dart'],
+                         'learning_rate': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7,
+                                           0.8, 0.9],
+                         'n_estimators': [100, 200, 300, 400]},
+             verbose=3).scoring=explained_variance
+2022-07-21 at 20:37:14 | INFO | model_factory.py |                                     execute_grid_search_operation |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> f"Training XGBRegressor Started." <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-21 at 20:45:19 | INFO | model_factory.py |                                     get_best_model |
+ Started Initializing model from config file
+2022-07-21 at 20:45:19 | INFO | model_factory.py |                                     class_for_name |
+ Executing command: from <module 'sklearn.tree' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/sklearn/tree/__init__.py'> import DecisionTreeRegressor
+2022-07-21 at 20:45:19 | INFO | model_factory.py |                                     class_for_name |
+ Executing command: from <module 'sklearn.ensemble' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/sklearn/ensemble/__init__.py'> import RandomForestRegressor
+2022-07-21 at 20:45:19 | INFO | model_factory.py |                                     class_for_name |
+ Executing command: from <module 'xgboost' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/xgboost/__init__.py'> import XGBRegressor
+2022-07-21 at 20:45:19 | INFO | model_factory.py |                                     get_best_model |
+ Initialized model: [InitializedModelDetail(model_serial_number='model_0', model=DecisionTreeRegressor(), param_grid_search={'criterion': ['squared_error', 'friedman_mse'], 'splitter': ['best'], 'min_samples_leaf': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 'max_depth': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 'max_features': ['auto', 'sqrt', 'log2'], 'min_samples_split': [2, 3, 4, 5, 6, 7, 8, 9, 10]}, model_name='sklearn.tree.DecisionTreeRegressor'), InitializedModelDetail(model_serial_number='model_1', model=RandomForestRegressor(), param_grid_search={'criterion': ['squared_error', 'absolute_error', 'poisson', 'friedman_mse'], 'n_estimators': [100, 200, 300, 400], 'max_depth': [2, 3, 4, 5], 'max_features': ['auto', 'sqrt', 'log2']}, model_name='sklearn.ensemble.RandomForestRegressor'), InitializedModelDetail(model_serial_number='model_2', model=XGBRegressor(base_score=None, booster=None, callbacks=None,
+             colsample_bylevel=None, colsample_bynode=None,
+             colsample_bytree=None, early_stopping_rounds=None,
+             enable_categorical=False, eval_metric=None, gamma=None,
+             gpu_id=None, grow_policy=None, importance_type=None,
+             interaction_constraints=None, learning_rate=None, max_bin=None,
+             max_cat_to_onehot=None, max_delta_step=None, max_depth=None,
+             max_leaves=None, min_child_weight=None, missing=nan,
+             monotone_constraints=None, n_estimators=100, n_jobs=None,
+             num_parallel_tree=None, predictor=None, random_state=None,
+             reg_alpha=None, reg_lambda=None, ...), param_grid_search={'booster': ['gbtree', 'gblinear', 'dart'], 'n_estimators': [100, 200, 300, 400], 'learning_rate': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]}, model_name='xgboost.XGBRegressor')]
+2022-07-21 at 20:45:19 | INFO | model_factory.py |                                     class_for_name |
+ Executing command: from <module 'sklearn.model_selection' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/sklearn/model_selection/__init__.py'> import GridSearchCV
+2022-07-21 at 20:45:19 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(estimator=DecisionTreeRegressor(),
+             param_grid={'criterion': ['squared_error', 'friedman_mse'],
+                         'max_depth': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'max_features': ['auto', 'sqrt', 'log2'],
+                         'min_samples_leaf': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'min_samples_split': [2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'splitter': ['best']}).cv=3
+2022-07-21 at 20:45:19 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(cv=3, estimator=DecisionTreeRegressor(),
+             param_grid={'criterion': ['squared_error', 'friedman_mse'],
+                         'max_depth': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'max_features': ['auto', 'sqrt', 'log2'],
+                         'min_samples_leaf': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'min_samples_split': [2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'splitter': ['best']}).verbose=3
+2022-07-21 at 20:45:19 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(cv=3, estimator=DecisionTreeRegressor(),
+             param_grid={'criterion': ['squared_error', 'friedman_mse'],
+                         'max_depth': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'max_features': ['auto', 'sqrt', 'log2'],
+                         'min_samples_leaf': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'min_samples_split': [2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'splitter': ['best']},
+             verbose=3).n_jobs=-1
+2022-07-21 at 20:45:19 | INFO | model_factory.py |                                     execute_grid_search_operation |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> f"Training DecisionTreeRegressor Started." <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-21 at 20:45:34 | INFO | model_factory.py |                                     class_for_name |
+ Executing command: from <module 'sklearn.model_selection' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/sklearn/model_selection/__init__.py'> import GridSearchCV
+2022-07-21 at 20:45:34 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(estimator=RandomForestRegressor(),
+             param_grid={'criterion': ['squared_error', 'absolute_error',
+                                       'poisson', 'friedman_mse'],
+                         'max_depth': [2, 3, 4, 5],
+                         'max_features': ['auto', 'sqrt', 'log2'],
+                         'n_estimators': [100, 200, 300, 400]}).cv=3
+2022-07-21 at 20:45:34 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(cv=3, estimator=RandomForestRegressor(),
+             param_grid={'criterion': ['squared_error', 'absolute_error',
+                                       'poisson', 'friedman_mse'],
+                         'max_depth': [2, 3, 4, 5],
+                         'max_features': ['auto', 'sqrt', 'log2'],
+                         'n_estimators': [100, 200, 300, 400]}).verbose=3
+2022-07-21 at 20:45:34 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(cv=3, estimator=RandomForestRegressor(),
+             param_grid={'criterion': ['squared_error', 'absolute_error',
+                                       'poisson', 'friedman_mse'],
+                         'max_depth': [2, 3, 4, 5],
+                         'max_features': ['auto', 'sqrt', 'log2'],
+                         'n_estimators': [100, 200, 300, 400]},
+             verbose=3).n_jobs=-1
+2022-07-21 at 20:45:34 | INFO | model_factory.py |                                     execute_grid_search_operation |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> f"Training RandomForestRegressor Started." <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-21 at 20:57:48 | INFO | model_factory.py |                                     class_for_name |
+ Executing command: from <module 'sklearn.model_selection' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/sklearn/model_selection/__init__.py'> import GridSearchCV
+2022-07-21 at 20:57:48 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(estimator=XGBRegressor(base_score=None, booster=None,
+                                    callbacks=None, colsample_bylevel=None,
+                                    colsample_bynode=None,
+                                    colsample_bytree=None,
+                                    early_stopping_rounds=None,
+                                    enable_categorical=False, eval_metric=None,
+                                    gamma=None, gpu_id=None, grow_policy=None,
+                                    importance_type=None,
+                                    interaction_constraints=None,
+                                    learning_rate=None, max_bin=None,
+                                    max_cat_to_o...
+                                    max_depth=None, max_leaves=None,
+                                    min_child_weight=None, missing=nan,
+                                    monotone_constraints=None, n_estimators=100,
+                                    n_jobs=None, num_parallel_tree=None,
+                                    predictor=None, random_state=None,
+                                    reg_alpha=None, reg_lambda=None, ...),
+             param_grid={'booster': ['gbtree', 'gblinear', 'dart'],
+                         'learning_rate': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7,
+                                           0.8, 0.9],
+                         'n_estimators': [100, 200, 300, 400]}).cv=3
+2022-07-21 at 20:57:48 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(cv=3,
+             estimator=XGBRegressor(base_score=None, booster=None,
+                                    callbacks=None, colsample_bylevel=None,
+                                    colsample_bynode=None,
+                                    colsample_bytree=None,
+                                    early_stopping_rounds=None,
+                                    enable_categorical=False, eval_metric=None,
+                                    gamma=None, gpu_id=None, grow_policy=None,
+                                    importance_type=None,
+                                    interaction_constraints=None,
+                                    learning_rate=None, max_bin=None,
+                                    max_cat...
+                                    max_depth=None, max_leaves=None,
+                                    min_child_weight=None, missing=nan,
+                                    monotone_constraints=None, n_estimators=100,
+                                    n_jobs=None, num_parallel_tree=None,
+                                    predictor=None, random_state=None,
+                                    reg_alpha=None, reg_lambda=None, ...),
+             param_grid={'booster': ['gbtree', 'gblinear', 'dart'],
+                         'learning_rate': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7,
+                                           0.8, 0.9],
+                         'n_estimators': [100, 200, 300, 400]}).verbose=3
+2022-07-21 at 20:57:48 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(cv=3,
+             estimator=XGBRegressor(base_score=None, booster=None,
+                                    callbacks=None, colsample_bylevel=None,
+                                    colsample_bynode=None,
+                                    colsample_bytree=None,
+                                    early_stopping_rounds=None,
+                                    enable_categorical=False, eval_metric=None,
+                                    gamma=None, gpu_id=None, grow_policy=None,
+                                    importance_type=None,
+                                    interaction_constraints=None,
+                                    learning_rate=None, max_bin=None,
+                                    max_cat...
+                                    max_depth=None, max_leaves=None,
+                                    min_child_weight=None, missing=nan,
+                                    monotone_constraints=None, n_estimators=100,
+                                    n_jobs=None, num_parallel_tree=None,
+                                    predictor=None, random_state=None,
+                                    reg_alpha=None, reg_lambda=None, ...),
+             param_grid={'booster': ['gbtree', 'gblinear', 'dart'],
+                         'learning_rate': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7,
+                                           0.8, 0.9],
+                         'n_estimators': [100, 200, 300, 400]},
+             verbose=3).n_jobs=-1
+2022-07-21 at 20:57:48 | INFO | model_factory.py |                                     execute_grid_search_operation |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> f"Training XGBRegressor Started." <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-21 at 21:00:09 | INFO | model_factory.py |                                     get_best_model_from_grid_searched_best_model_list |
+ Acceptable model found:GridSearchedBestModel(model_serial_number='model_0', model=DecisionTreeRegressor(), best_model=DecisionTreeRegressor(criterion='friedman_mse', max_depth=5,
+                      max_features='auto', min_samples_leaf=10,
+                      min_samples_split=5), best_parameters={'criterion': 'friedman_mse', 'max_depth': 5, 'max_features': 'auto', 'min_samples_leaf': 10, 'min_samples_split': 5, 'splitter': 'best'}, best_score=0.5840221436388734)
+2022-07-21 at 21:00:09 | INFO | model_factory.py |                                     get_best_model_from_grid_searched_best_model_list |
+ Acceptable model found:GridSearchedBestModel(model_serial_number='model_1', model=RandomForestRegressor(), best_model=RandomForestRegressor(criterion='friedman_mse', max_depth=5), best_parameters={'criterion': 'friedman_mse', 'max_depth': 5, 'max_features': 'auto', 'n_estimators': 100}, best_score=0.5928936970766838)
+2022-07-21 at 21:00:09 | INFO | model_factory.py |                                     get_best_model_from_grid_searched_best_model_list |
+ Best model: GridSearchedBestModel(model_serial_number='model_1', model=RandomForestRegressor(), best_model=RandomForestRegressor(criterion='friedman_mse', max_depth=5), best_parameters={'criterion': 'friedman_mse', 'max_depth': 5, 'max_features': 'auto', 'n_estimators': 100}, best_score=0.5928936970766838)
+2022-07-21 at 21:14:28 | INFO | model_factory.py |                                     class_for_name |
+ Executing command: from <module 'sklearn.tree' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/sklearn/tree/__init__.py'> import DecisionTreeRegressor
+2022-07-21 at 21:14:28 | INFO | model_factory.py |                                     class_for_name |
+ Executing command: from <module 'sklearn.ensemble' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/sklearn/ensemble/__init__.py'> import RandomForestRegressor
+2022-07-21 at 21:14:28 | INFO | model_factory.py |                                     class_for_name |
+ Executing command: from <module 'xgboost' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/xgboost/__init__.py'> import XGBRegressor
+2022-07-21 at 21:14:36 | INFO | model_factory.py |                                     class_for_name |
+ Executing command: from <module 'sklearn.tree' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/sklearn/tree/__init__.py'> import DecisionTreeRegressor
+2022-07-21 at 21:14:36 | INFO | model_factory.py |                                     class_for_name |
+ Executing command: from <module 'sklearn.ensemble' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/sklearn/ensemble/__init__.py'> import RandomForestRegressor
+2022-07-21 at 21:14:36 | INFO | model_factory.py |                                     class_for_name |
+ Executing command: from <module 'xgboost' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/xgboost/__init__.py'> import XGBRegressor
+2022-07-21 at 21:16:06 | INFO | model_factory.py |                                     class_for_name |
+ Executing command: from <module 'sklearn.model_selection' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/sklearn/model_selection/__init__.py'> import GridSearchCV
+2022-07-21 at 21:16:06 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(estimator=DecisionTreeRegressor(),
+             param_grid={'criterion': ['squared_error', 'friedman_mse'],
+                         'max_depth': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'max_features': ['auto', 'sqrt', 'log2'],
+                         'min_samples_leaf': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'min_samples_split': [2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'splitter': ['best']}).cv=3
+2022-07-21 at 21:16:06 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(cv=3, estimator=DecisionTreeRegressor(),
+             param_grid={'criterion': ['squared_error', 'friedman_mse'],
+                         'max_depth': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'max_features': ['auto', 'sqrt', 'log2'],
+                         'min_samples_leaf': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'min_samples_split': [2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'splitter': ['best']}).verbose=3
+2022-07-21 at 21:16:06 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(cv=3, estimator=DecisionTreeRegressor(),
+             param_grid={'criterion': ['squared_error', 'friedman_mse'],
+                         'max_depth': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'max_features': ['auto', 'sqrt', 'log2'],
+                         'min_samples_leaf': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'min_samples_split': [2, 3, 4, 5, 6, 7, 8, 9, 10],
+                         'splitter': ['best']},
+             verbose=3).n_jobs=-1
+2022-07-21 at 21:16:06 | INFO | model_factory.py |                                     execute_grid_search_operation |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> f"Training DecisionTreeRegressor Started." <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-21 at 21:16:23 | INFO | model_factory.py |                                     class_for_name |
+ Executing command: from <module 'sklearn.model_selection' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/sklearn/model_selection/__init__.py'> import GridSearchCV
+2022-07-21 at 21:16:23 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(estimator=RandomForestRegressor(),
+             param_grid={'criterion': ['squared_error', 'absolute_error',
+                                       'poisson', 'friedman_mse'],
+                         'max_depth': [2, 3, 4, 5],
+                         'max_features': ['auto', 'sqrt', 'log2'],
+                         'n_estimators': [100, 200, 300, 400]}).cv=3
+2022-07-21 at 21:16:23 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(cv=3, estimator=RandomForestRegressor(),
+             param_grid={'criterion': ['squared_error', 'absolute_error',
+                                       'poisson', 'friedman_mse'],
+                         'max_depth': [2, 3, 4, 5],
+                         'max_features': ['auto', 'sqrt', 'log2'],
+                         'n_estimators': [100, 200, 300, 400]}).verbose=3
+2022-07-21 at 21:16:23 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(cv=3, estimator=RandomForestRegressor(),
+             param_grid={'criterion': ['squared_error', 'absolute_error',
+                                       'poisson', 'friedman_mse'],
+                         'max_depth': [2, 3, 4, 5],
+                         'max_features': ['auto', 'sqrt', 'log2'],
+                         'n_estimators': [100, 200, 300, 400]},
+             verbose=3).n_jobs=-1
+2022-07-21 at 21:16:23 | INFO | model_factory.py |                                     execute_grid_search_operation |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> f"Training RandomForestRegressor Started." <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-21 at 21:28:30 | INFO | model_factory.py |                                     class_for_name |
+ Executing command: from <module 'sklearn.model_selection' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/sklearn/model_selection/__init__.py'> import GridSearchCV
+2022-07-21 at 21:28:30 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(estimator=XGBRegressor(base_score=None, booster=None,
+                                    callbacks=None, colsample_bylevel=None,
+                                    colsample_bynode=None,
+                                    colsample_bytree=None,
+                                    early_stopping_rounds=None,
+                                    enable_categorical=False, eval_metric=None,
+                                    gamma=None, gpu_id=None, grow_policy=None,
+                                    importance_type=None,
+                                    interaction_constraints=None,
+                                    learning_rate=None, max_bin=None,
+                                    max_cat_to_o...
+                                    max_depth=None, max_leaves=None,
+                                    min_child_weight=None, missing=nan,
+                                    monotone_constraints=None, n_estimators=100,
+                                    n_jobs=None, num_parallel_tree=None,
+                                    predictor=None, random_state=None,
+                                    reg_alpha=None, reg_lambda=None, ...),
+             param_grid={'booster': ['gbtree', 'gblinear', 'dart'],
+                         'learning_rate': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7,
+                                           0.8, 0.9],
+                         'n_estimators': [100, 200, 300, 400]}).cv=3
+2022-07-21 at 21:28:30 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(cv=3,
+             estimator=XGBRegressor(base_score=None, booster=None,
+                                    callbacks=None, colsample_bylevel=None,
+                                    colsample_bynode=None,
+                                    colsample_bytree=None,
+                                    early_stopping_rounds=None,
+                                    enable_categorical=False, eval_metric=None,
+                                    gamma=None, gpu_id=None, grow_policy=None,
+                                    importance_type=None,
+                                    interaction_constraints=None,
+                                    learning_rate=None, max_bin=None,
+                                    max_cat...
+                                    max_depth=None, max_leaves=None,
+                                    min_child_weight=None, missing=nan,
+                                    monotone_constraints=None, n_estimators=100,
+                                    n_jobs=None, num_parallel_tree=None,
+                                    predictor=None, random_state=None,
+                                    reg_alpha=None, reg_lambda=None, ...),
+             param_grid={'booster': ['gbtree', 'gblinear', 'dart'],
+                         'learning_rate': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7,
+                                           0.8, 0.9],
+                         'n_estimators': [100, 200, 300, 400]}).verbose=3
+2022-07-21 at 21:28:30 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(cv=3,
+             estimator=XGBRegressor(base_score=None, booster=None,
+                                    callbacks=None, colsample_bylevel=None,
+                                    colsample_bynode=None,
+                                    colsample_bytree=None,
+                                    early_stopping_rounds=None,
+                                    enable_categorical=False, eval_metric=None,
+                                    gamma=None, gpu_id=None, grow_policy=None,
+                                    importance_type=None,
+                                    interaction_constraints=None,
+                                    learning_rate=None, max_bin=None,
+                                    max_cat...
+                                    max_depth=None, max_leaves=None,
+                                    min_child_weight=None, missing=nan,
+                                    monotone_constraints=None, n_estimators=100,
+                                    n_jobs=None, num_parallel_tree=None,
+                                    predictor=None, random_state=None,
+                                    reg_alpha=None, reg_lambda=None, ...),
+             param_grid={'booster': ['gbtree', 'gblinear', 'dart'],
+                         'learning_rate': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7,
+                                           0.8, 0.9],
+                         'n_estimators': [100, 200, 300, 400]},
+             verbose=3).n_jobs=-1
+2022-07-21 at 21:28:30 | INFO | model_factory.py |                                     execute_grid_search_operation |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> f"Training XGBRegressor Started." <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-21 at 21:43:04 | INFO | model_factory.py |                                     evaluate_regression_model |
+ {'>>' * 30}Started evaluating model: [{type(model).__name__}] {'<<' * 30}
+2022-07-21 at 21:43:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Score <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-21 at 21:43:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Train Score		 Test Score		 Average Score
+2022-07-21 at 21:43:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ 0.894991180892134		 0.4316775727029555		0.5824326826287561
+2022-07-21 at 21:43:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Loss <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-21 at 21:43:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Diff test train accuracy: [0.46331360818917855].
+2022-07-21 at 21:43:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Train root mean squared error: [557.3341566181138].
+2022-07-21 at 21:43:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Test root mean squared error: [1242.8529058502158].
+2022-07-21 at 21:43:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ No model found with higher accuracy than base accuracy
+2022-07-21 at 21:45:28 | INFO | model_factory.py |                                     evaluate_regression_model |
+ {'>>' * 30}Started evaluating model: [{type(model).__name__}] {'<<' * 30}
+2022-07-21 at 21:45:29 | INFO | model_factory.py |                                     evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Score <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-21 at 21:45:29 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Train Score		 Test Score		 Average Score
+2022-07-21 at 21:45:29 | INFO | model_factory.py |                                     evaluate_regression_model |
+ 0.36328092245863175		 0.38472984285751044		0.3736978628952486
+2022-07-21 at 21:45:29 | INFO | model_factory.py |                                     evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Loss <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-21 at 21:45:29 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Diff test train accuracy: [0.02144892039887869].
+2022-07-21 at 21:45:29 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Train root mean squared error: [1372.387342378592].
+2022-07-21 at 21:45:29 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Test root mean squared error: [1293.1689255452488].
+2022-07-21 at 21:45:29 | INFO | model_factory.py |                                     evaluate_regression_model |
+ No model found with higher accuracy than base accuracy
+2022-07-21 at 21:47:00 | INFO | model_factory.py |                                     evaluate_regression_model |
+ {'>>' * 30}Started evaluating model: [{type(model).__name__}] {'<<' * 30}
+2022-07-21 at 21:47:00 | INFO | model_factory.py |                                     evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Score <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-21 at 21:47:00 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Train Score		 Test Score		 Average Score
+2022-07-21 at 21:47:00 | INFO | model_factory.py |                                     evaluate_regression_model |
+ 0.9641147016799362		 0.39857034673326064		0.56398583280366
+2022-07-21 at 21:47:00 | INFO | model_factory.py |                                     evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Loss <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-21 at 21:47:00 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Diff test train accuracy: [0.5655443549466755].
+2022-07-21 at 21:47:00 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Train root mean squared error: [325.80748174478276].
+2022-07-21 at 21:47:00 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Test root mean squared error: [1278.5412761247374].
+2022-07-21 at 21:47:00 | INFO | model_factory.py |                                     evaluate_regression_model |
+ No model found with higher accuracy than base accuracy
+2022-07-21 at 21:48:30 | INFO | model_factory.py |                                     evaluate_regression_model |
+ {'>>' * 30}Started evaluating model: [{type(model).__name__}] {'<<' * 30}
+2022-07-21 at 21:48:30 | INFO | model_factory.py |                                     evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Score <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-21 at 21:48:30 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Train Score		 Test Score		 Average Score
+2022-07-21 at 21:48:30 | INFO | model_factory.py |                                     evaluate_regression_model |
+ 0.7890888151056179		 0.5091501262522178		0.61893794283359
+2022-07-21 at 21:48:30 | INFO | model_factory.py |                                     evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Loss <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-21 at 21:48:30 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Diff test train accuracy: [0.2799386888534001].
+2022-07-21 at 21:48:30 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Train root mean squared error: [789.8644695325987].
+2022-07-21 at 21:48:30 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Test root mean squared error: [1155.0390746849516].
+2022-07-21 at 21:48:30 | INFO | model_factory.py |                                     evaluate_regression_model |
+ No model found with higher accuracy than base accuracy
+2022-07-21 at 22:04:33 | INFO | model_factory.py |                                     evaluate_regression_model |
+ {'>>' * 30}Started evaluating model: [{type(model).__name__}] {'<<' * 30}
+2022-07-21 at 22:04:34 | INFO | model_factory.py |                                     evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Score <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-21 at 22:04:34 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Train Score		 Test Score		 Average Score
+2022-07-21 at 22:04:34 | INFO | model_factory.py |                                     evaluate_regression_model |
+ 0.7835911459246571		 0.5172102276011457		0.6231256565042291
+2022-07-21 at 22:04:34 | INFO | model_factory.py |                                     evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Loss <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-21 at 22:04:34 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Diff test train accuracy: [0.2663809183235114].
+2022-07-21 at 22:04:34 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Train root mean squared error: [800.0926582887978].
+2022-07-21 at 22:04:34 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Test root mean squared error: [1145.5165428088703].
+2022-07-21 at 22:04:34 | INFO | model_factory.py |                                     evaluate_regression_model |
+ No model found with higher accuracy than base accuracy

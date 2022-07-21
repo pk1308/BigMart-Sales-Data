@@ -1,0 +1,426 @@
+2022-07-21 at 23:44:19 | INFO | configuration.py |                                     get_training_pipeline_config |
+ Training pipeline config: TrainingPipelineConfig(experiment_id='94cbbf94-46c2-4a28-8f6d-dbf44d9c4fe8', previous_experiment_id='489bcc8e-17fe-4e6d-a416-9748e526d81e', artifact_dir='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact', experiment_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/experiment/experiment.csv')
+2022-07-21 at 23:44:19 | INFO | pipeline.py |                                     run_pipeline |
+ Pipeline starting.
+2022-07-21 at 23:44:19 | INFO | test.py |                                     main |
+ main function execution completed.
+2022-07-21 at 23:44:19 | INFO | pipeline.py |                                     run_pipeline |
+ Pipeline experiment: 94cbbf94-46c2-4a28-8f6d-dbf44d9c4fe8
+2022-07-21 at 23:44:19 | INFO | configuration.py |                                     get_data_ingestion_config |
+ Data Ingestion config: DataIngestionConfig(train_dataset_download_url='https://raw.githubusercontent.com/pk1308/datasets/master/BigMartSales/Train.csv', raw_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage00_data_ingestion/94cbbf94-46c2-4a28-8f6d-dbf44d9c4fe8/raw_data/Train.csv', ingested_test_data_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage00_data_ingestion/94cbbf94-46c2-4a28-8f6d-dbf44d9c4fe8/ingested_data/Test.csv', ingested_train_data_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage00_data_ingestion/94cbbf94-46c2-4a28-8f6d-dbf44d9c4fe8/ingested_data/Train.csv')
+2022-07-21 at 23:44:19 | INFO | stage_00_data_ingestion.py |                                     __init__ |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Data Ingestion log started.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+2022-07-21 at 23:44:20 | INFO | stage_00_data_ingestion.py |                                     download_data |
+ Downloading file from :[https://raw.githubusercontent.com/pk1308/datasets/master/BigMartSales/Train.csv] into :[/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage00_data_ingestion/94cbbf94-46c2-4a28-8f6d-dbf44d9c4fe8/raw_data/Train.csv]
+2022-07-21 at 23:44:20 | INFO | stage_00_data_ingestion.py |                                     split_data_as_train_test |
+ Reading csv file: [/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage00_data_ingestion/94cbbf94-46c2-4a28-8f6d-dbf44d9c4fe8/raw_data/Train.csv]
+2022-07-21 at 23:44:20 | INFO | stage_00_data_ingestion.py |                                     split_data_as_train_test |
+ Splitting data into train and test
+2022-07-21 at 23:44:20 | INFO | stage_00_data_ingestion.py |                                     split_data_as_train_test |
+ Exporting training dataset to file: [/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage00_data_ingestion/94cbbf94-46c2-4a28-8f6d-dbf44d9c4fe8/ingested_data/Train.csv]
+2022-07-21 at 23:44:20 | INFO | stage_00_data_ingestion.py |                                     split_data_as_train_test |
+ Exporting test dataset to file: [/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage00_data_ingestion/94cbbf94-46c2-4a28-8f6d-dbf44d9c4fe8/ingested_data/Test.csv]
+2022-07-21 at 23:44:20 | INFO | stage_00_data_ingestion.py |                                     split_data_as_train_test |
+ Data Ingestion artifact:[DataIngestionArtifact(train_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage00_data_ingestion/94cbbf94-46c2-4a28-8f6d-dbf44d9c4fe8/ingested_data/Train.csv', test_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage00_data_ingestion/94cbbf94-46c2-4a28-8f6d-dbf44d9c4fe8/ingested_data/Test.csv', is_ingested=True, message='Data ingestion completed successfully.')]
+2022-07-21 at 23:44:20 | INFO | stage_00_data_ingestion.py |                                     __del__ |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Data Ingestion log completed.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+
+
+2022-07-21 at 23:44:20 | INFO | stage_01_data_validation.py |                                     __init__ |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Data Validation log started.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+
+
+2022-07-21 at 23:44:20 | INFO | stage_01_data_validation.py |                                     is_train_test_file_exists |
+ Checking if training and test file is available
+2022-07-21 at 23:44:20 | INFO | stage_01_data_validation.py |                                     is_train_test_file_exists |
+ Is train and test file exists?-> True
+2022-07-21 at 23:44:20 | INFO | stage_01_data_validation.py |                                     get_and_save_data_drift_report |
+ Previous dataframe is not available
+2022-07-21 at 23:44:20 | INFO | stage_01_data_validation.py |                                     save_data_drift_report_page |
+ Previous dataframe is not available
+2022-07-21 at 23:44:20 | INFO | stage_01_data_validation.py |                                     initiate_data_validation |
+ Data validation artifact: DataValidationArtifact(schema_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/config/schema.yaml', report_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage01_data_validation/94cbbf94-46c2-4a28-8f6d-dbf44d9c4fe8/report/report.json', report_page_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage01_data_validation/94cbbf94-46c2-4a28-8f6d-dbf44d9c4fe8/report/report.html', is_validated=True, message='Data Validation performed successfully.')
+2022-07-21 at 23:44:20 | INFO | stage_01_data_validation.py |                                     __del__ |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Data Validation log completed.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+
+
+2022-07-21 at 23:44:20 | INFO | configuration.py |                                     get_data_transformation_config |
+ Data transformation config: DataTransformationConfig(transformed_train_dir='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage02_data_transformation/94cbbf94-46c2-4a28-8f6d-dbf44d9c4fe8/stage02_data_transformation/train', transformed_test_dir='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage02_data_transformation/94cbbf94-46c2-4a28-8f6d-dbf44d9c4fe8/stage02_data_transformation/test', preprocessed_object_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage02_data_transformation/94cbbf94-46c2-4a28-8f6d-dbf44d9c4fe8/stage02_data_transformation/preprocessed/preprocessed.pkl')
+2022-07-21 at 23:44:20 | INFO | stage_02_data_transformation.py |                                     __init__ |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Data Transformation log started.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+2022-07-21 at 23:44:20 | INFO | stage_02_data_transformation.py |                                     initiate_data_transformation |
+ Obtaining preprocessing object.
+2022-07-21 at 23:44:20 | INFO | stage_02_data_transformation.py |                                     get_data_transformer_object |
+ Categorical columns: ['Item_Identifier', 'Item_Fat_Content', 'Item_Type', 'Outlet_Identifier', 'Outlet_Type']
+2022-07-21 at 23:44:20 | INFO | stage_02_data_transformation.py |                                     get_data_transformer_object |
+ Numerical columns: ['Item_Weight', 'Item_Visibility', 'Item_MRP', 'Outlet_Establishment_Year']
+2022-07-21 at 23:44:20 | INFO | stage_02_data_transformation.py |                                     initiate_data_transformation |
+ Obtaining training and test file path.
+2022-07-21 at 23:44:20 | INFO | stage_02_data_transformation.py |                                     initiate_data_transformation |
+ Selected columns: ['Item_Identifier', 'Item_Weight', 'Item_Fat_Content', 'Item_Visibility', 'Item_Type', 'Item_MRP', 'Outlet_Identifier', 'Outlet_Establishment_Year', 'Outlet_Type', 'Item_Outlet_Sales']
+2022-07-21 at 23:44:20 | INFO | stage_02_data_transformation.py |                                     initiate_data_transformation |
+ Loading training and test data as pandas dataframe.
+2022-07-21 at 23:44:20 | INFO | stage_02_data_transformation.py |                                     initiate_data_transformation |
+ Splitting input and target feature from training and testing dataframe.
+2022-07-21 at 23:44:20 | INFO | stage_02_data_transformation.py |                                     initiate_data_transformation |
+ Applying preprocessing object on training dataframe and testing dataframe
+2022-07-21 at 23:44:20 | INFO | stage_02_data_transformation.py |                                     transform |
+ Transforming data
+2022-07-21 at 23:44:20 | INFO | stage_02_data_transformation.py |                                     transform |
+ Index(['Item_Weight', 'Item_Visibility', 'Item_MRP',
+       'Outlet_Establishment_Year'],
+      dtype='object')
+2022-07-21 at 23:44:20 | INFO | stage_02_data_transformation.py |                                     transform |
+ Transforming data
+2022-07-21 at 23:44:20 | INFO | stage_02_data_transformation.py |                                     transform |
+ Index(['Item_Weight', 'Item_Visibility', 'Item_MRP',
+       'Outlet_Establishment_Year'],
+      dtype='object')
+2022-07-21 at 23:44:20 | INFO | stage_02_data_transformation.py |                                     initiate_data_transformation |
+ Saving transformed training and testing array.
+2022-07-21 at 23:44:20 | INFO | stage_02_data_transformation.py |                                     initiate_data_transformation |
+ Saving preprocessing object.
+2022-07-21 at 23:44:20 | INFO | stage_02_data_transformation.py |                                     initiate_data_transformation |
+ Data transformations artifact: DataTransformationArtifact(is_transformed=True, message='Data transformation successfully.', transformed_train_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage02_data_transformation/94cbbf94-46c2-4a28-8f6d-dbf44d9c4fe8/stage02_data_transformation/train/Train.npz', transformed_test_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage02_data_transformation/94cbbf94-46c2-4a28-8f6d-dbf44d9c4fe8/stage02_data_transformation/test/Test.npz', preprocessed_object_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage02_data_transformation/94cbbf94-46c2-4a28-8f6d-dbf44d9c4fe8/stage02_data_transformation/preprocessed/preprocessed.pkl')
+2022-07-21 at 23:44:20 | INFO | stage_02_data_transformation.py |                                     __del__ |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Data Transformation log completed.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+
+
+2022-07-21 at 23:44:20 | INFO | configuration.py |                                     get_model_trainer_config |
+ Model trainer config: ModelTrainerConfig(trained_model_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage03_model_training/94cbbf94-46c2-4a28-8f6d-dbf44d9c4fe8/trained_model/model.pkl', base_accuracy=0.5, model_config_file_path='config/model.yaml')
+2022-07-21 at 23:44:20 | INFO | stage_03_model_trainer.py |                                     __init__ |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Model trainer log started.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+2022-07-21 at 23:44:20 | INFO | stage_03_model_trainer.py |                                     initiate_model_trainer |
+ Loading transformed training dataset
+2022-07-21 at 23:44:20 | INFO | stage_03_model_trainer.py |                                     initiate_model_trainer |
+ Loading transformed testing dataset
+2022-07-21 at 23:44:20 | INFO | stage_03_model_trainer.py |                                     initiate_model_trainer |
+ Splitting training and testing input and target feature
+2022-07-21 at 23:44:20 | INFO | stage_03_model_trainer.py |                                     initiate_model_trainer |
+ Extracting model config file path
+2022-07-21 at 23:44:20 | INFO | stage_03_model_trainer.py |                                     initiate_model_trainer |
+ Initializing model factory class using above model config file: config/model.yaml
+2022-07-21 at 23:44:20 | INFO | stage_03_model_trainer.py |                                     initiate_model_trainer |
+ Expected accuracy: 0.5
+2022-07-21 at 23:44:20 | INFO | stage_03_model_trainer.py |                                     initiate_model_trainer |
+ Initiating operation model selection
+2022-07-21 at 23:44:20 | INFO | model_factory.py |                                     get_best_model |
+ Started Initializing model from config file
+2022-07-21 at 23:44:20 | INFO | model_factory.py |                                     class_for_name |
+ Executing command: from <module 'sklearn.ensemble' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/sklearn/ensemble/__init__.py'> import RandomForestRegressor
+2022-07-21 at 23:44:20 | INFO | model_factory.py |                                     class_for_name |
+ Executing command: from <module 'xgboost' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/xgboost/__init__.py'> import XGBRegressor
+2022-07-21 at 23:44:20 | INFO | model_factory.py |                                     class_for_name |
+ Executing command: from <module 'catboost' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/catboost/__init__.py'> import CatBoostRegressor
+2022-07-21 at 23:44:20 | INFO | model_factory.py |                                     get_best_model |
+ Initialized model: [InitializedModelDetail(model_serial_number='model_1', model=RandomForestRegressor(), param_grid_search={'criterion': ['squared_error', 'absolute_error', 'poisson', 'friedman_mse'], 'n_estimators': [100, 200, 300, 400], 'max_depth': [2, 3, 4, 5], 'max_features': ['auto', 'sqrt', 'log2']}, model_name='sklearn.ensemble.RandomForestRegressor'), InitializedModelDetail(model_serial_number='model_2', model=XGBRegressor(base_score=None, booster=None, callbacks=None,
+             colsample_bylevel=None, colsample_bynode=None,
+             colsample_bytree=None, early_stopping_rounds=None,
+             enable_categorical=False, eval_metric=None, gamma=None,
+             gpu_id=None, grow_policy=None, importance_type=None,
+             interaction_constraints=None, learning_rate=None, max_bin=None,
+             max_cat_to_onehot=None, max_delta_step=None, max_depth=None,
+             max_leaves=None, min_child_weight=None, missing=nan,
+             monotone_constraints=None, n_estimators=100, n_jobs=None,
+             num_parallel_tree=None, predictor=None, random_state=None,
+             reg_alpha=None, reg_lambda=None, ...), param_grid_search={'booster': ['gbtree', 'gblinear', 'dart'], 'n_estimators': [100, 200, 300, 400], 'learning_rate': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]}, model_name='xgboost.XGBRegressor'), InitializedModelDetail(model_serial_number='model_3', model=<catboost.core.CatBoostRegressor object at 0x7f425854fe50>, param_grid_search={'iterations': [100, 200, 300, 400], 'learning_rate': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9], 'depth': [2, 3, 4, 5], 'l2_leaf_reg': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]}, model_name='catboost.CatBoostRegressor')]
+2022-07-21 at 23:44:20 | INFO | model_factory.py |                                     class_for_name |
+ Executing command: from <module 'sklearn.model_selection' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/sklearn/model_selection/__init__.py'> import GridSearchCV
+2022-07-21 at 23:44:20 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(estimator=RandomForestRegressor(),
+             param_grid={'criterion': ['squared_error', 'absolute_error',
+                                       'poisson', 'friedman_mse'],
+                         'max_depth': [2, 3, 4, 5],
+                         'max_features': ['auto', 'sqrt', 'log2'],
+                         'n_estimators': [100, 200, 300, 400]}).cv=3
+2022-07-21 at 23:44:20 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(cv=3, estimator=RandomForestRegressor(),
+             param_grid={'criterion': ['squared_error', 'absolute_error',
+                                       'poisson', 'friedman_mse'],
+                         'max_depth': [2, 3, 4, 5],
+                         'max_features': ['auto', 'sqrt', 'log2'],
+                         'n_estimators': [100, 200, 300, 400]}).verbose=3
+2022-07-21 at 23:44:20 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(cv=3, estimator=RandomForestRegressor(),
+             param_grid={'criterion': ['squared_error', 'absolute_error',
+                                       'poisson', 'friedman_mse'],
+                         'max_depth': [2, 3, 4, 5],
+                         'max_features': ['auto', 'sqrt', 'log2'],
+                         'n_estimators': [100, 200, 300, 400]},
+             verbose=3).n_jobs=-1
+2022-07-21 at 23:44:20 | INFO | model_factory.py |                                     execute_grid_search_operation |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> f"Training RandomForestRegressor Started." <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-21 at 23:56:03 | INFO | model_factory.py |                                     class_for_name |
+ Executing command: from <module 'sklearn.model_selection' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/sklearn/model_selection/__init__.py'> import GridSearchCV
+2022-07-21 at 23:56:03 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(estimator=XGBRegressor(base_score=None, booster=None,
+                                    callbacks=None, colsample_bylevel=None,
+                                    colsample_bynode=None,
+                                    colsample_bytree=None,
+                                    early_stopping_rounds=None,
+                                    enable_categorical=False, eval_metric=None,
+                                    gamma=None, gpu_id=None, grow_policy=None,
+                                    importance_type=None,
+                                    interaction_constraints=None,
+                                    learning_rate=None, max_bin=None,
+                                    max_cat_to_o...
+                                    max_depth=None, max_leaves=None,
+                                    min_child_weight=None, missing=nan,
+                                    monotone_constraints=None, n_estimators=100,
+                                    n_jobs=None, num_parallel_tree=None,
+                                    predictor=None, random_state=None,
+                                    reg_alpha=None, reg_lambda=None, ...),
+             param_grid={'booster': ['gbtree', 'gblinear', 'dart'],
+                         'learning_rate': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7,
+                                           0.8, 0.9],
+                         'n_estimators': [100, 200, 300, 400]}).cv=3
+2022-07-21 at 23:56:03 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(cv=3,
+             estimator=XGBRegressor(base_score=None, booster=None,
+                                    callbacks=None, colsample_bylevel=None,
+                                    colsample_bynode=None,
+                                    colsample_bytree=None,
+                                    early_stopping_rounds=None,
+                                    enable_categorical=False, eval_metric=None,
+                                    gamma=None, gpu_id=None, grow_policy=None,
+                                    importance_type=None,
+                                    interaction_constraints=None,
+                                    learning_rate=None, max_bin=None,
+                                    max_cat...
+                                    max_depth=None, max_leaves=None,
+                                    min_child_weight=None, missing=nan,
+                                    monotone_constraints=None, n_estimators=100,
+                                    n_jobs=None, num_parallel_tree=None,
+                                    predictor=None, random_state=None,
+                                    reg_alpha=None, reg_lambda=None, ...),
+             param_grid={'booster': ['gbtree', 'gblinear', 'dart'],
+                         'learning_rate': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7,
+                                           0.8, 0.9],
+                         'n_estimators': [100, 200, 300, 400]}).verbose=3
+2022-07-21 at 23:56:03 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(cv=3,
+             estimator=XGBRegressor(base_score=None, booster=None,
+                                    callbacks=None, colsample_bylevel=None,
+                                    colsample_bynode=None,
+                                    colsample_bytree=None,
+                                    early_stopping_rounds=None,
+                                    enable_categorical=False, eval_metric=None,
+                                    gamma=None, gpu_id=None, grow_policy=None,
+                                    importance_type=None,
+                                    interaction_constraints=None,
+                                    learning_rate=None, max_bin=None,
+                                    max_cat...
+                                    max_depth=None, max_leaves=None,
+                                    min_child_weight=None, missing=nan,
+                                    monotone_constraints=None, n_estimators=100,
+                                    n_jobs=None, num_parallel_tree=None,
+                                    predictor=None, random_state=None,
+                                    reg_alpha=None, reg_lambda=None, ...),
+             param_grid={'booster': ['gbtree', 'gblinear', 'dart'],
+                         'learning_rate': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7,
+                                           0.8, 0.9],
+                         'n_estimators': [100, 200, 300, 400]},
+             verbose=3).n_jobs=-1
+2022-07-21 at 23:56:03 | INFO | model_factory.py |                                     execute_grid_search_operation |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> f"Training XGBRegressor Started." <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-21 at 23:59:34 | INFO | model_factory.py |                                     class_for_name |
+ Executing command: from <module 'sklearn.model_selection' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/sklearn/model_selection/__init__.py'> import GridSearchCV
+2022-07-21 at 23:59:34 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(estimator=<catboost.core.CatBoostRegressor object at 0x7f425854fe50>,
+             param_grid={'depth': [2, 3, 4, 5],
+                         'iterations': [100, 200, 300, 400],
+                         'l2_leaf_reg': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8,
+                                         0.9],
+                         'learning_rate': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7,
+                                           0.8, 0.9]}).cv=3
+2022-07-21 at 23:59:34 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(cv=3,
+             estimator=<catboost.core.CatBoostRegressor object at 0x7f425854fe50>,
+             param_grid={'depth': [2, 3, 4, 5],
+                         'iterations': [100, 200, 300, 400],
+                         'l2_leaf_reg': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8,
+                                         0.9],
+                         'learning_rate': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7,
+                                           0.8, 0.9]}).verbose=3
+2022-07-21 at 23:59:34 | INFO | model_factory.py |                                     update_property_of_class |
+ Executing:$ GridSearchCV(cv=3,
+             estimator=<catboost.core.CatBoostRegressor object at 0x7f425854fe50>,
+             param_grid={'depth': [2, 3, 4, 5],
+                         'iterations': [100, 200, 300, 400],
+                         'l2_leaf_reg': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8,
+                                         0.9],
+                         'learning_rate': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7,
+                                           0.8, 0.9]},
+             verbose=3).n_jobs=-1
+2022-07-21 at 23:59:34 | INFO | model_factory.py |                                     execute_grid_search_operation |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> f"Training CatBoostRegressor Started." <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     get_best_model_from_grid_searched_best_model_list |
+ Acceptable model found:GridSearchedBestModel(model_serial_number='model_1', model=RandomForestRegressor(), best_model=RandomForestRegressor(max_depth=5), best_parameters={'criterion': 'squared_error', 'max_depth': 5, 'max_features': 'auto', 'n_estimators': 100}, best_score=0.5949675492061842)
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     get_best_model_from_grid_searched_best_model_list |
+ Acceptable model found:GridSearchedBestModel(model_serial_number='model_3', model=<catboost.core.CatBoostRegressor object at 0x7f425854fe50>, best_model=<catboost.core.CatBoostRegressor object at 0x7f432c53bb50>, best_parameters={'depth': 3, 'iterations': 100, 'l2_leaf_reg': 0.8, 'learning_rate': 0.1}, best_score=0.6013874213805109)
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     get_best_model_from_grid_searched_best_model_list |
+ Best model: GridSearchedBestModel(model_serial_number='model_3', model=<catboost.core.CatBoostRegressor object at 0x7f425854fe50>, best_model=<catboost.core.CatBoostRegressor object at 0x7f432c53bb50>, best_parameters={'depth': 3, 'iterations': 100, 'l2_leaf_reg': 0.8, 'learning_rate': 0.1}, best_score=0.6013874213805109)
+2022-07-22 at 00:18:05 | INFO | stage_03_model_trainer.py |                                     initiate_model_trainer |
+ Best model found on training dataset: GridSearchedBestModel(model_serial_number='model_3', model=<catboost.core.CatBoostRegressor object at 0x7f425854fe50>, best_model=<catboost.core.CatBoostRegressor object at 0x7f432c53bb50>, best_parameters={'depth': 3, 'iterations': 100, 'l2_leaf_reg': 0.8, 'learning_rate': 0.1}, best_score=0.6013874213805109)
+2022-07-22 at 00:18:05 | INFO | stage_03_model_trainer.py |                                     initiate_model_trainer |
+ Extracting trained model list.
+2022-07-22 at 00:18:05 | INFO | stage_03_model_trainer.py |                                     initiate_model_trainer |
+ Evaluation all trained model on training and testing dataset both
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ {'>>' * 30}Started evaluating model: [{type(model).__name__}] {'<<' * 30}
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Score <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Train Score		 Test Score		 Average Score
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ 0.6144493087457827		 0.5850102243549566		0.5993684956338221
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Loss <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Diff test train accuracy: [0.029439084390826098].
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Train root mean squared error: [1063.5092900466939].
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Test root mean squared error: [1082.6756891742516].
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Acceptable model found MetricInfoArtifact(model_name='RandomForestRegressor(max_depth=5)', model_object=RandomForestRegressor(max_depth=5), train_rmse=1063.5092900466939, test_rmse=1082.6756891742516, train_accuracy=0.6144493087457827, test_accuracy=0.5850102243549566, model_accuracy=0.5993684956338221, index_number=0). 
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ {'>>' * 30}Started evaluating model: [{type(model).__name__}] {'<<' * 30}
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Score <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Train Score		 Test Score		 Average Score
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ 0.7382407233417295		 0.5502057745774622		0.6305024068393055
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Loss <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Diff test train accuracy: [0.1880349487642673].
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Train root mean squared error: [876.2975264871363].
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Test root mean squared error: [1127.1627407930496].
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ {'>>' * 30}Started evaluating model: [{type(model).__name__}] {'<<' * 30}
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Score <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Train Score		 Test Score		 Average Score
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ 0.6178978203310284		 0.5894276306425803		0.6033270447885126
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Loss <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Diff test train accuracy: [0.028470189688448055].
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Train root mean squared error: [1058.7423916787814].
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Test root mean squared error: [1076.8979397531994].
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Acceptable model found MetricInfoArtifact(model_name='<catboost.core.CatBoostRegressor object at 0x7f432c53bb50>', model_object=<catboost.core.CatBoostRegressor object at 0x7f432c53bb50>, train_rmse=1058.7423916787814, test_rmse=1076.8979397531994, train_accuracy=0.6178978203310284, test_accuracy=0.5894276306425803, model_accuracy=0.6033270447885126, index_number=2). 
+2022-07-22 at 00:18:05 | INFO | stage_03_model_trainer.py |                                     initiate_model_trainer |
+ Best found model on both training and testing dataset.
+2022-07-22 at 00:18:05 | INFO | stage_03_model_trainer.py |                                     initiate_model_trainer |
+ Saving model at path: /home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage03_model_training/94cbbf94-46c2-4a28-8f6d-dbf44d9c4fe8/trained_model/model.pkl
+2022-07-22 at 00:18:05 | INFO | stage_03_model_trainer.py |                                     initiate_model_trainer |
+ Model Trainer Artifact: ModelTrainerArtifact(is_trained=True, message='Model Trained successfully', trained_model_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage03_model_training/94cbbf94-46c2-4a28-8f6d-dbf44d9c4fe8/trained_model/model.pkl', train_rmse=1058.7423916787814, test_rmse=1076.8979397531994, train_accuracy=0.6178978203310284, test_accuracy=0.5894276306425803, model_accuracy=0.6033270447885126)
+2022-07-22 at 00:18:05 | INFO | stage_03_model_trainer.py |                                     __del__ |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Model trainer log completed.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+2022-07-22 at 00:18:05 | INFO | configuration.py |                                     get_model_evaluation_config |
+ Model Evaluation Config: ModelEvaluationConfig(model_evaluation_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage04_model_evaluation/model_evaluation.yaml', time_stamp='2022-07-21-23-44-19').
+2022-07-22 at 00:18:05 | INFO | stage_04_model_evaluation.py |                                     __init__ |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Model Evaluation log started.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+2022-07-22 at 00:18:05 | INFO | stage_04_model_evaluation.py |                                     initiate_model_evaluation |
+ Converting target column into numpy array.
+2022-07-22 at 00:18:05 | INFO | stage_04_model_evaluation.py |                                     initiate_model_evaluation |
+ Conversion completed target column into numpy array.
+2022-07-22 at 00:18:05 | INFO | stage_04_model_evaluation.py |                                     initiate_model_evaluation |
+ Dropping target column from the dataframe.
+2022-07-22 at 00:18:05 | INFO | stage_04_model_evaluation.py |                                     initiate_model_evaluation |
+ Dropping target column from the dataframe completed.
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ {'>>' * 30}Started evaluating model: [{type(model).__name__}] {'<<' * 30}
+2022-07-22 at 00:18:05 | INFO | stage_02_data_transformation.py |                                     transform |
+ Transforming data
+2022-07-22 at 00:18:05 | INFO | stage_02_data_transformation.py |                                     transform |
+ Index(['Item_Weight', 'Item_Visibility', 'Item_MRP',
+       'Outlet_Establishment_Year'],
+      dtype='object')
+2022-07-22 at 00:18:05 | INFO | stage_02_data_transformation.py |                                     transform |
+ Transforming data
+2022-07-22 at 00:18:05 | INFO | stage_02_data_transformation.py |                                     transform |
+ Index(['Item_Weight', 'Item_Visibility', 'Item_MRP',
+       'Outlet_Establishment_Year'],
+      dtype='object')
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Score <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Train Score		 Test Score		 Average Score
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ 0.614408371538836		 0.5855049287242899		0.5996085378944744
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Loss <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Diff test train accuracy: [0.028903442814546043].
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Train root mean squared error: [1063.5657494763734].
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Test root mean squared error: [1082.0301743416392].
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ {'>>' * 30}Started evaluating model: [{type(model).__name__}] {'<<' * 30}
+2022-07-22 at 00:18:05 | INFO | stage_02_data_transformation.py |                                     transform |
+ Transforming data
+2022-07-22 at 00:18:05 | INFO | stage_02_data_transformation.py |                                     transform |
+ Index(['Item_Weight', 'Item_Visibility', 'Item_MRP',
+       'Outlet_Establishment_Year'],
+      dtype='object')
+2022-07-22 at 00:18:05 | INFO | stage_02_data_transformation.py |                                     transform |
+ Transforming data
+2022-07-22 at 00:18:05 | INFO | stage_02_data_transformation.py |                                     transform |
+ Index(['Item_Weight', 'Item_Visibility', 'Item_MRP',
+       'Outlet_Establishment_Year'],
+      dtype='object')
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Score <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Train Score		 Test Score		 Average Score
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ 0.6178978203310284		 0.5894276306425803		0.6033270447885126
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Loss <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Diff test train accuracy: [0.028470189688448055].
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Train root mean squared error: [1058.7423916787814].
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Test root mean squared error: [1076.8979397531994].
+2022-07-22 at 00:18:05 | INFO | model_factory.py |                                     evaluate_regression_model |
+ Acceptable model found MetricInfoArtifact(model_name='CatBoostRegressor()', model_object=CatBoostRegressor(), train_rmse=1058.7423916787814, test_rmse=1076.8979397531994, train_accuracy=0.6178978203310284, test_accuracy=0.5894276306425803, model_accuracy=0.6033270447885126, index_number=1). 
+2022-07-22 at 00:18:05 | INFO | stage_04_model_evaluation.py |                                     initiate_model_evaluation |
+ Model evaluation completed. model metric artifact: MetricInfoArtifact(model_name='CatBoostRegressor()', model_object=CatBoostRegressor(), train_rmse=1058.7423916787814, test_rmse=1076.8979397531994, train_accuracy=0.6178978203310284, test_accuracy=0.5894276306425803, model_accuracy=0.6033270447885126, index_number=1)
+2022-07-22 at 00:18:05 | INFO | stage_04_model_evaluation.py |                                     update_evaluation_report |
+ Previous eval result: {'best_model': {'model_path': '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage03_model_training/5af0764c-56e6-4229-8c0a-53e9c9779298/trained_model/model.pkl'}}
+2022-07-22 at 00:18:05 | INFO | stage_04_model_evaluation.py |                                     update_evaluation_report |
+ Updated eval result:{'best_model': {'model_path': '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage03_model_training/94cbbf94-46c2-4a28-8f6d-dbf44d9c4fe8/trained_model/model.pkl'}, 'history': {'2022-07-21-23-44-19': {'model_path': '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage03_model_training/5af0764c-56e6-4229-8c0a-53e9c9779298/trained_model/model.pkl'}}}
+2022-07-22 at 00:18:05 | INFO | stage_04_model_evaluation.py |                                     initiate_model_evaluation |
+ Model accepted. Model eval artifact ModelEvaluationArtifact(is_model_accepted=True, evaluated_model_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage03_model_training/94cbbf94-46c2-4a28-8f6d-dbf44d9c4fe8/trained_model/model.pkl') created
+2022-07-22 at 00:18:05 | INFO | stage_04_model_evaluation.py |                                     __del__ |
+ ====================Model Evaluation log completed.==================== 
+2022-07-22 at 00:18:05 | INFO | configuration.py |                                     get_model_pusher_config |
+ Model pusher config ModelPusherConfig(export_dir_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/saved_models/20220722001805')
+2022-07-22 at 00:18:05 | INFO | stage_05_model_pusher.py |                                     __init__ |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Model Pusher log started.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+2022-07-22 at 00:18:05 | INFO | stage_05_model_pusher.py |                                     export_model |
+ Exporting model file: [/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/saved_models/20220722001805/model.pkl]
+2022-07-22 at 00:18:05 | INFO | stage_05_model_pusher.py |                                     export_model |
+ Trained model: /home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage03_model_training/94cbbf94-46c2-4a28-8f6d-dbf44d9c4fe8/trained_model/model.pkl is copied in export dir:[/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/saved_models/20220722001805/model.pkl]
+2022-07-22 at 00:18:05 | INFO | stage_05_model_pusher.py |                                     export_model |
+ Model pusher artifact: [ModelPusherArtifact(is_model_pusher=True, export_model_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/saved_models/20220722001805/model.pkl')]
+2022-07-22 at 00:18:05 | INFO | stage_05_model_pusher.py |                                     __del__ |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Model Pusher log completed.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+2022-07-22 at 00:18:05 | INFO | pipeline.py |                                     run_pipeline |
+ Model pusher artifact: ModelPusherArtifact(is_model_pusher=True, export_model_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/saved_models/20220722001805/model.pkl')
+2022-07-22 at 00:18:05 | INFO | pipeline.py |                                     run_pipeline |
+ Pipeline completed.
+2022-07-22 at 00:18:05 | INFO | pipeline.py |                                     run_pipeline |
+ Pipeline experiment: Experiment(experiment_id='94cbbf94-46c2-4a28-8f6d-dbf44d9c4fe8', initialization_timestamp='2022-07-21-23-44-19', artifact_dir='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact', running_status=False, start_time=datetime.datetime(2022, 7, 21, 23, 44, 19, 798377), stop_time=datetime.datetime(2022, 7, 22, 0, 18, 5, 416586), execution_time=datetime.timedelta(seconds=2025, microseconds=618209), message='Pipeline has been completed.', experiment_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/experiment/experiment.csv', accuracy=0.6033270447885126, is_model_accepted=True)
