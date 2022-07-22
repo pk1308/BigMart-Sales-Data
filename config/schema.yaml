@@ -23,6 +23,7 @@ selected_columns:
   - Outlet_Type
   - Item_Outlet_Sales
 
+
 categorical_columns:
   - Item_Fat_Content
   - Item_Type

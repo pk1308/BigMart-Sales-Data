@@ -13,11 +13,13 @@ import os
 import sys
 
 
-def model_evaluation_load_data(file_path : str, selected_columns : str):
+def model_evaluation_load_data(file_path: str, selected_columns: str):
     load_df = pd.read_csv(file_path, usecols=selected_columns)
     load_df["Item_Fat_Content"] = load_df["Item_Fat_Content"].map(
         {"Low Fat": 'Low Fat', "LF": "Low Fat", 'low fat': "Low Fat", "Regular": "Regular"})
-    return  load_df
+    load_df["Item_Identifier"] = load_df["Item_Identifier"].apply(lambda x: x[0:2]).map(
+        {"FD": "Food", "DR": "Drink", "NC": "Non_consumable"})
+    return load_df
 
 
 class ModelEvaluation:
@@ -101,11 +103,11 @@ class ModelEvaluation:
             target_column_name = schema_content[TARGET_COLUMN_KEY]
             selected_columns = schema_content[SELECTED_COLUMNS_KEY]
             train_dataframe = model_evaluation_load_data(file_path=train_file_path,
-                                        selected_columns=selected_columns
-                                        )
+                                                         selected_columns=selected_columns
+                                                         )
             test_dataframe = model_evaluation_load_data(file_path=test_file_path,
-                                        selected_columns=selected_columns
-                                        )
+                                                        selected_columns=selected_columns
+                                                        )
             # target_column
             logging.info(f"Converting target column into numpy array.")
             train_target_arr = np.array(train_dataframe[target_column_name])

@@ -145,3 +145,6 @@ BigmartsalesPrediction/app_artifact/stage01_data_validation/
 logs/
 Eda/____.ipynb
 Eda/Eda copy.ipynb
+config/schema_orginal.yaml
+*.csv
+

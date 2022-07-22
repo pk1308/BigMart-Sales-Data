@@ -7,19 +7,20 @@ from BigmartsalesPrediction.app_util.util import load_object
 
 import pandas as pd
 
+
 class Prediction_Data:
 
-    def __init__(self,Item_Identifier : str,
-                    Item_Fat_Content : str,
-                    Item_Type : str,
-                    Outlet_Identifier : str,
-                    Outlet_Type : str,
-                    Item_MRP : float,
-                    Item_Visibility : float,
-                    Item_Weight : float,
-                    Outlet_Establishment_Year : int,
-                    Item_Outlet_Sales: float = None):
- 
+    def __init__(self, Item_Identifier: str,
+                 Item_Fat_Content: str,
+                 Item_Type: str,
+                 Outlet_Identifier: str,
+                 Outlet_Type: str,
+                 Item_MRP: float,
+                 Item_Visibility: float,
+                 Item_Weight: float,
+                 Outlet_Establishment_Year: int,
+                 Item_Outlet_Sales: float = None):
+
         try:
             self.Item_Identifier = Item_Identifier
             self.Item_Fat_Content = Item_Fat_Content
@@ -53,9 +54,9 @@ class Prediction_Data:
                 "Item_MRP": [self.Item_MRP],
                 "Item_Visibility": [self.Item_Visibility],
                 "Item_Weight": [self.Item_Weight],
-                "Outlet_Establishment_Year" : [self.Outlet_Establishment_Year]
-                }
-            
+                "Outlet_Establishment_Year": [self.Outlet_Establishment_Year]
+            }
+
             return input_data
         except Exception as e:
             raise App_Exception(e, sys)

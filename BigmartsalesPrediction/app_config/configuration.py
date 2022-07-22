@@ -1,13 +1,14 @@
-from pyexpat import model
-import sys, os
+
+import sys
 import uuid
+import  os
 import pandas as pd
 
 from BigmartsalesPrediction.app_entity.config_entity import DataIngestionConfig, DataValidationConfig, \
     TrainingPipelineConfig, DataTransformationConfig, ModelTrainerConfig, ModelPusherConfig, ModelEvaluationConfig
-from BigmartsalesPrediction.app_util.util import read_yaml_file
-from BigmartsalesPrediction.app_logger import logging
 from BigmartsalesPrediction.app_exception.exception import App_Exception
+from BigmartsalesPrediction.app_logger import logging
+from BigmartsalesPrediction.app_util.util import read_yaml_file
 from BigmartsalesPrediction.constants import *
 
 
@@ -38,9 +39,9 @@ class Configuration:
             ingested_test_file_name = data_ingestion_config_info[DATA_INGESTION_INGESTED_TEST_FILE_NAME_KEY]
 
             raw_file_path = os.path.join(artifact_dir, data_ingestion_dir, experiment_id, raw_data_dir, raw_file_name)
-            ingested_test_data_path = os.path.join(artifact_dir, data_ingestion_dir,experiment_id, ingested_data_dir,
+            ingested_test_data_path = os.path.join(artifact_dir, data_ingestion_dir, experiment_id, ingested_data_dir,
                                                    ingested_test_file_name)
-            ingested_train_data_path = os.path.join(artifact_dir,data_ingestion_dir, experiment_id, ingested_data_dir,
+            ingested_train_data_path = os.path.join(artifact_dir, data_ingestion_dir, experiment_id, ingested_data_dir,
                                                     ingested_train_file_name)
             os.makedirs(os.path.dirname(raw_file_path), exist_ok=True)
             os.makedirs(os.path.dirname(ingested_test_data_path), exist_ok=True)
@@ -90,22 +91,22 @@ class Configuration:
             data_validation_config = self.config_info[DATA_VALIDATION_CONFIG_KEY]
             data_validation_dir = data_validation_config[DATA_VALIDATION_DIR_KEY]
             data_validation_artifact_dir = os.path.join(
-                artifact_dir, data_validation_dir , experiment_id)
+                artifact_dir, data_validation_dir, experiment_id)
             schema_dir = data_validation_config[DATA_VALIDATION_SCHEMA_DIR_KEY]
             schema_file_name = data_validation_config[DATA_VALIDATION_SCHEMA_FILE_NAME_KEY]
 
             schema_file_path = os.path.join(ROOT_DIR,
-                                            schema_dir,schema_file_name
+                                            schema_dir, schema_file_name
                                             )
             report_dir = data_validation_config[DATA_VALIDATION_REPORT_DIR_KEY]
             report_file_name = data_validation_config[DATA_VALIDATION_REPORT_FILE_NAME_KEY]
             report_file_path = os.path.join(data_validation_artifact_dir,
-                                            report_dir,report_file_name
+                                            report_dir, report_file_name
                                             )
             os.makedirs(data_validation_artifact_dir, exist_ok=True)
             report_page_file_name = data_validation_config[DATA_VALIDATION_REPORT_PAGE_FILE_NAME_KEY]
             report_page_file_path = os.path.join(data_validation_artifact_dir,
-                                                report_dir,report_page_file_name
+                                                 report_dir, report_page_file_name
                                                  )
             os.makedirs(os.path.dirname(report_file_path), exist_ok=True)
 
@@ -142,18 +143,19 @@ class Configuration:
             preprocessed_file_name = data_transformation_config_info[DATA_TRANSFORMATION_PREPROCESSED_FILE_NAME_KEY]
             transformed_train_dir_name = data_transformation_config_info[DATA_TRANSFORMATION_TRAIN_DIR_NAME_KEY]
             transformed_test_dir_name = data_transformation_config_info[DATA_TRANSFORMATION_TEST_DIR_NAME_KEY]
-            data_transformation_artifact_dir = os.path.join(artifact_dir,data_transformation_dir,experiment_id,data_transformation_dir)
+            data_transformation_artifact_dir = os.path.join(artifact_dir, data_transformation_dir, experiment_id,
+                                                            data_transformation_dir)
 
             preprocessed_object_file_path = os.path.join(
                 data_transformation_artifact_dir,
-                preprocessed_data_dir,preprocessed_file_name)
+                preprocessed_data_dir, preprocessed_file_name)
 
             transformed_train_dir = os.path.join(
-                data_transformation_artifact_dir,transformed_train_dir_name)
+                data_transformation_artifact_dir, transformed_train_dir_name)
 
             transformed_test_dir = os.path.join(
-                data_transformation_artifact_dir,transformed_test_dir_name)
-                
+                data_transformation_artifact_dir, transformed_test_dir_name)
+
             data_transformation_config = DataTransformationConfig(
                 preprocessed_object_file_path=preprocessed_object_file_path,
                 transformed_train_dir=transformed_train_dir,
@@ -181,21 +183,20 @@ class Configuration:
             model_config_file_name = model_trainer_config_info[MODEL_TRAINER_MODEL_CONFIG_FILE_NAME_KEY]
 
             model_trainer_artifact_dir = os.path.join(
-                artifact_dir, model_trainer_artifact_dir_name,experiment_id)
-            
-            trained_model_file_path = os.path.join(model_trainer_artifact_dir, trained_model_dir_name, trained_model_file_name)
-        
+                artifact_dir, model_trainer_artifact_dir_name, experiment_id)
+
+            trained_model_file_path = os.path.join(model_trainer_artifact_dir, trained_model_dir_name,
+                                                   trained_model_file_name)
 
             model_config_file_path = os.path.join(model_config_dir, model_config_file_name)
             os.makedirs(os.path.dirname(trained_model_file_path), exist_ok=True)
-
 
             base_accuracy = model_trainer_config_info[MODEL_TRAINER_BASE_ACCURACY_KEY]
 
             model_trainer_config = ModelTrainerConfig(
                 trained_model_file_path=trained_model_file_path,
                 base_accuracy=base_accuracy,
-                stacked = model_trainer_stack_status,
+                stacked=model_trainer_stack_status,
                 model_config_file_path=model_config_file_path
             )
             logging.info(f"Model trainer config: {model_trainer_config}")
@@ -211,7 +212,8 @@ class Configuration:
             model_evaluation_artifact_dir_name = model_evaluation_config[MODEL_EVALUATION_ARTIFACT_DIR]
             model_evaluation_artifact_dir = os.path.join(artifact_dir, model_evaluation_artifact_dir_name)
             model_evaluation_file_name = model_evaluation_config[MODEL_EVALUATION_FILE_NAME_KEY]
-            model_evaluation_file_path = os.path.join(artifact_dir,model_evaluation_artifact_dir, model_evaluation_file_name)
+            model_evaluation_file_path = os.path.join(artifact_dir, model_evaluation_artifact_dir,
+                                                      model_evaluation_file_name)
             response = ModelEvaluationConfig(model_evaluation_file_path=model_evaluation_file_path,
                                              time_stamp=self.time_stamp)
             os.makedirs(os.path.dirname(model_evaluation_file_path), exist_ok=True)
