@@ -143,3 +143,5 @@ catboost_info/
 BigmartsalesPrediction/app_artifact/stage01_data_validation/
 *.log
 logs/
+Eda/____.ipynb
+Eda/Eda copy.ipynb
