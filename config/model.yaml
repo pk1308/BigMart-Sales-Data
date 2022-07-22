@@ -54,10 +54,11 @@ model_selection:
         - 200
 
       learning_rate:
-        - 0.0001
+        - 0.01
         - 0.02
         - 0.1
-        - 0.004
+        - 0.04
+    
       depth:
         - 3
         - 4
