@@ -28,8 +28,7 @@ Predict Item wise Sale for a store .
 
 # Application link
 
-https://pk-bigmartsalesprediction.herokuapp.com/https://store--sales.herokuapp.com
-
+https://pk-bigmartsalesprediction.herokuapp.com/
 
 # Approach
 
@@ -37,13 +36,13 @@ To do :
 
 # Documents
 
-HLD/LLD/Architecture/DPR : 
+HLD/LLD/Architecture/DPR :
 
-To do 
+To do
 
 # Database
 
-To do : 
+To do :
 
 ## 🛠 Requirements
 
