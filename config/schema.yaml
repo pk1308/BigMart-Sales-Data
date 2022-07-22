@@ -14,22 +14,18 @@ columns:
   Outlet_Type: object
 
 selected_columns:
-  - Item_Identifier
   - Item_Weight
-  - Item_Fat_Content
   - Item_Visibility
-  - Item_Type
   - Item_MRP
-  - Outlet_Identifier
   - Outlet_Establishment_Year
+  - Item_Fat_Content
+  - Item_Type
   - Outlet_Type
   - Item_Outlet_Sales
 
 categorical_columns:
-  - Item_Identifier
   - Item_Fat_Content
   - Item_Type
-  - Outlet_Identifier
   - Outlet_Type
   
 numerical_columns:
