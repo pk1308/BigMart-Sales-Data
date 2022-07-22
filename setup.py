@@ -1,13 +1,13 @@
-from setuptools import setup,find_packages
+from setuptools import setup, find_packages
 from typing import List
 
-#Declaring variables for setup functions
-PROJECT_NAME="BigmartsalesPrediction"
-VERSION="0.0.1"
-AUTHOR="PK"
-DESRCIPTION="This is a project for BigMart Sales"
+# Declaring variables for setup functions
+PROJECT_NAME = "BigmartsalesPrediction"
+VERSION = "0.0.1"
+AUTHOR = "PK"
+DESCRIPTION = "This is a project for BigMart Sales"
 
-REQUIREMENT_FILE_NAME="requirements.txt"
+REQUIREMENT_FILE_NAME = "requirements.txt"
 
 HYPHEN_E_DOT = "-e ."
 
@@ -27,13 +27,11 @@ def get_requirements_list() -> List[str]:
         return requirement_list
 
 
-
 setup(
-name=PROJECT_NAME,
-version=VERSION,
-author=AUTHOR,
-description=DESRCIPTION,
-packages=find_packages(), 
-install_requires=get_requirements_list()
+    name=PROJECT_NAME,
+    version=VERSION,
+    author=AUTHOR,
+    description=DESCRIPTION,
+    packages=find_packages(),
+    install_requires=get_requirements_list()
 )
-

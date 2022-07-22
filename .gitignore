@@ -148,3 +148,5 @@ Eda/Eda copy.ipynb
 config/schema_orginal.yaml
 *.csv
 
+BigmartsalesPrediction/app_artifact/stage04_model_evaluation/*
+BigmartsalesPrediction/app_artifact/stage03_model_training/*

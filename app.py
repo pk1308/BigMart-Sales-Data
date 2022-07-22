@@ -3,7 +3,6 @@ from flask import Flask, request
 import sys
 import os
 
-import pip
 from BigmartsalesPrediction.app_util.util import read_yaml_file, write_yaml_file
 from matplotlib.style import context
 from BigmartsalesPrediction.app_logger import logging , get_log_dataframe
