@@ -13,26 +13,25 @@ columns:
   Outlet_Size: object
   Outlet_Type: object
 
-selected_columns:
-  - Item_Weight
-  - Item_Visibility
-  - Item_MRP
+columns_cluster: 
+  - Outlet_Identifier
   - Outlet_Establishment_Year
-  - Item_Fat_Content
-  - Item_Type
+  - Outlet_Size
+  - Outlet_Location_Type
   - Outlet_Type
-  - Item_Outlet_Sales
 
 
 categorical_columns:
+  - Item_Identifier
   - Item_Fat_Content
   - Item_Type
   - Outlet_Type
-  
+
 numerical_columns:
 - Item_Weight
 - Item_Visibility
 - Item_MRP
 - Outlet_Establishment_Year
+
 
 target_column: Item_Outlet_Sales

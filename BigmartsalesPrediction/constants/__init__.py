@@ -50,9 +50,11 @@ DATA_TRANSFORMATION_TRAIN_DIR_NAME_KEY = "transformed_train_dir"
 DATA_TRANSFORMATION_TEST_DIR_NAME_KEY = "transformed_test_dir"
 DATA_TRANSFORMATION_PREPROCESSING_DIR_KEY = "preprocessing_dir"
 DATA_TRANSFORMATION_PREPROCESSED_FILE_NAME_KEY = "preprocessed_object_file_name"
+COLUMNS_CLUSTER_KEY = "columns_cluster"
 NUMERICAL_COLUMN_KEY = "numerical_columns"
 CATEGORICAL_COLUMN_KEY = "categorical_columns"
 SELECTED_COLUMNS_KEY = 'selected_columns'
+COLUMNS_KEY = "columns"
 TARGET_COLUMN_KEY = 'target_column'
 
 # Model Training related variables

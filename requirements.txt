@@ -12,4 +12,7 @@ loguru
 xgboost
 catboost
 mlxtend 
+pymongo
+pymongo[srv]
+kneed
 -e .
