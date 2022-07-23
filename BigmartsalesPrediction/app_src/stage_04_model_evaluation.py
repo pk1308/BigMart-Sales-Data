@@ -42,7 +42,7 @@ class ModelEvaluation:
             model = None
             model_dir = self.model_evaluation_config.saved_model_dir
             folder_name = list(map(int, os.listdir(model_dir)))
-            latest_model_dir = os.path.join(self.model_dir, f"{max(folder_name)}")
+            latest_model_dir = os.path.join(model_dir, f"{max(folder_name)}")
             file_name = os.listdir(latest_model_dir)[0]
             latest_model_path = os.path.join(latest_model_dir, file_name)
             if os.path.isfile(latest_model_dir ):
@@ -96,7 +96,7 @@ class ModelEvaluation:
             schema_file_path = self.data_validation_artifact.schema_file_path
             schema_content = read_yaml_file(file_path=schema_file_path)
             target_column_name = schema_content[TARGET_COLUMN_KEY]
-            selected_columns = schema_content[SELECTED_COLUMNS_KEY]
+            selected_columns = schema_content[COLUMNS_KEY].keys()
             train_dataframe = model_evaluation_load_data(file_path=train_file_path,
                                                          selected_columns=selected_columns
                                                          )

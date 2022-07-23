@@ -1,4 +1,5 @@
 
+from cmath import log
 import importlib
 import numpy as np
 import yaml
@@ -243,6 +244,14 @@ class ModelFactory:
                                                              best_parameters=grid_search_cv.best_params_,
                                                              best_score=grid_search_cv.best_score_
                                                              )
+            message = f'{">>" * 30} f"Training {type(initialized_model.model).__name__} Finished" {"<<" * 30}'
+            logging.info(message)
+            logging.info(f'{">>" * 10} Best model: {">>" * 10}')
+            logging.info(grid_searched_best_model.best_model)
+            logging.info(f'{">>" * 10} Best Score: {">>" * 10}')
+            logging.info(grid_searched_best_model.best_score)
+            logging.info(f'{">>" * 10} Best Params: {">>" * 10}')
+            logging.info(grid_searched_best_model.best_parameters)
 
             return grid_searched_best_model
         except Exception as e:
