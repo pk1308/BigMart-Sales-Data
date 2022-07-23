@@ -207,15 +207,18 @@ class Configuration:
     def get_model_evaluation_config(self) -> ModelEvaluationConfig:
         try:
             model_evaluation_config = self.config_info[MODEL_EVALUATION_CONFIG_KEY]
+            model_pusher_config_info = self.config_info[MODEL_PUSHER_CONFIG_KEY]
             artifact_dir = self.pipeline_config.artifact_dir
             experiment_id = self.pipeline_config.experiment_id
+            saved_model_dir = os.path.join(ROOT_DIR, model_pusher_config_info[MODEL_PUSHER_MODEL_EXPORT_DIR_KEY],
+                                           )
             model_evaluation_artifact_dir_name = model_evaluation_config[MODEL_EVALUATION_ARTIFACT_DIR]
             model_evaluation_artifact_dir = os.path.join(artifact_dir, model_evaluation_artifact_dir_name)
             model_evaluation_file_name = model_evaluation_config[MODEL_EVALUATION_FILE_NAME_KEY]
             model_evaluation_file_path = os.path.join(artifact_dir, model_evaluation_artifact_dir,
                                                       model_evaluation_file_name)
             response = ModelEvaluationConfig(model_evaluation_file_path=model_evaluation_file_path,
-                                             time_stamp=self.time_stamp)
+                                             time_stamp=self.time_stamp ,saved_model_dir=saved_model_dir)
             os.makedirs(os.path.dirname(model_evaluation_file_path), exist_ok=True)
 
             logging.info(f"Model Evaluation Config: {response}.")

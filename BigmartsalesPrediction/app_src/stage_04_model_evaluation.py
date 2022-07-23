@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from tenacity import retry
 
 from BigmartsalesPrediction.app_exception.exception import App_Exception
 from BigmartsalesPrediction.app_logger import logging
@@ -29,6 +30,7 @@ class ModelEvaluation:
         try:
             logging.info(f"{'>>' * 30}Model Evaluation log started.{'<<' * 30} ")
             self.model_evaluation_config = model_evaluation_config
+    
             self.model_trainer_artifact = model_trainer_artifact
             self.data_ingestion_artifact = data_ingestion_artifact
             self.data_validation_artifact = data_validation_artifact
@@ -38,21 +40,16 @@ class ModelEvaluation:
     def get_best_model(self):
         try:
             model = None
-            model_evaluation_file_path = self.model_evaluation_config.model_evaluation_file_path
-
-            if not os.path.exists(model_evaluation_file_path):
-                write_yaml_file(file_path=model_evaluation_file_path,
-                                )
+            model_dir = self.model_evaluation_config.saved_model_dir
+            folder_name = list(map(int, os.listdir(model_dir)))
+            latest_model_dir = os.path.join(self.model_dir, f"{max(folder_name)}")
+            file_name = os.listdir(latest_model_dir)[0]
+            latest_model_path = os.path.join(latest_model_dir, file_name)
+            if os.path.isfile(latest_model_dir ):
+                model = load_object(file_path=latest_model_path)
                 return model
-            model_eval_file_content = read_yaml_file(file_path=model_evaluation_file_path)
-
-            model_eval_file_content = dict() if model_eval_file_content is None else model_eval_file_content
-
-            if BEST_MODEL_KEY not in model_eval_file_content:
-                return model
-
-            model = load_object(file_path=model_eval_file_content[BEST_MODEL_KEY][MODEL_PATH_KEY])
-            return model
+            else:
+                return None
         except Exception as e:
             raise App_Exception(e, sys) from e
 
