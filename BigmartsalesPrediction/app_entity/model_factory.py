@@ -8,6 +8,7 @@ import os
 import sys
 from mlxtend.regressor import StackingCVRegressor
 from sklearn.ensemble import RandomForestRegressor
+from catboost import CatBoostRegressor
 from collections import namedtuple
 from typing import List
 from BigmartsalesPrediction.app_logger import logging
@@ -379,9 +380,10 @@ class ModelFactory:
             raise App_Exception(e, sys)
     def get_stacked_model(self,model_list_to_stack :list ,X, y):
         try:
-            meta_regressor_rf = RandomForestRegressor(criterion='friedman_mse', max_depth=5, n_estimators=300)
+            meta_regressor_rf = CatBoostRegressor(depth =  4, iterations =  100, l2_leaf_reg=0.4, learning_rate = 0.1)
             stacked_model = StackingCVRegressor(regressors=model_list_to_stack,meta_regressor =meta_regressor_rf)
             stacked_model.fit(X, y)
+            logging.info(f"Stacked model: {stacked_model}")
             return stacked_model
         except Exception as e:
             raise App_Exception(e, sys) from e
