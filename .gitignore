@@ -140,9 +140,8 @@ BigmartsalesPrediction/app_artifact/stage02_data_transformation
 catboost_info/
 
 
-BigmartsalesPrediction/app_artifact/stage01_data_validation/
-*.log
-logs/
+*.logBigmartsalesPrediction/app_artifact/stage01_data_validation/
+
 Eda/____.ipynb
 Eda/Eda copy.ipynb
 config/schema_orginal.yaml
@@ -151,3 +150,4 @@ config/schema_orginal.yaml
 BigmartsalesPrediction/app_artifact/stage04_model_evaluation/*
 BigmartsalesPrediction/app_artifact/stage03_model_training/*
 Eda/__log.ipynb
+Eda/logs.log

@@ -18,7 +18,7 @@ from flask import send_file, abort, render_template
 ROOT_DIR = os.getcwd()
 LOG_FOLDER_NAME = "logs"
 PIPELINE_FOLDER_NAME = "Bigmartsales"
-SAVED_MODELS_DIR_NAME = "saved_models"
+SAVED_MODELS_DIR_NAME = "production_model"
 MODEL_CONFIG_FILE_PATH = os.path.join(ROOT_DIR, CONFIG_DIR, "model.yaml")
 LOG_DIR = os.path.join(ROOT_DIR, LOG_FOLDER_NAME)
 PIPELINE_DIR = os.path.join(ROOT_DIR, PIPELINE_FOLDER_NAME)
@@ -110,6 +110,8 @@ def predict():
     if request.method == 'POST':
         try :
 
+
+
             Item_Identifier = request.form['Item_Identifier']
             Item_Fat_Content = request.form['Item_Fat_Content']
             Item_Type = request.form['Item_Type']
@@ -120,6 +122,8 @@ def predict():
             Item_Visibility = float(request.form['Item_Visibility'])
             Item_Weight = float(request.form['Item_Weight'])
             Outlet_Establishment_Year= int(request.form['Outlet_Establishment_Year'])
+            Outlet_Location_Type = request.form['Outlet_Location_Type']
+            Outlet_Size = request.form['Outlet_Size']
 
             prediction_data = Prediction_Data(Item_Identifier=Item_Identifier,
                                               Item_Fat_Content = Item_Fat_Content,
@@ -129,7 +133,9 @@ def predict():
                                               Item_MRP = Item_MRP,
                                             Item_Visibility = Item_Visibility,
                                             Item_Weight = Item_Weight,
-                                            Outlet_Establishment_Year = Outlet_Establishment_Year)
+                                            Outlet_Establishment_Year = Outlet_Establishment_Year , 
+                                            Outlet_Location_Type = Outlet_Location_Type,
+                                            Outlet_Size = Outlet_Size)
                                             
             logging.info(f"prediction_data: {prediction_data}")
             prediction_df = prediction_data.get_housing_input_data_frame()

@@ -1,0 +1,134 @@
+2022-07-24 at 00:07:55 | INFO |get_training_pipeline_config |
+ Training pipeline config: TrainingPipelineConfig(experiment_id='d8a0266c-ec5d-4730-98bf-ba1bd5a437d3', previous_experiment_id='a6a40d10-327c-4e95-9cb9-50b5781b84af', artifact_dir='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact', experiment_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/experiment/experiment.csv')
+2022-07-24 at 00:07:55 | INFO |run_pipeline |
+ Pipeline starting.
+2022-07-24 at 00:07:55 | INFO |main |
+ main function execution completed.
+2022-07-24 at 00:07:55 | INFO |run_pipeline |
+ Pipeline experiment: d8a0266c-ec5d-4730-98bf-ba1bd5a437d3
+2022-07-24 at 00:07:55 | INFO |get_data_ingestion_config |
+ Data Ingestion config: DataIngestionConfig(train_dataset_download_url='https://raw.githubusercontent.com/pk1308/datasets/master/BigMartSales/Train.csv', raw_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage00_data_ingestion/d8a0266c-ec5d-4730-98bf-ba1bd5a437d3/raw_data/Train.csv', ingested_test_data_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage00_data_ingestion/d8a0266c-ec5d-4730-98bf-ba1bd5a437d3/ingested_data/Test.csv', ingested_train_data_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage00_data_ingestion/d8a0266c-ec5d-4730-98bf-ba1bd5a437d3/ingested_data/Train.csv')
+2022-07-24 at 00:07:55 | INFO |__init__ |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Data Ingestion log started.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+2022-07-24 at 00:07:58 | INFO |download_data |
+ Downloading file from :[https://raw.githubusercontent.com/pk1308/datasets/master/BigMartSales/Train.csv] into :[/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage00_data_ingestion/d8a0266c-ec5d-4730-98bf-ba1bd5a437d3/raw_data/Train.csv]
+2022-07-24 at 00:07:58 | INFO |split_data_as_train_test |
+ Reading csv file: [/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage00_data_ingestion/d8a0266c-ec5d-4730-98bf-ba1bd5a437d3/raw_data/Train.csv]
+2022-07-24 at 00:07:58 | INFO |split_data_as_train_test |
+ Splitting data into train and test
+2022-07-24 at 00:07:58 | INFO |split_data_as_train_test |
+ Exporting training dataset to file: [/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage00_data_ingestion/d8a0266c-ec5d-4730-98bf-ba1bd5a437d3/ingested_data/Train.csv]
+2022-07-24 at 00:07:58 | INFO |split_data_as_train_test |
+ Exporting test dataset to file: [/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage00_data_ingestion/d8a0266c-ec5d-4730-98bf-ba1bd5a437d3/ingested_data/Test.csv]
+2022-07-24 at 00:07:58 | INFO |split_data_as_train_test |
+ Data Ingestion artifact:[DataIngestionArtifact(train_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage00_data_ingestion/d8a0266c-ec5d-4730-98bf-ba1bd5a437d3/ingested_data/Train.csv', test_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage00_data_ingestion/d8a0266c-ec5d-4730-98bf-ba1bd5a437d3/ingested_data/Test.csv', is_ingested=True, message='Data ingestion completed successfully.')]
+2022-07-24 at 00:07:58 | INFO |__del__ |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Data Ingestion log completed.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+
+
+2022-07-24 at 00:07:58 | INFO |__init__ |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Data Validation log started.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+
+
+2022-07-24 at 00:07:58 | INFO |is_train_test_file_exists |
+ Checking if training and test file is available
+2022-07-24 at 00:07:58 | INFO |is_train_test_file_exists |
+ Is train and test file exists?-> True
+2022-07-24 at 00:07:58 | INFO |initiate_data_validation |
+ Data validation artifact: DataValidationArtifact(schema_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/config/schema.yaml', report_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage01_data_validation/d8a0266c-ec5d-4730-98bf-ba1bd5a437d3/report/report.json', report_page_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage01_data_validation/d8a0266c-ec5d-4730-98bf-ba1bd5a437d3/report/report.html', is_validated=True, message='Data Validation performed successfully.')
+2022-07-24 at 00:07:58 | INFO |__del__ |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Data Validation log completed.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+
+
+2022-07-24 at 00:07:58 | INFO |get_data_transformation_config |
+ Data transformation config: DataTransformationConfig(transformed_train_dir='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage02_data_transformation/d8a0266c-ec5d-4730-98bf-ba1bd5a437d3/stage02_data_transformation/train', transformed_test_dir='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage02_data_transformation/d8a0266c-ec5d-4730-98bf-ba1bd5a437d3/stage02_data_transformation/test', preprocessed_object_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage02_data_transformation/d8a0266c-ec5d-4730-98bf-ba1bd5a437d3/stage02_data_transformation/preprocessed/preprocessed.pkl')
+2022-07-24 at 00:07:58 | INFO |__init__ |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Data Transformation log started.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+2022-07-24 at 00:07:58 | INFO |initiate_data_transformation |
+ Obtaining preprocessing object.
+2022-07-24 at 00:07:58 | INFO |get_data_transformer_object |
+ Categorical columns: ['Item_Identifier', 'Item_Fat_Content', 'Item_Type', 'Outlet_Type']
+2022-07-24 at 00:07:58 | INFO |get_data_transformer_object |
+ Numerical columns: ['Item_Weight', 'Item_Visibility', 'Item_MRP', 'Outlet_Establishment_Year']
+2022-07-24 at 00:07:58 | INFO |initiate_data_transformation |
+ Obtaining training and test file path.
+2022-07-24 at 00:07:58 | INFO |initiate_data_transformation |
+ Selected columns: dict_keys(['Item_Fat_Content', 'Item_Identifier', 'Item_MRP', 'Item_Outlet_Sales', 'Item_Type', 'Item_Visibility', 'Item_Weight', 'Outlet_Establishment_Year', 'Outlet_Identifier', 'Outlet_Location_Type', 'Outlet_Size', 'Outlet_Type'])
+2022-07-24 at 00:07:58 | INFO |initiate_data_transformation |
+ Loading training and test data as pandas dataframe.
+2022-07-24 at 00:07:58 | INFO |initiate_data_transformation |
+ Splitting input and target feature from training and testing dataframe.
+2022-07-24 at 00:07:58 | INFO |initiate_data_transformation |
+ Applying preprocessing object on training dataframe and testing dataframe
+2022-07-24 at 00:08:02 | INFO |transform |
+ Transforming data
+2022-07-24 at 00:08:02 | INFO |transform |
+ Transforming data
+2022-07-24 at 00:08:02 | INFO |initiate_data_transformation |
+ Saving transformed training and testing array.
+2022-07-24 at 00:08:02 | INFO |initiate_data_transformation |
+ Saving preprocessing object.
+2022-07-24 at 00:08:02 | INFO |initiate_data_transformation |
+ Data transformations artifact: DataTransformationArtifact(is_transformed=True, message='Data transformation successfully.', transformed_train_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage02_data_transformation/d8a0266c-ec5d-4730-98bf-ba1bd5a437d3/stage02_data_transformation/train/Train.npz', transformed_test_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage02_data_transformation/d8a0266c-ec5d-4730-98bf-ba1bd5a437d3/stage02_data_transformation/test/Test.npz', preprocessed_object_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage02_data_transformation/d8a0266c-ec5d-4730-98bf-ba1bd5a437d3/stage02_data_transformation/preprocessed/preprocessed.pkl')
+2022-07-24 at 00:08:02 | INFO |__del__ |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Data Transformation log completed.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+
+
+2022-07-24 at 00:08:02 | INFO |get_model_trainer_config |
+ Model trainer config: ModelTrainerConfig(trained_model_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage03_model_training/d8a0266c-ec5d-4730-98bf-ba1bd5a437d3/trained_model/model.pkl', base_accuracy=0.5, model_config_file_path='config/model.yaml', stacked=True)
+2022-07-24 at 00:08:02 | INFO |__init__ |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Model trainer log started.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+2022-07-24 at 00:08:02 | INFO |initiate_model_trainer |
+ Loading transformed training dataset
+2022-07-24 at 00:08:02 | INFO |initiate_model_trainer |
+ Loading transformed testing dataset
+2022-07-24 at 00:08:02 | INFO |initiate_model_trainer |
+ Splitting training and testing input and target feature
+2022-07-24 at 00:08:02 | INFO |initiate_model_trainer |
+ Extracting model config file path
+2022-07-24 at 00:08:02 | INFO |initiate_model_trainer |
+ Initializing model factory class using above model config file: config/model.yaml
+2022-07-24 at 00:08:02 | INFO |initiate_model_trainer |
+ Expected accuracy: 0.5
+2022-07-24 at 00:08:02 | INFO |initiate_model_trainer |
+ Initiating operation model selection
+2022-07-24 at 00:08:02 | INFO |get_best_model |
+ Started Initializing model from config file
+2022-07-24 at 00:08:02 | INFO |class_for_name |
+ Executing command: from <module 'sklearn.ensemble' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/sklearn/ensemble/__init__.py'> import RandomForestRegressor
+2022-07-24 at 00:08:02 | INFO |class_for_name |
+ Executing command: from <module 'xgboost' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/xgboost/__init__.py'> import XGBRegressor
+2022-07-24 at 00:08:02 | INFO |class_for_name |
+ Executing command: from <module 'catboost' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/catboost/__init__.py'> import CatBoostRegressor
+2022-07-24 at 00:08:02 | INFO |get_best_model |
+ Initialized model: [InitializedModelDetail(model_serial_number='model_1', model=RandomForestRegressor(), param_grid_search={'criterion': ['squared_error', 'friedman_mse'], 'n_estimators': [400, 500], 'max_depth': [5, 6], 'max_features': ['auto']}, model_name='sklearn.ensemble.RandomForestRegressor'), InitializedModelDetail(model_serial_number='model_2', model=XGBRegressor(base_score=None, booster=None, callbacks=None,
+             colsample_bylevel=None, colsample_bynode=None,
+             colsample_bytree=None, early_stopping_rounds=None,
+             enable_categorical=False, eval_metric=None, gamma=None,
+             gpu_id=None, grow_policy=None, importance_type=None,
+             interaction_constraints=None, learning_rate=None, max_bin=None,
+             max_cat_to_onehot=None, max_delta_step=None, max_depth=None,
+             max_leaves=None, min_child_weight=None, missing=nan,
+             monotone_constraints=None, n_estimators=100, n_jobs=None,
+             num_parallel_tree=None, predictor=None, random_state=None,
+             reg_alpha=None, reg_lambda=None, ...), param_grid_search={'booster': ['gbtree'], 'n_estimators': [400, 700], 'learning_rate': [0.02, 0.2]}, model_name='xgboost.XGBRegressor'), InitializedModelDetail(model_serial_number='model_3', model=<catboost.core.CatBoostRegressor object at 0x7f8bd46fafd0>, param_grid_search={'iterations': [200, 300], 'learning_rate': [0.04, 0.002], 'l2_leaf_reg': [0.9, 1, 1.3]}, model_name='catboost.CatBoostRegressor')]
+2022-07-24 at 00:08:02 | INFO |class_for_name |
+ Executing command: from <module 'sklearn.model_selection' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/sklearn/model_selection/__init__.py'> import GridSearchCV
+2022-07-24 at 00:08:02 | INFO |update_property_of_class |
+ Executing:$ GridSearchCV(estimator=RandomForestRegressor(),
+             param_grid={'criterion': ['squared_error', 'friedman_mse'],
+                         'max_depth': [5, 6], 'max_features': ['auto'],
+                         'n_estimators': [400, 500]}).cv=5
+2022-07-24 at 00:08:02 | INFO |update_property_of_class |
+ Executing:$ GridSearchCV(cv=5, estimator=RandomForestRegressor(),
+             param_grid={'criterion': ['squared_error', 'friedman_mse'],
+                         'max_depth': [5, 6], 'max_features': ['auto'],
+                         'n_estimators': [400, 500]}).verbose=3
+2022-07-24 at 00:08:02 | INFO |update_property_of_class |
+ Executing:$ GridSearchCV(cv=5, estimator=RandomForestRegressor(),
+             param_grid={'criterion': ['squared_error', 'friedman_mse'],
+                         'max_depth': [5, 6], 'max_features': ['auto'],
+                         'n_estimators': [400, 500]},
+             verbose=3).n_jobs=-1
+2022-07-24 at 00:08:02 | INFO |execute_grid_search_operation |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> f"Training RandomForestRegressor Started." <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<

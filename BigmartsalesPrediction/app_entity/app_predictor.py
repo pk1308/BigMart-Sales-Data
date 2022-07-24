@@ -19,6 +19,8 @@ class Prediction_Data:
                  Item_Visibility: float,
                  Item_Weight: float,
                  Outlet_Establishment_Year: int,
+                 Outlet_Location_Type :str ,
+                Outlet_Size: str,
                  Item_Outlet_Sales: float = None):
 
         try:
@@ -31,6 +33,8 @@ class Prediction_Data:
             self.Item_Visibility = Item_Visibility
             self.Item_Weight = Item_Weight
             self.Outlet_Establishment_Year = Outlet_Establishment_Year
+            self.Outlet_Location_Type = Outlet_Location_Type
+            self.Outlet_Size = Outlet_Size
             self.Item_Outlet_Sales = Item_Outlet_Sales
         except Exception as e:
             raise App_Exception(e, sys) from e
@@ -54,6 +58,8 @@ class Prediction_Data:
                 "Item_MRP": [self.Item_MRP],
                 "Item_Visibility": [self.Item_Visibility],
                 "Item_Weight": [self.Item_Weight],
+                'Outlet_Location_Type': [self.Outlet_Location_Type],
+                'Outlet_Size': [self.Outlet_Size],
                 "Outlet_Establishment_Year": [self.Outlet_Establishment_Year]
             }
 
@@ -82,7 +88,7 @@ class App_predictor:
 
     def predict(self, X):
         try:
-            model_path = self.get_latest_model_path()
+            model_path = os.path.join(self.model_dir , "model.pkl")
             model = load_object(file_path=model_path)
             median_house_value = model.predict(X)
             return median_house_value

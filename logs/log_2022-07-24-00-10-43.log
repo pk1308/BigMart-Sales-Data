@@ -1,0 +1,388 @@
+2022-07-24 at 00:10:43 | INFO |get_training_pipeline_config |
+ Training pipeline config: TrainingPipelineConfig(experiment_id='552140a4-bec5-4ff6-99e4-11545e403a5f', previous_experiment_id='a6a40d10-327c-4e95-9cb9-50b5781b84af', artifact_dir='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact', experiment_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/experiment/experiment.csv')
+2022-07-24 at 00:10:43 | INFO |run_pipeline |
+ Pipeline starting.
+2022-07-24 at 00:10:43 | INFO |main |
+ main function execution completed.
+2022-07-24 at 00:10:43 | INFO |run_pipeline |
+ Pipeline experiment: 552140a4-bec5-4ff6-99e4-11545e403a5f
+2022-07-24 at 00:10:43 | INFO |get_data_ingestion_config |
+ Data Ingestion config: DataIngestionConfig(train_dataset_download_url='https://raw.githubusercontent.com/pk1308/datasets/master/BigMartSales/Train.csv', raw_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage00_data_ingestion/552140a4-bec5-4ff6-99e4-11545e403a5f/raw_data/Train.csv', ingested_test_data_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage00_data_ingestion/552140a4-bec5-4ff6-99e4-11545e403a5f/ingested_data/Test.csv', ingested_train_data_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage00_data_ingestion/552140a4-bec5-4ff6-99e4-11545e403a5f/ingested_data/Train.csv')
+2022-07-24 at 00:10:43 | INFO |__init__ |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Data Ingestion log started.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+2022-07-24 at 00:10:44 | INFO |download_data |
+ Downloading file from :[https://raw.githubusercontent.com/pk1308/datasets/master/BigMartSales/Train.csv] into :[/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage00_data_ingestion/552140a4-bec5-4ff6-99e4-11545e403a5f/raw_data/Train.csv]
+2022-07-24 at 00:10:44 | INFO |split_data_as_train_test |
+ Reading csv file: [/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage00_data_ingestion/552140a4-bec5-4ff6-99e4-11545e403a5f/raw_data/Train.csv]
+2022-07-24 at 00:10:44 | INFO |split_data_as_train_test |
+ Splitting data into train and test
+2022-07-24 at 00:10:44 | INFO |split_data_as_train_test |
+ Exporting training dataset to file: [/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage00_data_ingestion/552140a4-bec5-4ff6-99e4-11545e403a5f/ingested_data/Train.csv]
+2022-07-24 at 00:10:44 | INFO |split_data_as_train_test |
+ Exporting test dataset to file: [/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage00_data_ingestion/552140a4-bec5-4ff6-99e4-11545e403a5f/ingested_data/Test.csv]
+2022-07-24 at 00:10:44 | INFO |split_data_as_train_test |
+ Data Ingestion artifact:[DataIngestionArtifact(train_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage00_data_ingestion/552140a4-bec5-4ff6-99e4-11545e403a5f/ingested_data/Train.csv', test_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage00_data_ingestion/552140a4-bec5-4ff6-99e4-11545e403a5f/ingested_data/Test.csv', is_ingested=True, message='Data ingestion completed successfully.')]
+2022-07-24 at 00:10:44 | INFO |__del__ |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Data Ingestion log completed.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+
+
+2022-07-24 at 00:10:44 | INFO |__init__ |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Data Validation log started.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+
+
+2022-07-24 at 00:10:44 | INFO |is_train_test_file_exists |
+ Checking if training and test file is available
+2022-07-24 at 00:10:44 | INFO |is_train_test_file_exists |
+ Is train and test file exists?-> True
+2022-07-24 at 00:10:44 | INFO |initiate_data_validation |
+ Data validation artifact: DataValidationArtifact(schema_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/config/schema.yaml', report_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage01_data_validation/552140a4-bec5-4ff6-99e4-11545e403a5f/report/report.json', report_page_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage01_data_validation/552140a4-bec5-4ff6-99e4-11545e403a5f/report/report.html', is_validated=True, message='Data Validation performed successfully.')
+2022-07-24 at 00:10:44 | INFO |__del__ |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Data Validation log completed.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+
+
+2022-07-24 at 00:10:44 | INFO |get_data_transformation_config |
+ Data transformation config: DataTransformationConfig(transformed_train_dir='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage02_data_transformation/552140a4-bec5-4ff6-99e4-11545e403a5f/stage02_data_transformation/train', transformed_test_dir='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage02_data_transformation/552140a4-bec5-4ff6-99e4-11545e403a5f/stage02_data_transformation/test', preprocessed_object_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage02_data_transformation/552140a4-bec5-4ff6-99e4-11545e403a5f/stage02_data_transformation/preprocessed/preprocessed.pkl')
+2022-07-24 at 00:10:44 | INFO |__init__ |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Data Transformation log started.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+2022-07-24 at 00:10:44 | INFO |initiate_data_transformation |
+ Obtaining preprocessing object.
+2022-07-24 at 00:10:44 | INFO |get_data_transformer_object |
+ Categorical columns: ['Item_Identifier', 'Item_Fat_Content', 'Item_Type', 'Outlet_Type']
+2022-07-24 at 00:10:44 | INFO |get_data_transformer_object |
+ Numerical columns: ['Item_Weight', 'Item_Visibility', 'Item_MRP', 'Outlet_Establishment_Year']
+2022-07-24 at 00:10:44 | INFO |initiate_data_transformation |
+ Obtaining training and test file path.
+2022-07-24 at 00:10:44 | INFO |initiate_data_transformation |
+ Selected columns: dict_keys(['Item_Fat_Content', 'Item_Identifier', 'Item_MRP', 'Item_Outlet_Sales', 'Item_Type', 'Item_Visibility', 'Item_Weight', 'Outlet_Establishment_Year', 'Outlet_Identifier', 'Outlet_Location_Type', 'Outlet_Size', 'Outlet_Type'])
+2022-07-24 at 00:10:44 | INFO |initiate_data_transformation |
+ Loading training and test data as pandas dataframe.
+2022-07-24 at 00:10:44 | INFO |initiate_data_transformation |
+ Splitting input and target feature from training and testing dataframe.
+2022-07-24 at 00:10:44 | INFO |initiate_data_transformation |
+ Applying preprocessing object on training dataframe and testing dataframe
+2022-07-24 at 00:10:48 | INFO |transform |
+ Transforming data
+2022-07-24 at 00:10:48 | INFO |transform |
+ Transforming data
+2022-07-24 at 00:10:48 | INFO |initiate_data_transformation |
+ Saving transformed training and testing array.
+2022-07-24 at 00:10:48 | INFO |initiate_data_transformation |
+ Saving preprocessing object.
+2022-07-24 at 00:10:48 | INFO |initiate_data_transformation |
+ Data transformations artifact: DataTransformationArtifact(is_transformed=True, message='Data transformation successfully.', transformed_train_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage02_data_transformation/552140a4-bec5-4ff6-99e4-11545e403a5f/stage02_data_transformation/train/Train.npz', transformed_test_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage02_data_transformation/552140a4-bec5-4ff6-99e4-11545e403a5f/stage02_data_transformation/test/Test.npz', preprocessed_object_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage02_data_transformation/552140a4-bec5-4ff6-99e4-11545e403a5f/stage02_data_transformation/preprocessed/preprocessed.pkl')
+2022-07-24 at 00:10:48 | INFO |__del__ |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Data Transformation log completed.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+
+
+2022-07-24 at 00:10:48 | INFO |get_model_trainer_config |
+ Model trainer config: ModelTrainerConfig(trained_model_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage03_model_training/552140a4-bec5-4ff6-99e4-11545e403a5f/trained_model/model.pkl', base_accuracy=0.5, model_config_file_path='config/model.yaml', stacked=True)
+2022-07-24 at 00:10:48 | INFO |__init__ |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Model trainer log started.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+2022-07-24 at 00:10:48 | INFO |initiate_model_trainer |
+ Loading transformed training dataset
+2022-07-24 at 00:10:48 | INFO |initiate_model_trainer |
+ Loading transformed testing dataset
+2022-07-24 at 00:10:48 | INFO |initiate_model_trainer |
+ Splitting training and testing input and target feature
+2022-07-24 at 00:10:48 | INFO |initiate_model_trainer |
+ Extracting model config file path
+2022-07-24 at 00:10:48 | INFO |initiate_model_trainer |
+ Initializing model factory class using above model config file: config/model.yaml
+2022-07-24 at 00:10:48 | INFO |initiate_model_trainer |
+ Expected accuracy: 0.5
+2022-07-24 at 00:10:48 | INFO |initiate_model_trainer |
+ Initiating operation model selection
+2022-07-24 at 00:10:48 | INFO |get_best_model |
+ Started Initializing model from config file
+2022-07-24 at 00:10:48 | INFO |class_for_name |
+ Executing command: from <module 'sklearn.ensemble' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/sklearn/ensemble/__init__.py'> import RandomForestRegressor
+2022-07-24 at 00:10:48 | INFO |class_for_name |
+ Executing command: from <module 'xgboost' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/xgboost/__init__.py'> import XGBRegressor
+2022-07-24 at 00:10:48 | INFO |class_for_name |
+ Executing command: from <module 'catboost' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/catboost/__init__.py'> import CatBoostRegressor
+2022-07-24 at 00:10:48 | INFO |get_best_model |
+ Initialized model: [InitializedModelDetail(model_serial_number='model_1', model=RandomForestRegressor(), param_grid_search={'criterion': ['squared_error', 'friedman_mse'], 'n_estimators': [400, 500], 'max_depth': [5, 6], 'max_features': ['auto']}, model_name='sklearn.ensemble.RandomForestRegressor'), InitializedModelDetail(model_serial_number='model_2', model=XGBRegressor(base_score=None, booster=None, callbacks=None,
+             colsample_bylevel=None, colsample_bynode=None,
+             colsample_bytree=None, early_stopping_rounds=None,
+             enable_categorical=False, eval_metric=None, gamma=None,
+             gpu_id=None, grow_policy=None, importance_type=None,
+             interaction_constraints=None, learning_rate=None, max_bin=None,
+             max_cat_to_onehot=None, max_delta_step=None, max_depth=None,
+             max_leaves=None, min_child_weight=None, missing=nan,
+             monotone_constraints=None, n_estimators=100, n_jobs=None,
+             num_parallel_tree=None, predictor=None, random_state=None,
+             reg_alpha=None, reg_lambda=None, ...), param_grid_search={'booster': ['gbtree'], 'n_estimators': [400, 700], 'learning_rate': [0.02, 0.2]}, model_name='xgboost.XGBRegressor'), InitializedModelDetail(model_serial_number='model_3', model=<catboost.core.CatBoostRegressor object at 0x7f975c08d890>, param_grid_search={'iterations': [200, 300], 'learning_rate': [0.04, 0.002], 'l2_leaf_reg': [0.9, 1, 1.3]}, model_name='catboost.CatBoostRegressor')]
+2022-07-24 at 00:10:48 | INFO |class_for_name |
+ Executing command: from <module 'sklearn.model_selection' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/sklearn/model_selection/__init__.py'> import GridSearchCV
+2022-07-24 at 00:10:48 | INFO |update_property_of_class |
+ Executing:$ GridSearchCV(estimator=RandomForestRegressor(),
+             param_grid={'criterion': ['squared_error', 'friedman_mse'],
+                         'max_depth': [5, 6], 'max_features': ['auto'],
+                         'n_estimators': [400, 500]}).cv=2
+2022-07-24 at 00:10:48 | INFO |update_property_of_class |
+ Executing:$ GridSearchCV(cv=2, estimator=RandomForestRegressor(),
+             param_grid={'criterion': ['squared_error', 'friedman_mse'],
+                         'max_depth': [5, 6], 'max_features': ['auto'],
+                         'n_estimators': [400, 500]}).verbose=3
+2022-07-24 at 00:10:48 | INFO |update_property_of_class |
+ Executing:$ GridSearchCV(cv=2, estimator=RandomForestRegressor(),
+             param_grid={'criterion': ['squared_error', 'friedman_mse'],
+                         'max_depth': [5, 6], 'max_features': ['auto'],
+                         'n_estimators': [400, 500]},
+             verbose=3).n_jobs=-1
+2022-07-24 at 00:10:48 | INFO |execute_grid_search_operation |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> f"Training RandomForestRegressor Started." <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-24 at 00:13:32 | INFO |class_for_name |
+ Executing command: from <module 'sklearn.model_selection' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/sklearn/model_selection/__init__.py'> import GridSearchCV
+2022-07-24 at 00:13:32 | INFO |update_property_of_class |
+ Executing:$ GridSearchCV(estimator=XGBRegressor(base_score=None, booster=None,
+                                    callbacks=None, colsample_bylevel=None,
+                                    colsample_bynode=None,
+                                    colsample_bytree=None,
+                                    early_stopping_rounds=None,
+                                    enable_categorical=False, eval_metric=None,
+                                    gamma=None, gpu_id=None, grow_policy=None,
+                                    importance_type=None,
+                                    interaction_constraints=None,
+                                    learning_rate=None, max_bin=None,
+                                    max_cat_to_onehot=None, max_delta_step=None,
+                                    max_depth=None, max_leaves=None,
+                                    min_child_weight=None, missing=nan,
+                                    monotone_constraints=None, n_estimators=100,
+                                    n_jobs=None, num_parallel_tree=None,
+                                    predictor=None, random_state=None,
+                                    reg_alpha=None, reg_lambda=None, ...),
+             param_grid={'booster': ['gbtree'], 'learning_rate': [0.02, 0.2],
+                         'n_estimators': [400, 700]}).cv=2
+2022-07-24 at 00:13:32 | INFO |update_property_of_class |
+ Executing:$ GridSearchCV(cv=2,
+             estimator=XGBRegressor(base_score=None, booster=None,
+                                    callbacks=None, colsample_bylevel=None,
+                                    colsample_bynode=None,
+                                    colsample_bytree=None,
+                                    early_stopping_rounds=None,
+                                    enable_categorical=False, eval_metric=None,
+                                    gamma=None, gpu_id=None, grow_policy=None,
+                                    importance_type=None,
+                                    interaction_constraints=None,
+                                    learning_rate=None, max_bin=None,
+                                    max_cat_to_onehot=None, max_delta_step=None,
+                                    max_depth=None, max_leaves=None,
+                                    min_child_weight=None, missing=nan,
+                                    monotone_constraints=None, n_estimators=100,
+                                    n_jobs=None, num_parallel_tree=None,
+                                    predictor=None, random_state=None,
+                                    reg_alpha=None, reg_lambda=None, ...),
+             param_grid={'booster': ['gbtree'], 'learning_rate': [0.02, 0.2],
+                         'n_estimators': [400, 700]}).verbose=3
+2022-07-24 at 00:13:32 | INFO |update_property_of_class |
+ Executing:$ GridSearchCV(cv=2,
+             estimator=XGBRegressor(base_score=None, booster=None,
+                                    callbacks=None, colsample_bylevel=None,
+                                    colsample_bynode=None,
+                                    colsample_bytree=None,
+                                    early_stopping_rounds=None,
+                                    enable_categorical=False, eval_metric=None,
+                                    gamma=None, gpu_id=None, grow_policy=None,
+                                    importance_type=None,
+                                    interaction_constraints=None,
+                                    learning_rate=None, max_bin=None,
+                                    max_cat_to_onehot=None, max_delta_step=None,
+                                    max_depth=None, max_leaves=None,
+                                    min_child_weight=None, missing=nan,
+                                    monotone_constraints=None, n_estimators=100,
+                                    n_jobs=None, num_parallel_tree=None,
+                                    predictor=None, random_state=None,
+                                    reg_alpha=None, reg_lambda=None, ...),
+             param_grid={'booster': ['gbtree'], 'learning_rate': [0.02, 0.2],
+                         'n_estimators': [400, 700]},
+             verbose=3).n_jobs=-1
+2022-07-24 at 00:13:32 | INFO |execute_grid_search_operation |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> f"Training XGBRegressor Started." <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-24 at 00:15:25 | INFO |class_for_name |
+ Executing command: from <module 'sklearn.model_selection' from '/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/venv/lib/python3.7/site-packages/sklearn/model_selection/__init__.py'> import GridSearchCV
+2022-07-24 at 00:15:25 | INFO |update_property_of_class |
+ Executing:$ GridSearchCV(estimator=<catboost.core.CatBoostRegressor object at 0x7f975c08d890>,
+             param_grid={'iterations': [200, 300], 'l2_leaf_reg': [0.9, 1, 1.3],
+                         'learning_rate': [0.04, 0.002]}).cv=2
+2022-07-24 at 00:15:25 | INFO |update_property_of_class |
+ Executing:$ GridSearchCV(cv=2,
+             estimator=<catboost.core.CatBoostRegressor object at 0x7f975c08d890>,
+             param_grid={'iterations': [200, 300], 'l2_leaf_reg': [0.9, 1, 1.3],
+                         'learning_rate': [0.04, 0.002]}).verbose=3
+2022-07-24 at 00:15:25 | INFO |update_property_of_class |
+ Executing:$ GridSearchCV(cv=2,
+             estimator=<catboost.core.CatBoostRegressor object at 0x7f975c08d890>,
+             param_grid={'iterations': [200, 300], 'l2_leaf_reg': [0.9, 1, 1.3],
+                         'learning_rate': [0.04, 0.002]},
+             verbose=3).n_jobs=-1
+2022-07-24 at 00:15:25 | INFO |execute_grid_search_operation |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> f"Training CatBoostRegressor Started." <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-24 at 00:16:03 | INFO |get_best_model_from_grid_searched_best_model_list |
+ Acceptable model found:GridSearchedBestModel(model_serial_number='model_1', model=RandomForestRegressor(), best_model=RandomForestRegressor(max_depth=5, n_estimators=400), best_parameters={'criterion': 'squared_error', 'max_depth': 5, 'max_features': 'auto', 'n_estimators': 400}, best_score=0.5929744069760143)
+2022-07-24 at 00:16:03 | INFO |get_best_model_from_grid_searched_best_model_list |
+ Acceptable model found:GridSearchedBestModel(model_serial_number='model_3', model=<catboost.core.CatBoostRegressor object at 0x7f975c08d890>, best_model=<catboost.core.CatBoostRegressor object at 0x7f975b174b90>, best_parameters={'iterations': 200, 'l2_leaf_reg': 0.9, 'learning_rate': 0.04}, best_score=0.5971940069251191)
+2022-07-24 at 00:16:03 | INFO |get_best_model_from_grid_searched_best_model_list |
+ Best model: GridSearchedBestModel(model_serial_number='model_3', model=<catboost.core.CatBoostRegressor object at 0x7f975c08d890>, best_model=<catboost.core.CatBoostRegressor object at 0x7f975b174b90>, best_parameters={'iterations': 200, 'l2_leaf_reg': 0.9, 'learning_rate': 0.04}, best_score=0.5971940069251191)
+2022-07-24 at 00:16:03 | INFO |initiate_model_trainer |
+ Best model found on training dataset: GridSearchedBestModel(model_serial_number='model_3', model=<catboost.core.CatBoostRegressor object at 0x7f975c08d890>, best_model=<catboost.core.CatBoostRegressor object at 0x7f975b174b90>, best_parameters={'iterations': 200, 'l2_leaf_reg': 0.9, 'learning_rate': 0.04}, best_score=0.5971940069251191)
+2022-07-24 at 00:16:03 | INFO |initiate_model_trainer |
+ Extracting trained model list.
+2022-07-24 at 00:16:03 | INFO |initiate_model_trainer |
+ Model list: [RandomForestRegressor(max_depth=5, n_estimators=400), XGBRegressor(base_score=0.5, booster='gbtree', callbacks=None,
+             colsample_bylevel=1, colsample_bynode=1, colsample_bytree=1,
+             early_stopping_rounds=None, enable_categorical=False,
+             eval_metric=None, gamma=0, gpu_id=-1, grow_policy='depthwise',
+             importance_type=None, interaction_constraints='',
+             learning_rate=0.02, max_bin=256, max_cat_to_onehot=4,
+             max_delta_step=0, max_depth=6, max_leaves=0, min_child_weight=1,
+             missing=nan, monotone_constraints='()', n_estimators=400, n_jobs=0,
+             num_parallel_tree=1, predictor='auto', random_state=0, reg_alpha=0,
+             reg_lambda=1, ...), <catboost.core.CatBoostRegressor object at 0x7f975b174b90>] , 3
+2022-07-24 at 00:19:11 | INFO |initiate_model_trainer |
+ Stacked model found: StackingCVRegressor(meta_regressor=RandomForestRegressor(criterion='friedman_mse',
+                                                         max_depth=5,
+                                                         n_estimators=300),
+                    regressors=[RandomForestRegressor(max_depth=5,
+                                                      n_estimators=400),
+                                XGBRegressor(base_score=0.5, booster='gbtree',
+                                             callbacks=None,
+                                             colsample_bylevel=1,
+                                             colsample_bynode=1,
+                                             colsample_bytree=1,
+                                             early_stopping_rounds=None,
+                                             enable_categorical=False,
+                                             eval...
+                                             importance_type=None,
+                                             interaction_constraints='',
+                                             learning_rate=0.02, max_bin=256,
+                                             max_cat_to_onehot=4,
+                                             max_delta_step=0, max_depth=6,
+                                             max_leaves=0, min_child_weight=1,
+                                             missing=nan,
+                                             monotone_constraints='()',
+                                             n_estimators=400, n_jobs=0,
+                                             num_parallel_tree=1,
+                                             predictor='auto', random_state=0,
+                                             reg_alpha=0, reg_lambda=1, ...),
+                                <catboost.core.CatBoostRegressor object at 0x7f975b174b90>])
+2022-07-24 at 00:19:11 | INFO |initiate_model_trainer |
+ Stacked model list: [RandomForestRegressor(max_depth=5, n_estimators=400), XGBRegressor(base_score=0.5, booster='gbtree', callbacks=None,
+             colsample_bylevel=1, colsample_bynode=1, colsample_bytree=1,
+             early_stopping_rounds=None, enable_categorical=False,
+             eval_metric=None, gamma=0, gpu_id=-1, grow_policy='depthwise',
+             importance_type=None, interaction_constraints='',
+             learning_rate=0.02, max_bin=256, max_cat_to_onehot=4,
+             max_delta_step=0, max_depth=6, max_leaves=0, min_child_weight=1,
+             missing=nan, monotone_constraints='()', n_estimators=400, n_jobs=0,
+             num_parallel_tree=1, predictor='auto', random_state=0, reg_alpha=0,
+             reg_lambda=1, ...), <catboost.core.CatBoostRegressor object at 0x7f975b174b90>, StackingCVRegressor(meta_regressor=RandomForestRegressor(criterion='friedman_mse',
+                                                         max_depth=5,
+                                                         n_estimators=300),
+                    regressors=[RandomForestRegressor(max_depth=5,
+                                                      n_estimators=400),
+                                XGBRegressor(base_score=0.5, booster='gbtree',
+                                             callbacks=None,
+                                             colsample_bylevel=1,
+                                             colsample_bynode=1,
+                                             colsample_bytree=1,
+                                             early_stopping_rounds=None,
+                                             enable_categorical=False,
+                                             eval...
+                                             importance_type=None,
+                                             interaction_constraints='',
+                                             learning_rate=0.02, max_bin=256,
+                                             max_cat_to_onehot=4,
+                                             max_delta_step=0, max_depth=6,
+                                             max_leaves=0, min_child_weight=1,
+                                             missing=nan,
+                                             monotone_constraints='()',
+                                             n_estimators=400, n_jobs=0,
+                                             num_parallel_tree=1,
+                                             predictor='auto', random_state=0,
+                                             reg_alpha=0, reg_lambda=1, ...),
+                                <catboost.core.CatBoostRegressor object at 0x7f975b174b90>])] , 4
+2022-07-24 at 00:19:11 | INFO |initiate_model_trainer |
+ Evaluation all trained model on training and testing dataset both
+2022-07-24 at 00:19:11 | INFO |evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Started evaluating model: [RandomForestRegressor] <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-24 at 00:19:11 | INFO |evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Score <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-24 at 00:19:11 | INFO |evaluate_regression_model |
+ Train Score		 Test Score		 Average Score
+2022-07-24 at 00:19:11 | INFO |evaluate_regression_model |
+ 0.615963619002172		 0.5851581219586567		0.6001658319860902
+2022-07-24 at 00:19:11 | INFO |evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Loss <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-24 at 00:19:11 | INFO |evaluate_regression_model |
+ Diff test train accuracy: [0.030805497043515317].
+2022-07-24 at 00:19:11 | INFO |evaluate_regression_model |
+ Train root mean squared error: [1061.418686228577].
+2022-07-24 at 00:19:11 | INFO |evaluate_regression_model |
+ Test root mean squared error: [1082.482745373409].
+2022-07-24 at 00:19:11 | INFO |evaluate_regression_model |
+ Acceptable model found MetricInfoArtifact(model_name='RandomForestRegressor(max_depth=5, n_estimators=400)', model_object=RandomForestRegressor(max_depth=5, n_estimators=400), train_rmse=1061.418686228577, test_rmse=1082.482745373409, train_accuracy=0.615963619002172, test_accuracy=0.5851581219586567, model_accuracy=0.6001658319860902, index_number=0). 
+2022-07-24 at 00:19:11 | INFO |evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Started evaluating model: [XGBRegressor] <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-24 at 00:19:11 | INFO |evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Score <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-24 at 00:19:11 | INFO |evaluate_regression_model |
+ Train Score		 Test Score		 Average Score
+2022-07-24 at 00:19:11 | INFO |evaluate_regression_model |
+ 0.6769297204636923		 0.5649294458139946		0.6158790661952809
+2022-07-24 at 00:19:11 | INFO |evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Loss <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-24 at 00:19:11 | INFO |evaluate_regression_model |
+ Diff test train accuracy: [0.11200027464969764].
+2022-07-24 at 00:19:11 | INFO |evaluate_regression_model |
+ Train root mean squared error: [973.5293487223114].
+2022-07-24 at 00:19:11 | INFO |evaluate_regression_model |
+ Test root mean squared error: [1108.560837689689].
+2022-07-24 at 00:19:11 | INFO |evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Started evaluating model: [CatBoostRegressor] <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-24 at 00:19:12 | INFO |evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Score <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-24 at 00:19:12 | INFO |evaluate_regression_model |
+ Train Score		 Test Score		 Average Score
+2022-07-24 at 00:19:12 | INFO |evaluate_regression_model |
+ 0.6324256806713373		 0.585896088330919		0.6082723659592907
+2022-07-24 at 00:19:12 | INFO |evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Loss <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-24 at 00:19:12 | INFO |evaluate_regression_model |
+ Diff test train accuracy: [0.04652959234041831].
+2022-07-24 at 00:19:12 | INFO |evaluate_regression_model |
+ Train root mean squared error: [1038.4201952590652].
+2022-07-24 at 00:19:12 | INFO |evaluate_regression_model |
+ Test root mean squared error: [1081.5194971003118].
+2022-07-24 at 00:19:12 | INFO |evaluate_regression_model |
+ Acceptable model found MetricInfoArtifact(model_name='<catboost.core.CatBoostRegressor object at 0x7f975b174b90>', model_object=<catboost.core.CatBoostRegressor object at 0x7f975b174b90>, train_rmse=1038.4201952590652, test_rmse=1081.5194971003118, train_accuracy=0.6324256806713373, test_accuracy=0.585896088330919, model_accuracy=0.6082723659592907, index_number=2). 
+2022-07-24 at 00:19:12 | INFO |evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Started evaluating model: [StackingCVRegressor] <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-24 at 00:19:14 | INFO |evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Score <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-24 at 00:19:14 | INFO |evaluate_regression_model |
+ Train Score		 Test Score		 Average Score
+2022-07-24 at 00:19:14 | INFO |evaluate_regression_model |
+ 0.6294484454130709		 0.5826752923295778		0.6051594330138078
+2022-07-24 at 00:19:14 | INFO |evaluate_regression_model |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Loss <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2022-07-24 at 00:19:14 | INFO |evaluate_regression_model |
+ Diff test train accuracy: [0.04677315308349306].
+2022-07-24 at 00:19:14 | INFO |evaluate_regression_model |
+ Train root mean squared error: [1042.6171508052043].
+2022-07-24 at 00:19:14 | INFO |evaluate_regression_model |
+ Test root mean squared error: [1085.7172438786622].
+2022-07-24 at 00:19:14 | INFO |initiate_model_trainer |
+ Best found model on both training and testing dataset.
+2022-07-24 at 00:19:14 | INFO |initiate_model_trainer |
+ Saving model at path: /home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage03_model_training/552140a4-bec5-4ff6-99e4-11545e403a5f/trained_model/model.pkl
+2022-07-24 at 00:19:14 | INFO |initiate_model_trainer |
+ Model Trainer Artifact: ModelTrainerArtifact(is_trained=True, message='Model Trained successfully', trained_model_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage03_model_training/552140a4-bec5-4ff6-99e4-11545e403a5f/trained_model/model.pkl', train_rmse=1038.4201952590652, test_rmse=1081.5194971003118, train_accuracy=0.6324256806713373, test_accuracy=0.585896088330919, model_accuracy=0.6082723659592907)
+2022-07-24 at 00:19:14 | INFO |__del__ |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Model trainer log completed.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+2022-07-24 at 00:19:14 | INFO |get_model_evaluation_config |
+ Model Evaluation Config: ModelEvaluationConfig(model_evaluation_file_path='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/BigmartsalesPrediction/app_artifact/stage04_model_evaluation/model_evaluation.yaml', saved_model_dir='/home/pk/Desktop/MachineLearning/project/BigMart-Sales-Data/saved_models', time_stamp='2022-07-24-00-10-43').
+2022-07-24 at 00:19:14 | INFO |__init__ |
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Model Evaluation log started.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+2022-07-24 at 00:19:14 | INFO |__del__ |
+ ====================Model Evaluation log completed.==================== 

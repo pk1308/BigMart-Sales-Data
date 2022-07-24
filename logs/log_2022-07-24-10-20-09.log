@@ -1,0 +1,14 @@
+2022-07-24 at 10:20:18 | INFO |render_log_dir |
+ req_path: logs
+2022-07-24 at 10:20:22 | INFO |predict |
+ predict called 
+2022-07-24 at 10:20:41 | INFO |predict |
+ predict called 
+2022-07-24 at 10:20:41 | INFO |predict |
+ prediction_data: <BigmartsalesPrediction.app_entity.app_predictor.Prediction_Data object at 0x7fcbeeceec50>
+2022-07-24 at 10:20:41 | INFO |predict |
+ app_predictor: <BigmartsalesPrediction.app_entity.app_predictor.App_predictor object at 0x7fcbee44eb10>
+2022-07-24 at 10:20:41 | INFO |transform |
+ Transforming data
+2022-07-24 at 10:20:42 | INFO |predict |
+ context: {'predictor_data': {'Item_Identifier': ['Food'], 'Item_Fat_Content': ['Low Fat'], 'Item_Type': ['Dairy'], 'Outlet_Identifier': ['OUT049'], 'Outlet_Type': ['Supermarket Type1'], 'Item_MRP': [245.0], 'Item_Visibility': [0.003], 'Item_Weight': [12.5], 'Outlet_Location_Type': ['Tier 1'], 'Outlet_Size': ['Small'], 'Outlet_Establishment_Year': [1985]}, 'item_outlet_sales': array([4678.91997586])}
