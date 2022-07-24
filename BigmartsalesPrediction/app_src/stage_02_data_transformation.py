@@ -119,6 +119,8 @@ class DataTransformation:
             load_df = pd.read_csv(file_path, usecols=selected_columns)
             load_df["Item_Fat_Content"] = load_df["Item_Fat_Content"].map(
                 {"Low Fat": 'Low Fat', "LF": "Low Fat", 'low fat': "Low Fat", "Regular": "Regular"})
+            load_df["Item_Identifier"] = load_df["Item_Identifier"].apply(lambda x: x[0:2]).map(
+                {"FD": "Food", "DR": "Drink", "NC": "Non_consumable"})
             
             return load_df
         except Exception as e:
