@@ -26,6 +26,7 @@ class FeatureGenerator(BaseEstimator, TransformerMixin):
         try:
             self.current_year = current_year
             self.cluster = None
+            self.preprocessing = None
             if self.current_year is None:
                 raise App_Exception("Year cannot be None")
 
@@ -33,22 +34,24 @@ class FeatureGenerator(BaseEstimator, TransformerMixin):
             raise App_Exception(e, sys) from e
 
     def fit(self, X, y=None):
+        data = X.copy()
         wcss=[]
         for i in range(1,11):
             kmeans=KMeans(n_clusters=i, init='k-means++',random_state=42)
-            kmeans.fit(X)
+            kmeans.fit(data)
             wcss.append(kmeans.inertia_) 
     
         kn = KneeLocator(range(1, 11), wcss, curve='convex', direction='decreasing')
         total_clusters=kn.knee
         self.cluster = KMeans(n_clusters=total_clusters, init='k-means++',random_state=42)
-        self.cluster.fit(X)
+        self.cluster.fit(data)
         return self
 
     def transform(self, X, y=None):
         try:
             logging.info("Transforming data")
             data = X.copy()
+    
             generated = pd.DataFrame(self.cluster.predict(data) , columns=['cluster'])
             
 
